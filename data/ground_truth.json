@@ -1,0 +1,1372 @@
+{
+  "num_sellers": 20,
+  "orphaned_order_ids": [
+    "ORD-00004",
+    "ORD-00020",
+    "ORD-00043",
+    "ORD-00047",
+    "ORD-00063",
+    "ORD-00084",
+    "ORD-00100",
+    "ORD-00112",
+    "ORD-00138",
+    "ORD-00151",
+    "ORD-00175",
+    "ORD-00176",
+    "ORD-00201",
+    "ORD-00211",
+    "ORD-00219",
+    "ORD-00247",
+    "ORD-00249",
+    "ORD-00260",
+    "ORD-00266",
+    "ORD-00284",
+    "ORD-00311",
+    "ORD-00314",
+    "ORD-00318",
+    "ORD-00322",
+    "ORD-00349",
+    "ORD-00353",
+    "ORD-00371",
+    "ORD-00383",
+    "ORD-00385",
+    "ORD-00406"
+  ],
+  "payouts": {
+    "PYT-00001": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-01",
+      "true_order_ids": [
+        "ORD-00010",
+        "ORD-00006",
+        "ORD-00013",
+        "ORD-00003"
+      ]
+    },
+    "PYT-00002": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-01",
+      "true_order_ids": [
+        "ORD-00008",
+        "ORD-00011",
+        "ORD-00012",
+        "ORD-00017",
+        "ORD-00014"
+      ]
+    },
+    "PYT-00003": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-01",
+      "true_order_ids": [
+        "ORD-00016",
+        "ORD-00019",
+        "ORD-00021",
+        "ORD-00023",
+        "ORD-00002",
+        "ORD-00005"
+      ]
+    },
+    "PYT-00004": {
+      "note": "Payout includes order ORD-00007, which settles in the order ledger after this payout's date (timing mismatch).",
+      "scenario": "timing_mismatch",
+      "seller_id": "SLR-01",
+      "true_order_ids": [
+        "ORD-00007"
+      ]
+    },
+    "PYT-00005": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-01",
+      "true_order_ids": [
+        "ORD-00025",
+        "ORD-00027",
+        "ORD-00001"
+      ]
+    },
+    "PYT-00006": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-01",
+      "true_order_ids": [
+        "ORD-00026",
+        "ORD-00022",
+        "ORD-00024"
+      ]
+    },
+    "PYT-00007": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-01",
+      "true_order_ids": [
+        "ORD-00015",
+        "ORD-00018"
+      ]
+    },
+    "PYT-00008": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-01",
+      "true_order_ids": [
+        "ORD-00009"
+      ]
+    },
+    "PYT-00009": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-02",
+      "true_order_ids": [
+        "ORD-00038",
+        "ORD-00035",
+        "ORD-00039",
+        "ORD-00041"
+      ]
+    },
+    "PYT-00010": {
+      "note": "Payout is short by an unlogged processing fee of \u20b914.79 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-02",
+      "true_order_ids": [
+        "ORD-00031",
+        "ORD-00030",
+        "ORD-00034"
+      ]
+    },
+    "PYT-00011": {
+      "note": "Payout is short by an unlogged processing fee of \u20b916.12 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-02",
+      "true_order_ids": [
+        "ORD-00036"
+      ]
+    },
+    "PYT-00012": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-02",
+      "true_order_ids": [
+        "ORD-00033",
+        "ORD-00029",
+        "ORD-00032",
+        "ORD-00042",
+        "ORD-00037"
+      ]
+    },
+    "PYT-00013": {
+      "note": "Payout is short by an unlogged processing fee of \u20b921.99 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-02",
+      "true_order_ids": [
+        "ORD-00028"
+      ]
+    },
+    "PYT-00014": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-02",
+      "true_order_ids": [
+        "ORD-00040"
+      ]
+    },
+    "PYT-00015": {
+      "note": "Payout is short by an unlogged processing fee of \u20b926.82 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-03",
+      "true_order_ids": [
+        "ORD-00044",
+        "ORD-00051",
+        "ORD-00056",
+        "ORD-00057",
+        "ORD-00062"
+      ]
+    },
+    "PYT-00016": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-03",
+      "true_order_ids": [
+        "ORD-00050",
+        "ORD-00058",
+        "ORD-00060"
+      ]
+    },
+    "PYT-00017": {
+      "note": "No order combination backs this payout -- simulates a manual adjustment or chargeback reversal outside the order ledger.",
+      "scenario": "unresolved",
+      "seller_id": "SLR-03",
+      "true_order_ids": []
+    },
+    "PYT-00018": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-03",
+      "true_order_ids": [
+        "ORD-00059",
+        "ORD-00065",
+        "ORD-00053",
+        "ORD-00061",
+        "ORD-00046",
+        "ORD-00049"
+      ]
+    },
+    "PYT-00019": {
+      "note": "Payout is short by an unlogged processing fee of \u20b922.84 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-03",
+      "true_order_ids": [
+        "ORD-00054",
+        "ORD-00064",
+        "ORD-00055",
+        "ORD-00052",
+        "ORD-00045"
+      ]
+    },
+    "PYT-00020": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-03",
+      "true_order_ids": [
+        "ORD-00048"
+      ]
+    },
+    "PYT-00021": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-04",
+      "true_order_ids": [
+        "ORD-00074",
+        "ORD-00088",
+        "ORD-00089"
+      ]
+    },
+    "PYT-00022": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-04",
+      "true_order_ids": [
+        "ORD-00080",
+        "ORD-00071",
+        "ORD-00079",
+        "ORD-00066"
+      ]
+    },
+    "PYT-00023": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-04",
+      "true_order_ids": [
+        "ORD-00075",
+        "ORD-00083",
+        "ORD-00069",
+        "ORD-00070"
+      ]
+    },
+    "PYT-00024": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-04",
+      "true_order_ids": [
+        "ORD-00081",
+        "ORD-00078",
+        "ORD-00082",
+        "ORD-00085",
+        "ORD-00068"
+      ]
+    },
+    "PYT-00025": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-04",
+      "true_order_ids": [
+        "ORD-00077",
+        "ORD-00067"
+      ]
+    },
+    "PYT-00026": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-04",
+      "true_order_ids": [
+        "ORD-00072",
+        "ORD-00073"
+      ]
+    },
+    "PYT-00027": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-04",
+      "true_order_ids": [
+        "ORD-00076",
+        "ORD-00086"
+      ]
+    },
+    "PYT-00028": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-04",
+      "true_order_ids": [
+        "ORD-00087"
+      ]
+    },
+    "PYT-00029": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-05",
+      "true_order_ids": [
+        "ORD-00098",
+        "ORD-00099",
+        "ORD-00093"
+      ]
+    },
+    "PYT-00030": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-05",
+      "true_order_ids": [
+        "ORD-00103"
+      ]
+    },
+    "PYT-00031": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-05",
+      "true_order_ids": [
+        "ORD-00092",
+        "ORD-00091"
+      ]
+    },
+    "PYT-00032": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-05",
+      "true_order_ids": [
+        "ORD-00090"
+      ]
+    },
+    "PYT-00033": {
+      "note": "Payout includes order ORD-00094, which settles in the order ledger after this payout's date (timing mismatch).",
+      "scenario": "timing_mismatch",
+      "seller_id": "SLR-05",
+      "true_order_ids": [
+        "ORD-00094",
+        "ORD-00095",
+        "ORD-00104",
+        "ORD-00105"
+      ]
+    },
+    "PYT-00034": {
+      "note": "Payout is short by an unlogged processing fee of \u20b917.72 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-05",
+      "true_order_ids": [
+        "ORD-00106",
+        "ORD-00097",
+        "ORD-00102",
+        "ORD-00101",
+        "ORD-00096"
+      ]
+    },
+    "PYT-00035": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-06",
+      "true_order_ids": [
+        "ORD-00115",
+        "ORD-00125",
+        "ORD-00128",
+        "ORD-00108",
+        "ORD-00133",
+        "ORD-00109"
+      ]
+    },
+    "PYT-00036": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-06",
+      "true_order_ids": [
+        "ORD-00113"
+      ]
+    },
+    "PYT-00037": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-06",
+      "true_order_ids": [
+        "ORD-00122",
+        "ORD-00126"
+      ]
+    },
+    "PYT-00038": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-06",
+      "true_order_ids": [
+        "ORD-00119"
+      ]
+    },
+    "PYT-00039": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-06",
+      "true_order_ids": [
+        "ORD-00131",
+        "ORD-00132"
+      ]
+    },
+    "PYT-00040": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-06",
+      "true_order_ids": [
+        "ORD-00110",
+        "ORD-00127",
+        "ORD-00123",
+        "ORD-00118",
+        "ORD-00121",
+        "ORD-00129"
+      ]
+    },
+    "PYT-00041": {
+      "note": "Payout includes order ORD-00107, which settles in the order ledger after this payout's date (timing mismatch).",
+      "scenario": "timing_mismatch",
+      "seller_id": "SLR-06",
+      "true_order_ids": [
+        "ORD-00107",
+        "ORD-00114",
+        "ORD-00120",
+        "ORD-00124"
+      ]
+    },
+    "PYT-00042": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-06",
+      "true_order_ids": [
+        "ORD-00111",
+        "ORD-00116",
+        "ORD-00117"
+      ]
+    },
+    "PYT-00043": {
+      "note": "Payout is short by an unlogged processing fee of \u20b920.75 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-06",
+      "true_order_ids": [
+        "ORD-00130"
+      ]
+    },
+    "PYT-00044": {
+      "note": "No order combination backs this payout -- simulates a manual adjustment or chargeback reversal outside the order ledger.",
+      "scenario": "unresolved",
+      "seller_id": "SLR-07",
+      "true_order_ids": []
+    },
+    "PYT-00045": {
+      "note": "No order combination backs this payout -- simulates a manual adjustment or chargeback reversal outside the order ledger.",
+      "scenario": "unresolved",
+      "seller_id": "SLR-07",
+      "true_order_ids": []
+    },
+    "PYT-00046": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-07",
+      "true_order_ids": [
+        "ORD-00137",
+        "ORD-00142",
+        "ORD-00141",
+        "ORD-00145",
+        "ORD-00134",
+        "ORD-00140"
+      ]
+    },
+    "PYT-00047": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-07",
+      "true_order_ids": [
+        "ORD-00135",
+        "ORD-00144",
+        "ORD-00139"
+      ]
+    },
+    "PYT-00048": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-07",
+      "true_order_ids": [
+        "ORD-00143",
+        "ORD-00146",
+        "ORD-00136"
+      ]
+    },
+    "PYT-00049": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-08",
+      "true_order_ids": [
+        "ORD-00162",
+        "ORD-00152",
+        "ORD-00150",
+        "ORD-00148",
+        "ORD-00160"
+      ]
+    },
+    "PYT-00050": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-08",
+      "true_order_ids": [
+        "ORD-00153",
+        "ORD-00163",
+        "ORD-00157",
+        "ORD-00161",
+        "ORD-00164"
+      ]
+    },
+    "PYT-00051": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-08",
+      "true_order_ids": [
+        "ORD-00149"
+      ]
+    },
+    "PYT-00052": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-08",
+      "true_order_ids": [
+        "ORD-00158",
+        "ORD-00159"
+      ]
+    },
+    "PYT-00053": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-08",
+      "true_order_ids": [
+        "ORD-00147"
+      ]
+    },
+    "PYT-00054": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-08",
+      "true_order_ids": [
+        "ORD-00154",
+        "ORD-00155",
+        "ORD-00156"
+      ]
+    },
+    "PYT-00055": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-09",
+      "true_order_ids": [
+        "ORD-00189"
+      ]
+    },
+    "PYT-00056": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-09",
+      "true_order_ids": [
+        "ORD-00166",
+        "ORD-00168",
+        "ORD-00170",
+        "ORD-00180"
+      ]
+    },
+    "PYT-00057": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-09",
+      "true_order_ids": [
+        "ORD-00165",
+        "ORD-00169",
+        "ORD-00174",
+        "ORD-00186",
+        "ORD-00187"
+      ]
+    },
+    "PYT-00058": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-09",
+      "true_order_ids": [
+        "ORD-00171",
+        "ORD-00179"
+      ]
+    },
+    "PYT-00059": {
+      "note": "Payout includes order ORD-00181, which settles in the order ledger after this payout's date (timing mismatch).",
+      "scenario": "timing_mismatch",
+      "seller_id": "SLR-09",
+      "true_order_ids": [
+        "ORD-00181"
+      ]
+    },
+    "PYT-00060": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-09",
+      "true_order_ids": [
+        "ORD-00185",
+        "ORD-00190",
+        "ORD-00167"
+      ]
+    },
+    "PYT-00061": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-09",
+      "true_order_ids": [
+        "ORD-00184",
+        "ORD-00172",
+        "ORD-00178",
+        "ORD-00182"
+      ]
+    },
+    "PYT-00062": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-09",
+      "true_order_ids": [
+        "ORD-00177"
+      ]
+    },
+    "PYT-00063": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-09",
+      "true_order_ids": [
+        "ORD-00183",
+        "ORD-00188",
+        "ORD-00173"
+      ]
+    },
+    "PYT-00064": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-10",
+      "true_order_ids": [
+        "ORD-00191",
+        "ORD-00197",
+        "ORD-00198"
+      ]
+    },
+    "PYT-00065": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-10",
+      "true_order_ids": [
+        "ORD-00204",
+        "ORD-00206",
+        "ORD-00210",
+        "ORD-00200",
+        "ORD-00208",
+        "ORD-00192"
+      ]
+    },
+    "PYT-00066": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-10",
+      "true_order_ids": [
+        "ORD-00207",
+        "ORD-00209",
+        "ORD-00195"
+      ]
+    },
+    "PYT-00067": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-10",
+      "true_order_ids": [
+        "ORD-00203"
+      ]
+    },
+    "PYT-00068": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-10",
+      "true_order_ids": [
+        "ORD-00193"
+      ]
+    },
+    "PYT-00069": {
+      "note": "No order combination backs this payout -- simulates a manual adjustment or chargeback reversal outside the order ledger.",
+      "scenario": "unresolved",
+      "seller_id": "SLR-10",
+      "true_order_ids": []
+    },
+    "PYT-00070": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-10",
+      "true_order_ids": [
+        "ORD-00205",
+        "ORD-00196",
+        "ORD-00202",
+        "ORD-00199",
+        "ORD-00194"
+      ]
+    },
+    "PYT-00071": {
+      "note": "No order combination backs this payout -- simulates a manual adjustment or chargeback reversal outside the order ledger.",
+      "scenario": "unresolved",
+      "seller_id": "SLR-10",
+      "true_order_ids": []
+    },
+    "PYT-00072": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-10",
+      "true_order_ids": [
+        "ORD-00212"
+      ]
+    },
+    "PYT-00073": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-11",
+      "true_order_ids": [
+        "ORD-00228",
+        "ORD-00221",
+        "ORD-00223",
+        "ORD-00227",
+        "ORD-00218"
+      ]
+    },
+    "PYT-00074": {
+      "note": "Payout includes order ORD-00229, which settles in the order ledger after this payout's date (timing mismatch).",
+      "scenario": "timing_mismatch",
+      "seller_id": "SLR-11",
+      "true_order_ids": [
+        "ORD-00229",
+        "ORD-00230",
+        "ORD-00231",
+        "ORD-00225"
+      ]
+    },
+    "PYT-00075": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-11",
+      "true_order_ids": [
+        "ORD-00226",
+        "ORD-00232"
+      ]
+    },
+    "PYT-00076": {
+      "note": "Payout includes order ORD-00215, which settles in the order ledger after this payout's date (timing mismatch).",
+      "scenario": "timing_mismatch",
+      "seller_id": "SLR-11",
+      "true_order_ids": [
+        "ORD-00215"
+      ]
+    },
+    "PYT-00077": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-11",
+      "true_order_ids": [
+        "ORD-00216",
+        "ORD-00222",
+        "ORD-00214",
+        "ORD-00224"
+      ]
+    },
+    "PYT-00078": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-11",
+      "true_order_ids": [
+        "ORD-00217"
+      ]
+    },
+    "PYT-00079": {
+      "note": "Payout is short by an unlogged processing fee of \u20b96.56 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-11",
+      "true_order_ids": [
+        "ORD-00220",
+        "ORD-00236",
+        "ORD-00213"
+      ]
+    },
+    "PYT-00080": {
+      "note": "Payout is short by an unlogged processing fee of \u20b923.37 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-11",
+      "true_order_ids": [
+        "ORD-00233",
+        "ORD-00235",
+        "ORD-00234"
+      ]
+    },
+    "PYT-00081": {
+      "note": "Payout is short by an unlogged processing fee of \u20b910.46 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-12",
+      "true_order_ids": [
+        "ORD-00237"
+      ]
+    },
+    "PYT-00082": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-12",
+      "true_order_ids": [
+        "ORD-00243",
+        "ORD-00246",
+        "ORD-00242",
+        "ORD-00239",
+        "ORD-00245"
+      ]
+    },
+    "PYT-00083": {
+      "note": "No order combination backs this payout -- simulates a manual adjustment or chargeback reversal outside the order ledger.",
+      "scenario": "unresolved",
+      "seller_id": "SLR-12",
+      "true_order_ids": []
+    },
+    "PYT-00084": {
+      "note": "Payout is short by an unlogged processing fee of \u20b96.51 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-12",
+      "true_order_ids": [
+        "ORD-00248"
+      ]
+    },
+    "PYT-00085": {
+      "note": "Payout is short by an unlogged processing fee of \u20b917.92 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-12",
+      "true_order_ids": [
+        "ORD-00238"
+      ]
+    },
+    "PYT-00086": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-12",
+      "true_order_ids": [
+        "ORD-00244",
+        "ORD-00240",
+        "ORD-00241"
+      ]
+    },
+    "PYT-00087": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-13",
+      "true_order_ids": [
+        "ORD-00250",
+        "ORD-00261",
+        "ORD-00255",
+        "ORD-00257",
+        "ORD-00267"
+      ]
+    },
+    "PYT-00088": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-13",
+      "true_order_ids": [
+        "ORD-00273",
+        "ORD-00251",
+        "ORD-00269"
+      ]
+    },
+    "PYT-00089": {
+      "note": "Payout is short by an unlogged processing fee of \u20b910.13 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-13",
+      "true_order_ids": [
+        "ORD-00278",
+        "ORD-00256",
+        "ORD-00263",
+        "ORD-00277"
+      ]
+    },
+    "PYT-00090": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-13",
+      "true_order_ids": [
+        "ORD-00276",
+        "ORD-00275",
+        "ORD-00262",
+        "ORD-00265",
+        "ORD-00252",
+        "ORD-00253"
+      ]
+    },
+    "PYT-00091": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-13",
+      "true_order_ids": [
+        "ORD-00268",
+        "ORD-00270",
+        "ORD-00258"
+      ]
+    },
+    "PYT-00092": {
+      "note": "Payout includes order ORD-00259, which settles in the order ledger after this payout's date (timing mismatch).",
+      "scenario": "timing_mismatch",
+      "seller_id": "SLR-13",
+      "true_order_ids": [
+        "ORD-00259",
+        "ORD-00264",
+        "ORD-00271",
+        "ORD-00274",
+        "ORD-00254"
+      ]
+    },
+    "PYT-00093": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-13",
+      "true_order_ids": [
+        "ORD-00272"
+      ]
+    },
+    "PYT-00094": {
+      "note": "No order combination backs this payout -- simulates a manual adjustment or chargeback reversal outside the order ledger.",
+      "scenario": "unresolved",
+      "seller_id": "SLR-14",
+      "true_order_ids": []
+    },
+    "PYT-00095": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-14",
+      "true_order_ids": [
+        "ORD-00295",
+        "ORD-00279",
+        "ORD-00281",
+        "ORD-00293"
+      ]
+    },
+    "PYT-00096": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-14",
+      "true_order_ids": [
+        "ORD-00282",
+        "ORD-00289"
+      ]
+    },
+    "PYT-00097": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-14",
+      "true_order_ids": [
+        "ORD-00290",
+        "ORD-00280",
+        "ORD-00285"
+      ]
+    },
+    "PYT-00098": {
+      "note": "Payout is short by an unlogged processing fee of \u20b910.48 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-14",
+      "true_order_ids": [
+        "ORD-00294"
+      ]
+    },
+    "PYT-00099": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-14",
+      "true_order_ids": [
+        "ORD-00287",
+        "ORD-00283",
+        "ORD-00291",
+        "ORD-00297",
+        "ORD-00288",
+        "ORD-00292"
+      ]
+    },
+    "PYT-00100": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-14",
+      "true_order_ids": [
+        "ORD-00286",
+        "ORD-00296"
+      ]
+    },
+    "PYT-00101": {
+      "note": "Payout includes order ORD-00303, which settles in the order ledger after this payout's date (timing mismatch).",
+      "scenario": "timing_mismatch",
+      "seller_id": "SLR-15",
+      "true_order_ids": [
+        "ORD-00309",
+        "ORD-00303",
+        "ORD-00315",
+        "ORD-00298",
+        "ORD-00300"
+      ]
+    },
+    "PYT-00102": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-15",
+      "true_order_ids": [
+        "ORD-00305",
+        "ORD-00313",
+        "ORD-00302",
+        "ORD-00312",
+        "ORD-00299",
+        "ORD-00307"
+      ]
+    },
+    "PYT-00103": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-15",
+      "true_order_ids": [
+        "ORD-00301",
+        "ORD-00304",
+        "ORD-00306",
+        "ORD-00310",
+        "ORD-00316"
+      ]
+    },
+    "PYT-00104": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-15",
+      "true_order_ids": [
+        "ORD-00308"
+      ]
+    },
+    "PYT-00105": {
+      "note": "Payout includes order ORD-00323, which settles in the order ledger after this payout's date (timing mismatch).",
+      "scenario": "timing_mismatch",
+      "seller_id": "SLR-16",
+      "true_order_ids": [
+        "ORD-00323",
+        "ORD-00334",
+        "ORD-00326",
+        "ORD-00330"
+      ]
+    },
+    "PYT-00106": {
+      "note": "Payout includes order ORD-00331, which settles in the order ledger after this payout's date (timing mismatch).",
+      "scenario": "timing_mismatch",
+      "seller_id": "SLR-16",
+      "true_order_ids": [
+        "ORD-00331",
+        "ORD-00327"
+      ]
+    },
+    "PYT-00107": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-16",
+      "true_order_ids": [
+        "ORD-00328",
+        "ORD-00320",
+        "ORD-00325",
+        "ORD-00317",
+        "ORD-00333"
+      ]
+    },
+    "PYT-00108": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-16",
+      "true_order_ids": [
+        "ORD-00329",
+        "ORD-00321",
+        "ORD-00319",
+        "ORD-00324",
+        "ORD-00332"
+      ]
+    },
+    "PYT-00109": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-17",
+      "true_order_ids": [
+        "ORD-00337"
+      ]
+    },
+    "PYT-00110": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-17",
+      "true_order_ids": [
+        "ORD-00344",
+        "ORD-00340",
+        "ORD-00346",
+        "ORD-00338"
+      ]
+    },
+    "PYT-00111": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-17",
+      "true_order_ids": [
+        "ORD-00352",
+        "ORD-00355",
+        "ORD-00357",
+        "ORD-00342",
+        "ORD-00345"
+      ]
+    },
+    "PYT-00112": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-17",
+      "true_order_ids": [
+        "ORD-00335"
+      ]
+    },
+    "PYT-00113": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-17",
+      "true_order_ids": [
+        "ORD-00347"
+      ]
+    },
+    "PYT-00114": {
+      "note": "No order combination backs this payout -- simulates a manual adjustment or chargeback reversal outside the order ledger.",
+      "scenario": "unresolved",
+      "seller_id": "SLR-17",
+      "true_order_ids": []
+    },
+    "PYT-00115": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-17",
+      "true_order_ids": [
+        "ORD-00348",
+        "ORD-00343",
+        "ORD-00356",
+        "ORD-00350"
+      ]
+    },
+    "PYT-00116": {
+      "note": "No order combination backs this payout -- simulates a manual adjustment or chargeback reversal outside the order ledger.",
+      "scenario": "unresolved",
+      "seller_id": "SLR-17",
+      "true_order_ids": []
+    },
+    "PYT-00117": {
+      "note": "Payout is short by an unlogged processing fee of \u20b917.22 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-17",
+      "true_order_ids": [
+        "ORD-00354",
+        "ORD-00339"
+      ]
+    },
+    "PYT-00118": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-17",
+      "true_order_ids": [
+        "ORD-00336",
+        "ORD-00358",
+        "ORD-00341",
+        "ORD-00351"
+      ]
+    },
+    "PYT-00119": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-18",
+      "true_order_ids": [
+        "ORD-00361",
+        "ORD-00362",
+        "ORD-00363",
+        "ORD-00365",
+        "ORD-00378",
+        "ORD-00379"
+      ]
+    },
+    "PYT-00120": {
+      "note": "Payout is short by an unlogged processing fee of \u20b924.63 not present in the order ledger.",
+      "scenario": "close_match",
+      "seller_id": "SLR-18",
+      "true_order_ids": [
+        "ORD-00360",
+        "ORD-00359"
+      ]
+    },
+    "PYT-00121": {
+      "note": "No order combination backs this payout -- simulates a manual adjustment or chargeback reversal outside the order ledger.",
+      "scenario": "unresolved",
+      "seller_id": "SLR-18",
+      "true_order_ids": []
+    },
+    "PYT-00122": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-18",
+      "true_order_ids": [
+        "ORD-00369",
+        "ORD-00373",
+        "ORD-00364",
+        "ORD-00366",
+        "ORD-00368",
+        "ORD-00374"
+      ]
+    },
+    "PYT-00123": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-18",
+      "true_order_ids": [
+        "ORD-00377",
+        "ORD-00367",
+        "ORD-00372",
+        "ORD-00376",
+        "ORD-00375",
+        "ORD-00370"
+      ]
+    },
+    "PYT-00124": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-19",
+      "true_order_ids": [
+        "ORD-00392"
+      ]
+    },
+    "PYT-00125": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-19",
+      "true_order_ids": [
+        "ORD-00393",
+        "ORD-00395",
+        "ORD-00384",
+        "ORD-00399",
+        "ORD-00380"
+      ]
+    },
+    "PYT-00126": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-19",
+      "true_order_ids": [
+        "ORD-00386",
+        "ORD-00388",
+        "ORD-00381",
+        "ORD-00390"
+      ]
+    },
+    "PYT-00127": {
+      "note": "No order combination backs this payout -- simulates a manual adjustment or chargeback reversal outside the order ledger.",
+      "scenario": "unresolved",
+      "seller_id": "SLR-19",
+      "true_order_ids": []
+    },
+    "PYT-00128": {
+      "note": "No order combination backs this payout -- simulates a manual adjustment or chargeback reversal outside the order ledger.",
+      "scenario": "unresolved",
+      "seller_id": "SLR-19",
+      "true_order_ids": []
+    },
+    "PYT-00129": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-19",
+      "true_order_ids": [
+        "ORD-00387",
+        "ORD-00394",
+        "ORD-00398",
+        "ORD-00396"
+      ]
+    },
+    "PYT-00130": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-19",
+      "true_order_ids": [
+        "ORD-00382",
+        "ORD-00389"
+      ]
+    },
+    "PYT-00131": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-19",
+      "true_order_ids": [
+        "ORD-00391",
+        "ORD-00397"
+      ]
+    },
+    "PYT-00132": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-20",
+      "true_order_ids": [
+        "ORD-00403",
+        "ORD-00409",
+        "ORD-00408"
+      ]
+    },
+    "PYT-00133": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-20",
+      "true_order_ids": [
+        "ORD-00410",
+        "ORD-00404"
+      ]
+    },
+    "PYT-00134": {
+      "note": "Payout equals the exact sum of net_payable for the listed orders.",
+      "scenario": "exact_match",
+      "seller_id": "SLR-20",
+      "true_order_ids": [
+        "ORD-00400",
+        "ORD-00402",
+        "ORD-00407",
+        "ORD-00405",
+        "ORD-00401"
+      ]
+    }
+  },
+  "scenario_weights": {
+    "close_match": 0.15,
+    "exact_match": 0.7,
+    "timing_mismatch": 0.1,
+    "unresolved": 0.05
+  },
+  "seed": 42,
+  "sellers": {
+    "SLR-01": "Trusted Enterprises",
+    "SLR-02": "Trusted Outlet",
+    "SLR-03": "Metro Traders",
+    "SLR-04": "Fresh Collective",
+    "SLR-05": "Classic House",
+    "SLR-06": "Pioneer House",
+    "SLR-07": "Zenith House",
+    "SLR-08": "Silver Collective",
+    "SLR-09": "Falcon House",
+    "SLR-10": "Sunrise Goods",
+    "SLR-11": "Urban Works",
+    "SLR-12": "Rapid Enterprises",
+    "SLR-13": "Metro Supplies",
+    "SLR-14": "Coastal Enterprises",
+    "SLR-15": "Classic Marketplace",
+    "SLR-16": "Fresh Mart",
+    "SLR-17": "Vibrant Outlet",
+    "SLR-18": "Metro House",
+    "SLR-19": "Falcon Mart",
+    "SLR-20": "Metro Ventures"
+  }
+}

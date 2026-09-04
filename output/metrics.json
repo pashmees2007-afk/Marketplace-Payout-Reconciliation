@@ -1,0 +1,65 @@
+{
+  "totals": {
+    "total_orders": 410,
+    "total_payouts": 134,
+    "total_payout_value": 831741.72,
+    "orphaned_order_count": 54,
+    "orphaned_order_value": 104608.46
+  },
+  "by_status": {
+    "MATCHED": {
+      "count": 96,
+      "value": 675263.77
+    },
+    "CLOSE_MATCH": {
+      "count": 19,
+      "value": 100428.24
+    },
+    "UNRESOLVED": {
+      "count": 19,
+      "value": 56049.71
+    }
+  },
+  "kpis": {
+    "match_rate_by_value": 0.9326,
+    "exact_match_rate_by_value": 0.8119,
+    "match_rate_by_count": 0.8582,
+    "exact_match_rate_by_count": 0.7164
+  },
+  "config": {
+    "tolerance_paise": 3000,
+    "eligibility_window_days": 30
+  },
+  "ground_truth_validation": {
+    "payouts_evaluated": 134,
+    "payouts_correct": 134,
+    "overall_accuracy": 1.0,
+    "by_scenario": {
+      "exact_match": {
+        "correct": 96,
+        "total": 96,
+        "accuracy": 1.0
+      },
+      "timing_mismatch": {
+        "correct": 10,
+        "total": 10,
+        "accuracy": 1.0
+      },
+      "close_match": {
+        "correct": 16,
+        "total": 16,
+        "accuracy": 1.0
+      },
+      "unresolved": {
+        "correct": 12,
+        "total": 12,
+        "accuracy": 1.0
+      }
+    },
+    "orphaned_order_ground_truth_count": 30,
+    "orphaned_order_engine_count": 54,
+    "orphaned_order_true_positives": 25,
+    "orphaned_order_precision": 0.463,
+    "orphaned_order_recall": 0.8333
+  }
+}
