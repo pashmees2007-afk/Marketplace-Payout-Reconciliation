@@ -9,10 +9,10 @@
       "utr": "UTR767594228337",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00003",
-        "ORD-00006",
         "ORD-00010",
-        "ORD-00013"
+        "ORD-00006",
+        "ORD-00013",
+        "ORD-00003"
       ],
       "matched_total_paise": 683775,
       "matched_total": 6837.75,
@@ -21,24 +21,24 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00003",
-        "ORD-00006",
-        "ORD-00008",
         "ORD-00010",
+        "ORD-00006",
+        "ORD-00013",
+        "ORD-00020",
+        "ORD-00003",
+        "ORD-00008",
         "ORD-00011",
         "ORD-00012",
-        "ORD-00013",
-        "ORD-00017",
-        "ORD-00020"
+        "ORD-00017"
       ],
       "matched_orders": [
         {
-          "order_id": "ORD-00003",
-          "order_amount": 1527.88,
-          "commission_amount": 152.79,
+          "order_id": "ORD-00010",
+          "order_amount": 686.54,
+          "commission_amount": 34.33,
           "refund_amount": 0.0,
-          "net_payable": 1375.09,
-          "order_date": "2026-08-05"
+          "net_payable": 652.21,
+          "order_date": "2026-08-01"
         },
         {
           "order_id": "ORD-00006",
@@ -49,20 +49,20 @@
           "order_date": "2026-08-02"
         },
         {
-          "order_id": "ORD-00010",
-          "order_amount": 686.54,
-          "commission_amount": 34.33,
-          "refund_amount": 0.0,
-          "net_payable": 652.21,
-          "order_date": "2026-08-01"
-        },
-        {
           "order_id": "ORD-00013",
           "order_amount": 4812.95,
           "commission_amount": 481.3,
           "refund_amount": 0.0,
           "net_payable": 4331.65,
           "order_date": "2026-08-02"
+        },
+        {
+          "order_id": "ORD-00003",
+          "order_amount": 1527.88,
+          "commission_amount": 152.79,
+          "refund_amount": 0.0,
+          "net_payable": 1375.09,
+          "order_date": "2026-08-05"
         }
       ]
     },
@@ -78,8 +78,8 @@
         "ORD-00008",
         "ORD-00011",
         "ORD-00012",
-        "ORD-00014",
-        "ORD-00017"
+        "ORD-00017",
+        "ORD-00014"
       ],
       "matched_total_paise": 1427644,
       "matched_total": 14276.44,
@@ -88,14 +88,14 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00020",
         "ORD-00008",
         "ORD-00011",
         "ORD-00012",
+        "ORD-00017",
         "ORD-00014",
         "ORD-00016",
-        "ORD-00017",
         "ORD-00019",
-        "ORD-00020",
         "ORD-00021",
         "ORD-00023"
       ],
@@ -125,20 +125,20 @@
           "order_date": "2026-08-05"
         },
         {
-          "order_id": "ORD-00014",
-          "order_amount": 3596.65,
-          "commission_amount": 179.83,
-          "refund_amount": 0.0,
-          "net_payable": 3416.82,
-          "order_date": "2026-08-08"
-        },
-        {
           "order_id": "ORD-00017",
           "order_amount": 4721.15,
           "commission_amount": 566.54,
           "refund_amount": 880.8,
           "net_payable": 3273.81,
           "order_date": "2026-08-06"
+        },
+        {
+          "order_id": "ORD-00014",
+          "order_amount": 3596.65,
+          "commission_amount": 179.83,
+          "refund_amount": 0.0,
+          "net_payable": 3416.82,
+          "order_date": "2026-08-08"
         }
       ]
     },
@@ -151,12 +151,12 @@
       "utr": "UTR574010721878",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00002",
-        "ORD-00005",
         "ORD-00016",
         "ORD-00019",
         "ORD-00021",
-        "ORD-00023"
+        "ORD-00023",
+        "ORD-00002",
+        "ORD-00005"
       ],
       "matched_total_paise": 1085341,
       "matched_total": 10853.41,
@@ -165,33 +165,17 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00002",
-        "ORD-00005",
+        "ORD-00020",
         "ORD-00016",
         "ORD-00019",
-        "ORD-00020",
         "ORD-00021",
         "ORD-00023",
+        "ORD-00002",
+        "ORD-00005",
         "ORD-00025",
         "ORD-00027"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00002",
-          "order_amount": 705.17,
-          "commission_amount": 35.26,
-          "refund_amount": 0.0,
-          "net_payable": 669.91,
-          "order_date": "2026-08-09"
-        },
-        {
-          "order_id": "ORD-00005",
-          "order_amount": 2749.79,
-          "commission_amount": 329.97,
-          "refund_amount": 0.0,
-          "net_payable": 2419.82,
-          "order_date": "2026-08-09"
-        },
         {
           "order_id": "ORD-00016",
           "order_amount": 4633.02,
@@ -223,6 +207,22 @@
           "refund_amount": 0.0,
           "net_payable": 1205.32,
           "order_date": "2026-08-08"
+        },
+        {
+          "order_id": "ORD-00002",
+          "order_amount": 705.17,
+          "commission_amount": 35.26,
+          "refund_amount": 0.0,
+          "net_payable": 669.91,
+          "order_date": "2026-08-09"
+        },
+        {
+          "order_id": "ORD-00005",
+          "order_amount": 2749.79,
+          "commission_amount": 329.97,
+          "refund_amount": 0.0,
+          "net_payable": 2419.82,
+          "order_date": "2026-08-09"
         }
       ]
     },
@@ -255,9 +255,9 @@
       "utr": "UTR866232475190",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00001",
         "ORD-00025",
-        "ORD-00027"
+        "ORD-00027",
+        "ORD-00001"
       ],
       "matched_total_paise": 619814,
       "matched_total": 6198.14,
@@ -266,23 +266,15 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00020",
+        "ORD-00025",
+        "ORD-00027",
         "ORD-00001",
         "ORD-00004",
         "ORD-00007",
-        "ORD-00020",
-        "ORD-00025",
-        "ORD-00026",
-        "ORD-00027"
+        "ORD-00026"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00001",
-          "order_amount": 4985.08,
-          "commission_amount": 897.31,
-          "refund_amount": 362.03,
-          "net_payable": 3725.74,
-          "order_date": "2026-08-10"
-        },
         {
           "order_id": "ORD-00025",
           "order_amount": 1941.01,
@@ -298,6 +290,14 @@
           "refund_amount": 0.0,
           "net_payable": 880.77,
           "order_date": "2026-08-09"
+        },
+        {
+          "order_id": "ORD-00001",
+          "order_amount": 4985.08,
+          "commission_amount": 897.31,
+          "refund_amount": 362.03,
+          "net_payable": 3725.74,
+          "order_date": "2026-08-10"
         }
       ]
     },
@@ -310,9 +310,9 @@
       "utr": "UTR831950243582",
       "status": "MATCHED",
       "matched_order_ids": [
+        "ORD-00026",
         "ORD-00022",
-        "ORD-00024",
-        "ORD-00026"
+        "ORD-00024"
       ],
       "matched_total_paise": 323145,
       "matched_total": 3231.45,
@@ -321,14 +321,22 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00020",
         "ORD-00004",
         "ORD-00007",
-        "ORD-00020",
+        "ORD-00026",
         "ORD-00022",
-        "ORD-00024",
-        "ORD-00026"
+        "ORD-00024"
       ],
       "matched_orders": [
+        {
+          "order_id": "ORD-00026",
+          "order_amount": 244.7,
+          "commission_amount": 12.24,
+          "refund_amount": 0.0,
+          "net_payable": 232.46,
+          "order_date": "2026-08-11"
+        },
         {
           "order_id": "ORD-00022",
           "order_amount": 1700.07,
@@ -344,14 +352,6 @@
           "refund_amount": 0.0,
           "net_payable": 1638.93,
           "order_date": "2026-08-13"
-        },
-        {
-          "order_id": "ORD-00026",
-          "order_amount": 244.7,
-          "commission_amount": 12.24,
-          "refund_amount": 0.0,
-          "net_payable": 232.46,
-          "order_date": "2026-08-11"
         }
       ]
     },
@@ -374,11 +374,11 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00020",
         "ORD-00004",
         "ORD-00007",
         "ORD-00015",
-        "ORD-00018",
-        "ORD-00020"
+        "ORD-00018"
       ],
       "matched_orders": [
         {
@@ -417,10 +417,10 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00020",
         "ORD-00004",
         "ORD-00007",
-        "ORD-00009",
-        "ORD-00020"
+        "ORD-00009"
       ],
       "matched_orders": [
         {
@@ -442,8 +442,8 @@
       "utr": "UTR803686852877",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00035",
         "ORD-00038",
+        "ORD-00035",
         "ORD-00039",
         "ORD-00041"
       ],
@@ -454,20 +454,12 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00035",
         "ORD-00038",
+        "ORD-00035",
         "ORD-00039",
         "ORD-00041"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00035",
-          "order_amount": 2487.69,
-          "commission_amount": 298.52,
-          "refund_amount": 0.0,
-          "net_payable": 2189.17,
-          "order_date": "2026-08-03"
-        },
         {
           "order_id": "ORD-00038",
           "order_amount": 4780.1,
@@ -475,6 +467,14 @@
           "refund_amount": 0.0,
           "net_payable": 3824.08,
           "order_date": "2026-08-01"
+        },
+        {
+          "order_id": "ORD-00035",
+          "order_amount": 2487.69,
+          "commission_amount": 298.52,
+          "refund_amount": 0.0,
+          "net_payable": 2189.17,
+          "order_date": "2026-08-03"
         },
         {
           "order_id": "ORD-00039",
@@ -503,8 +503,8 @@
       "utr": "UTR582215724207",
       "status": "CLOSE_MATCH",
       "matched_order_ids": [
-        "ORD-00030",
         "ORD-00031",
+        "ORD-00030",
         "ORD-00034"
       ],
       "matched_total_paise": 648621,
@@ -514,19 +514,11 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00030",
         "ORD-00031",
+        "ORD-00030",
         "ORD-00034"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00030",
-          "order_amount": 2780.02,
-          "commission_amount": 333.6,
-          "refund_amount": 0.0,
-          "net_payable": 2446.42,
-          "order_date": "2026-08-07"
-        },
         {
           "order_id": "ORD-00031",
           "order_amount": 3554.27,
@@ -534,6 +526,14 @@
           "refund_amount": 0.0,
           "net_payable": 3376.56,
           "order_date": "2026-08-06"
+        },
+        {
+          "order_id": "ORD-00030",
+          "order_amount": 2780.02,
+          "commission_amount": 333.6,
+          "refund_amount": 0.0,
+          "net_payable": 2446.42,
+          "order_date": "2026-08-07"
         },
         {
           "order_id": "ORD-00034",
@@ -563,8 +563,8 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00030",
         "ORD-00031",
+        "ORD-00030",
         "ORD-00034",
         "ORD-00036"
       ],
@@ -588,11 +588,11 @@
       "utr": "UTR521900055512",
       "status": "MATCHED",
       "matched_order_ids": [
+        "ORD-00033",
         "ORD-00029",
         "ORD-00032",
-        "ORD-00033",
-        "ORD-00037",
-        "ORD-00042"
+        "ORD-00042",
+        "ORD-00037"
       ],
       "matched_total_paise": 1081103,
       "matched_total": 10811.03,
@@ -601,17 +601,25 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00029",
-        "ORD-00030",
         "ORD-00031",
-        "ORD-00032",
-        "ORD-00033",
+        "ORD-00030",
         "ORD-00034",
         "ORD-00036",
-        "ORD-00037",
-        "ORD-00042"
+        "ORD-00033",
+        "ORD-00029",
+        "ORD-00032",
+        "ORD-00042",
+        "ORD-00037"
       ],
       "matched_orders": [
+        {
+          "order_id": "ORD-00033",
+          "order_amount": 3627.38,
+          "commission_amount": 362.74,
+          "refund_amount": 0.0,
+          "net_payable": 3264.64,
+          "order_date": "2026-08-08"
+        },
         {
           "order_id": "ORD-00029",
           "order_amount": 2537.87,
@@ -629,12 +637,12 @@
           "order_date": "2026-08-11"
         },
         {
-          "order_id": "ORD-00033",
-          "order_amount": 3627.38,
-          "commission_amount": 362.74,
+          "order_id": "ORD-00042",
+          "order_amount": 4059.68,
+          "commission_amount": 487.16,
           "refund_amount": 0.0,
-          "net_payable": 3264.64,
-          "order_date": "2026-08-08"
+          "net_payable": 3572.52,
+          "order_date": "2026-08-11"
         },
         {
           "order_id": "ORD-00037",
@@ -643,14 +651,6 @@
           "refund_amount": 0.0,
           "net_payable": 1268.85,
           "order_date": "2026-08-13"
-        },
-        {
-          "order_id": "ORD-00042",
-          "order_amount": 4059.68,
-          "commission_amount": 487.16,
-          "refund_amount": 0.0,
-          "net_payable": 3572.52,
-          "order_date": "2026-08-11"
         }
       ]
     },
@@ -704,13 +704,13 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00028",
-        "ORD-00030",
         "ORD-00031",
+        "ORD-00030",
         "ORD-00034",
         "ORD-00036",
-        "ORD-00040",
-        "ORD-00043"
+        "ORD-00028",
+        "ORD-00043",
+        "ORD-00040"
       ],
       "matched_orders": [
         {
@@ -815,15 +815,15 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00044",
-        "ORD-00047",
-        "ORD-00050",
         "ORD-00051",
         "ORD-00056",
         "ORD-00057",
-        "ORD-00058",
-        "ORD-00059",
-        "ORD-00060",
         "ORD-00062",
+        "ORD-00050",
+        "ORD-00058",
+        "ORD-00060",
+        "ORD-00047",
+        "ORD-00059",
         "ORD-00065"
       ],
       "matched_orders": [
@@ -872,8 +872,8 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00047",
-        "ORD-00054",
         "ORD-00063",
+        "ORD-00054",
         "ORD-00064"
       ],
       "matched_orders": [
@@ -896,12 +896,12 @@
       "utr": "UTR987408586371",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00046",
-        "ORD-00049",
-        "ORD-00053",
         "ORD-00059",
+        "ORD-00065",
+        "ORD-00053",
         "ORD-00061",
-        "ORD-00065"
+        "ORD-00046",
+        "ORD-00049"
       ],
       "matched_total_paise": 1033239,
       "matched_total": 10332.39,
@@ -911,23 +911,55 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00044",
-        "ORD-00046",
-        "ORD-00047",
-        "ORD-00049",
         "ORD-00051",
-        "ORD-00053",
-        "ORD-00054",
-        "ORD-00055",
         "ORD-00056",
         "ORD-00057",
-        "ORD-00059",
-        "ORD-00061",
         "ORD-00062",
+        "ORD-00047",
+        "ORD-00059",
+        "ORD-00065",
         "ORD-00063",
+        "ORD-00053",
+        "ORD-00061",
+        "ORD-00046",
+        "ORD-00049",
+        "ORD-00054",
         "ORD-00064",
-        "ORD-00065"
+        "ORD-00055"
       ],
       "matched_orders": [
+        {
+          "order_id": "ORD-00059",
+          "order_amount": 761.76,
+          "commission_amount": 91.41,
+          "refund_amount": 0.0,
+          "net_payable": 670.35,
+          "order_date": "2026-08-08"
+        },
+        {
+          "order_id": "ORD-00065",
+          "order_amount": 634.25,
+          "commission_amount": 114.16,
+          "refund_amount": 0.0,
+          "net_payable": 520.09,
+          "order_date": "2026-08-08"
+        },
+        {
+          "order_id": "ORD-00053",
+          "order_amount": 1209.7,
+          "commission_amount": 145.16,
+          "refund_amount": 0.0,
+          "net_payable": 1064.54,
+          "order_date": "2026-08-11"
+        },
+        {
+          "order_id": "ORD-00061",
+          "order_amount": 979.69,
+          "commission_amount": 146.95,
+          "refund_amount": 0.0,
+          "net_payable": 832.74,
+          "order_date": "2026-08-12"
+        },
         {
           "order_id": "ORD-00046",
           "order_amount": 4574.52,
@@ -943,38 +975,6 @@
           "refund_amount": 0.0,
           "net_payable": 3585.05,
           "order_date": "2026-08-13"
-        },
-        {
-          "order_id": "ORD-00053",
-          "order_amount": 1209.7,
-          "commission_amount": 145.16,
-          "refund_amount": 0.0,
-          "net_payable": 1064.54,
-          "order_date": "2026-08-11"
-        },
-        {
-          "order_id": "ORD-00059",
-          "order_amount": 761.76,
-          "commission_amount": 91.41,
-          "refund_amount": 0.0,
-          "net_payable": 670.35,
-          "order_date": "2026-08-08"
-        },
-        {
-          "order_id": "ORD-00061",
-          "order_amount": 979.69,
-          "commission_amount": 146.95,
-          "refund_amount": 0.0,
-          "net_payable": 832.74,
-          "order_date": "2026-08-12"
-        },
-        {
-          "order_id": "ORD-00065",
-          "order_amount": 634.25,
-          "commission_amount": 114.16,
-          "refund_amount": 0.0,
-          "net_payable": 520.09,
-          "order_date": "2026-08-08"
         }
       ]
     },
@@ -988,8 +988,8 @@
       "status": "CLOSE_MATCH",
       "matched_order_ids": [
         "ORD-00047",
-        "ORD-00052",
-        "ORD-00064"
+        "ORD-00064",
+        "ORD-00052"
       ],
       "matched_total_paise": 523436,
       "matched_total": 5234.36,
@@ -998,13 +998,13 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00045",
         "ORD-00047",
-        "ORD-00052",
-        "ORD-00054",
-        "ORD-00055",
         "ORD-00063",
-        "ORD-00064"
+        "ORD-00054",
+        "ORD-00064",
+        "ORD-00055",
+        "ORD-00052",
+        "ORD-00045"
       ],
       "matched_orders": [
         {
@@ -1016,20 +1016,20 @@
           "order_date": "2026-08-08"
         },
         {
-          "order_id": "ORD-00052",
-          "order_amount": 1052.78,
-          "commission_amount": 52.64,
-          "refund_amount": 0.0,
-          "net_payable": 1000.14,
-          "order_date": "2026-08-15"
-        },
-        {
           "order_id": "ORD-00064",
           "order_amount": 2179.61,
           "commission_amount": 392.33,
           "refund_amount": 0.0,
           "net_payable": 1787.28,
           "order_date": "2026-08-13"
+        },
+        {
+          "order_id": "ORD-00052",
+          "order_amount": 1052.78,
+          "commission_amount": 52.64,
+          "refund_amount": 0.0,
+          "net_payable": 1000.14,
+          "order_date": "2026-08-15"
         }
       ]
     },
@@ -1052,18 +1052,18 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00044",
-        "ORD-00045",
-        "ORD-00047",
-        "ORD-00048",
         "ORD-00051",
-        "ORD-00052",
-        "ORD-00054",
-        "ORD-00055",
         "ORD-00056",
         "ORD-00057",
         "ORD-00062",
+        "ORD-00047",
         "ORD-00063",
-        "ORD-00064"
+        "ORD-00054",
+        "ORD-00064",
+        "ORD-00055",
+        "ORD-00052",
+        "ORD-00045",
+        "ORD-00048"
       ],
       "matched_orders": [
         {
@@ -1136,10 +1136,10 @@
       "utr": "UTR674562228753",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00066",
+        "ORD-00080",
         "ORD-00071",
         "ORD-00079",
-        "ORD-00080"
+        "ORD-00066"
       ],
       "matched_total_paise": 673797,
       "matched_total": 6737.97,
@@ -1148,22 +1148,22 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00066",
-        "ORD-00071",
-        "ORD-00075",
-        "ORD-00079",
+        "ORD-00084",
         "ORD-00080",
-        "ORD-00083",
-        "ORD-00084"
+        "ORD-00071",
+        "ORD-00079",
+        "ORD-00066",
+        "ORD-00075",
+        "ORD-00083"
       ],
       "matched_orders": [
         {
-          "order_id": "ORD-00066",
-          "order_amount": 4034.65,
-          "commission_amount": 484.16,
+          "order_id": "ORD-00080",
+          "order_amount": 1104.22,
+          "commission_amount": 88.34,
           "refund_amount": 0.0,
-          "net_payable": 3550.49,
-          "order_date": "2026-08-08"
+          "net_payable": 1015.88,
+          "order_date": "2026-08-06"
         },
         {
           "order_id": "ORD-00071",
@@ -1182,12 +1182,12 @@
           "order_date": "2026-08-07"
         },
         {
-          "order_id": "ORD-00080",
-          "order_amount": 1104.22,
-          "commission_amount": 88.34,
+          "order_id": "ORD-00066",
+          "order_amount": 4034.65,
+          "commission_amount": 484.16,
           "refund_amount": 0.0,
-          "net_payable": 1015.88,
-          "order_date": "2026-08-06"
+          "net_payable": 3550.49,
+          "order_date": "2026-08-08"
         }
       ]
     },
@@ -1200,10 +1200,10 @@
       "utr": "UTR436849259207",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00069",
-        "ORD-00070",
         "ORD-00075",
-        "ORD-00083"
+        "ORD-00083",
+        "ORD-00069",
+        "ORD-00070"
       ],
       "matched_total_paise": 779027,
       "matched_total": 7790.27,
@@ -1212,33 +1212,17 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00084",
+        "ORD-00075",
+        "ORD-00083",
         "ORD-00069",
         "ORD-00070",
-        "ORD-00075",
-        "ORD-00078",
         "ORD-00081",
+        "ORD-00078",
         "ORD-00082",
-        "ORD-00083",
-        "ORD-00084",
         "ORD-00085"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00069",
-          "order_amount": 1884.35,
-          "commission_amount": 188.44,
-          "refund_amount": 0.0,
-          "net_payable": 1695.91,
-          "order_date": "2026-08-09"
-        },
-        {
-          "order_id": "ORD-00070",
-          "order_amount": 3013.94,
-          "commission_amount": 150.7,
-          "refund_amount": 0.0,
-          "net_payable": 2863.24,
-          "order_date": "2026-08-09"
-        },
         {
           "order_id": "ORD-00075",
           "order_amount": 1705.4,
@@ -1254,6 +1238,22 @@
           "refund_amount": 0.0,
           "net_payable": 1832.69,
           "order_date": "2026-08-08"
+        },
+        {
+          "order_id": "ORD-00069",
+          "order_amount": 1884.35,
+          "commission_amount": 188.44,
+          "refund_amount": 0.0,
+          "net_payable": 1695.91,
+          "order_date": "2026-08-09"
+        },
+        {
+          "order_id": "ORD-00070",
+          "order_amount": 3013.94,
+          "commission_amount": 150.7,
+          "refund_amount": 0.0,
+          "net_payable": 2863.24,
+          "order_date": "2026-08-09"
         }
       ]
     },
@@ -1266,11 +1266,11 @@
       "utr": "UTR941588491630",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00068",
-        "ORD-00078",
         "ORD-00081",
+        "ORD-00078",
         "ORD-00082",
-        "ORD-00085"
+        "ORD-00085",
+        "ORD-00068"
       ],
       "matched_total_paise": 950323,
       "matched_total": 9503.23,
@@ -1279,22 +1279,22 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00068",
-        "ORD-00077",
-        "ORD-00078",
-        "ORD-00081",
-        "ORD-00082",
         "ORD-00084",
-        "ORD-00085"
+        "ORD-00081",
+        "ORD-00078",
+        "ORD-00082",
+        "ORD-00085",
+        "ORD-00068",
+        "ORD-00077"
       ],
       "matched_orders": [
         {
-          "order_id": "ORD-00068",
-          "order_amount": 1053.36,
-          "commission_amount": 126.4,
+          "order_id": "ORD-00081",
+          "order_amount": 3898.91,
+          "commission_amount": 584.84,
           "refund_amount": 0.0,
-          "net_payable": 926.96,
-          "order_date": "2026-08-11"
+          "net_payable": 3314.07,
+          "order_date": "2026-08-09"
         },
         {
           "order_id": "ORD-00078",
@@ -1303,14 +1303,6 @@
           "refund_amount": 0.0,
           "net_payable": 1304.62,
           "order_date": "2026-08-10"
-        },
-        {
-          "order_id": "ORD-00081",
-          "order_amount": 3898.91,
-          "commission_amount": 584.84,
-          "refund_amount": 0.0,
-          "net_payable": 3314.07,
-          "order_date": "2026-08-09"
         },
         {
           "order_id": "ORD-00082",
@@ -1327,6 +1319,14 @@
           "refund_amount": 0.0,
           "net_payable": 3455.95,
           "order_date": "2026-08-10"
+        },
+        {
+          "order_id": "ORD-00068",
+          "order_amount": 1053.36,
+          "commission_amount": 126.4,
+          "refund_amount": 0.0,
+          "net_payable": 926.96,
+          "order_date": "2026-08-11"
         }
       ]
     },
@@ -1339,8 +1339,8 @@
       "utr": "UTR188735863186",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00067",
-        "ORD-00077"
+        "ORD-00077",
+        "ORD-00067"
       ],
       "matched_total_paise": 336499,
       "matched_total": 3364.99,
@@ -1349,19 +1349,11 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00067",
+        "ORD-00084",
         "ORD-00077",
-        "ORD-00084"
+        "ORD-00067"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00067",
-          "order_amount": 1863.68,
-          "commission_amount": 93.18,
-          "refund_amount": 0.0,
-          "net_payable": 1770.5,
-          "order_date": "2026-08-13"
-        },
         {
           "order_id": "ORD-00077",
           "order_amount": 1944.5,
@@ -1369,6 +1361,14 @@
           "refund_amount": 0.0,
           "net_payable": 1594.49,
           "order_date": "2026-08-11"
+        },
+        {
+          "order_id": "ORD-00067",
+          "order_amount": 1863.68,
+          "commission_amount": 93.18,
+          "refund_amount": 0.0,
+          "net_payable": 1770.5,
+          "order_date": "2026-08-13"
         }
       ]
     },
@@ -1391,10 +1391,10 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00084",
         "ORD-00072",
         "ORD-00073",
         "ORD-00076",
-        "ORD-00084",
         "ORD-00086",
         "ORD-00087"
       ],
@@ -1436,8 +1436,8 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00076",
         "ORD-00084",
+        "ORD-00076",
         "ORD-00086",
         "ORD-00087"
       ],
@@ -1501,9 +1501,9 @@
       "utr": "UTR666355478456",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00093",
         "ORD-00098",
-        "ORD-00099"
+        "ORD-00099",
+        "ORD-00093"
       ],
       "matched_total_paise": 428199,
       "matched_total": 4281.99,
@@ -1512,21 +1512,13 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00093",
         "ORD-00098",
         "ORD-00099",
         "ORD-00100",
+        "ORD-00093",
         "ORD-00103"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00093",
-          "order_amount": 412.67,
-          "commission_amount": 33.01,
-          "refund_amount": 0.0,
-          "net_payable": 379.66,
-          "order_date": "2026-08-03"
-        },
         {
           "order_id": "ORD-00098",
           "order_amount": 578.81,
@@ -1542,6 +1534,14 @@
           "refund_amount": 0.0,
           "net_payable": 3369.82,
           "order_date": "2026-08-01"
+        },
+        {
+          "order_id": "ORD-00093",
+          "order_amount": 412.67,
+          "commission_amount": 33.01,
+          "refund_amount": 0.0,
+          "net_payable": 379.66,
+          "order_date": "2026-08-03"
         }
       ]
     },
@@ -1586,8 +1586,8 @@
       "utr": "UTR588017414546",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00091",
-        "ORD-00092"
+        "ORD-00092",
+        "ORD-00091"
       ],
       "matched_total_paise": 658892,
       "matched_total": 6588.92,
@@ -1596,19 +1596,11 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00091",
+        "ORD-00100",
         "ORD-00092",
-        "ORD-00100"
+        "ORD-00091"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00091",
-          "order_amount": 2328.95,
-          "commission_amount": 116.45,
-          "refund_amount": 0.0,
-          "net_payable": 2212.5,
-          "order_date": "2026-08-07"
-        },
         {
           "order_id": "ORD-00092",
           "order_amount": 4862.69,
@@ -1616,6 +1608,14 @@
           "refund_amount": 0.0,
           "net_payable": 4376.42,
           "order_date": "2026-08-05"
+        },
+        {
+          "order_id": "ORD-00091",
+          "order_amount": 2328.95,
+          "commission_amount": 116.45,
+          "refund_amount": 0.0,
+          "net_payable": 2212.5,
+          "order_date": "2026-08-07"
         }
       ]
     },
@@ -1637,8 +1637,8 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00090",
-        "ORD-00100"
+        "ORD-00100",
+        "ORD-00090"
       ],
       "matched_orders": [
         {
@@ -1660,8 +1660,8 @@
       "utr": "UTR795669368396",
       "status": "UNRESOLVED",
       "matched_order_ids": [
-        "ORD-00095",
         "ORD-00100",
+        "ORD-00095",
         "ORD-00104"
       ],
       "matched_total_paise": 1002983,
@@ -1671,20 +1671,12 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00095",
         "ORD-00100",
+        "ORD-00095",
         "ORD-00104",
         "ORD-00105"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00095",
-          "order_amount": 3768.61,
-          "commission_amount": 452.23,
-          "refund_amount": 0.0,
-          "net_payable": 3316.38,
-          "order_date": "2026-08-10"
-        },
         {
           "order_id": "ORD-00100",
           "order_amount": 4100.88,
@@ -1692,6 +1684,14 @@
           "refund_amount": 0.0,
           "net_payable": 3280.7,
           "order_date": "2026-08-02"
+        },
+        {
+          "order_id": "ORD-00095",
+          "order_amount": 3768.61,
+          "commission_amount": 452.23,
+          "refund_amount": 0.0,
+          "net_payable": 3316.38,
+          "order_date": "2026-08-10"
         },
         {
           "order_id": "ORD-00104",
@@ -1713,10 +1713,10 @@
       "status": "CLOSE_MATCH",
       "matched_order_ids": [
         "ORD-00100",
-        "ORD-00101",
         "ORD-00104",
         "ORD-00105",
-        "ORD-00106"
+        "ORD-00106",
+        "ORD-00101"
       ],
       "matched_total_paise": 1647008,
       "matched_total": 16470.08,
@@ -1725,16 +1725,16 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00094",
-        "ORD-00095",
-        "ORD-00096",
-        "ORD-00097",
         "ORD-00100",
-        "ORD-00101",
-        "ORD-00102",
+        "ORD-00095",
         "ORD-00104",
         "ORD-00105",
-        "ORD-00106"
+        "ORD-00094",
+        "ORD-00106",
+        "ORD-00097",
+        "ORD-00102",
+        "ORD-00101",
+        "ORD-00096"
       ],
       "matched_orders": [
         {
@@ -1744,14 +1744,6 @@
           "refund_amount": 0.0,
           "net_payable": 3280.7,
           "order_date": "2026-08-02"
-        },
-        {
-          "order_id": "ORD-00101",
-          "order_amount": 4902.85,
-          "commission_amount": 490.28,
-          "refund_amount": 0.0,
-          "net_payable": 4412.57,
-          "order_date": "2026-08-15"
         },
         {
           "order_id": "ORD-00104",
@@ -1776,6 +1768,14 @@
           "refund_amount": 0.0,
           "net_payable": 3492.34,
           "order_date": "2026-08-13"
+        },
+        {
+          "order_id": "ORD-00101",
+          "order_amount": 4902.85,
+          "commission_amount": 490.28,
+          "refund_amount": 0.0,
+          "net_payable": 4412.57,
+          "order_date": "2026-08-15"
         }
       ]
     },
@@ -1788,12 +1788,12 @@
       "utr": "UTR456679815270",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00108",
-        "ORD-00109",
         "ORD-00115",
         "ORD-00125",
         "ORD-00128",
-        "ORD-00133"
+        "ORD-00108",
+        "ORD-00133",
+        "ORD-00109"
       ],
       "matched_total_paise": 1695265,
       "matched_total": 16952.65,
@@ -1802,33 +1802,17 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00115",
+        "ORD-00125",
+        "ORD-00128",
         "ORD-00108",
+        "ORD-00133",
         "ORD-00109",
         "ORD-00113",
-        "ORD-00115",
         "ORD-00122",
-        "ORD-00125",
-        "ORD-00126",
-        "ORD-00128",
-        "ORD-00133"
+        "ORD-00126"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00108",
-          "order_amount": 2519.31,
-          "commission_amount": 125.97,
-          "refund_amount": 0.0,
-          "net_payable": 2393.34,
-          "order_date": "2026-08-04"
-        },
-        {
-          "order_id": "ORD-00109",
-          "order_amount": 2712.92,
-          "commission_amount": 488.33,
-          "refund_amount": 0.0,
-          "net_payable": 2224.59,
-          "order_date": "2026-08-05"
-        },
         {
           "order_id": "ORD-00115",
           "order_amount": 1582.89,
@@ -1854,12 +1838,28 @@
           "order_date": "2026-08-03"
         },
         {
+          "order_id": "ORD-00108",
+          "order_amount": 2519.31,
+          "commission_amount": 125.97,
+          "refund_amount": 0.0,
+          "net_payable": 2393.34,
+          "order_date": "2026-08-04"
+        },
+        {
           "order_id": "ORD-00133",
           "order_amount": 4086.52,
           "commission_amount": 735.57,
           "refund_amount": 0.0,
           "net_payable": 3350.95,
           "order_date": "2026-08-04"
+        },
+        {
+          "order_id": "ORD-00109",
+          "order_amount": 2712.92,
+          "commission_amount": 488.33,
+          "refund_amount": 0.0,
+          "net_payable": 2224.59,
+          "order_date": "2026-08-05"
         }
       ]
     },
@@ -1954,8 +1954,8 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00110",
         "ORD-00119",
+        "ORD-00110",
         "ORD-00127"
       ],
       "matched_orders": [
@@ -2021,10 +2021,10 @@
       "status": "MATCHED",
       "matched_order_ids": [
         "ORD-00110",
+        "ORD-00127",
+        "ORD-00123",
         "ORD-00118",
         "ORD-00121",
-        "ORD-00123",
-        "ORD-00127",
         "ORD-00129"
       ],
       "matched_total_paise": 1326697,
@@ -2035,14 +2035,14 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00110",
-        "ORD-00112",
-        "ORD-00114",
-        "ORD-00118",
-        "ORD-00120",
-        "ORD-00121",
-        "ORD-00123",
         "ORD-00127",
-        "ORD-00129"
+        "ORD-00123",
+        "ORD-00112",
+        "ORD-00118",
+        "ORD-00121",
+        "ORD-00129",
+        "ORD-00114",
+        "ORD-00120"
       ],
       "matched_orders": [
         {
@@ -2052,6 +2052,22 @@
           "refund_amount": 0.0,
           "net_payable": 1822.69,
           "order_date": "2026-08-09"
+        },
+        {
+          "order_id": "ORD-00127",
+          "order_amount": 1875.03,
+          "commission_amount": 281.25,
+          "refund_amount": 0.0,
+          "net_payable": 1593.78,
+          "order_date": "2026-08-09"
+        },
+        {
+          "order_id": "ORD-00123",
+          "order_amount": 4659.73,
+          "commission_amount": 232.99,
+          "refund_amount": 0.0,
+          "net_payable": 4426.74,
+          "order_date": "2026-08-11"
         },
         {
           "order_id": "ORD-00118",
@@ -2068,22 +2084,6 @@
           "refund_amount": 0.0,
           "net_payable": 1741.81,
           "order_date": "2026-08-13"
-        },
-        {
-          "order_id": "ORD-00123",
-          "order_amount": 4659.73,
-          "commission_amount": 232.99,
-          "refund_amount": 0.0,
-          "net_payable": 4426.74,
-          "order_date": "2026-08-11"
-        },
-        {
-          "order_id": "ORD-00127",
-          "order_amount": 1875.03,
-          "commission_amount": 281.25,
-          "refund_amount": 0.0,
-          "net_payable": 1593.78,
-          "order_date": "2026-08-09"
         },
         {
           "order_id": "ORD-00129",
@@ -2167,15 +2167,15 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00107",
-        "ORD-00111",
         "ORD-00112",
         "ORD-00114",
-        "ORD-00116",
-        "ORD-00117",
         "ORD-00120",
         "ORD-00124",
-        "ORD-00130"
+        "ORD-00111",
+        "ORD-00116",
+        "ORD-00117",
+        "ORD-00130",
+        "ORD-00107"
       ],
       "matched_orders": [
         {
@@ -2284,12 +2284,12 @@
       "utr": "UTR713341033639",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00134",
         "ORD-00137",
-        "ORD-00140",
-        "ORD-00141",
         "ORD-00142",
-        "ORD-00145"
+        "ORD-00141",
+        "ORD-00145",
+        "ORD-00134",
+        "ORD-00140"
       ],
       "matched_total_paise": 1704030,
       "matched_total": 17040.3,
@@ -2298,24 +2298,16 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00134",
-        "ORD-00135",
         "ORD-00137",
-        "ORD-00138",
-        "ORD-00140",
-        "ORD-00141",
         "ORD-00142",
-        "ORD-00145"
+        "ORD-00141",
+        "ORD-00145",
+        "ORD-00134",
+        "ORD-00140",
+        "ORD-00135",
+        "ORD-00138"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00134",
-          "order_amount": 2099.44,
-          "commission_amount": 314.92,
-          "refund_amount": 0.0,
-          "net_payable": 1784.52,
-          "order_date": "2026-08-08"
-        },
         {
           "order_id": "ORD-00137",
           "order_amount": 4874.25,
@@ -2323,22 +2315,6 @@
           "refund_amount": 0.0,
           "net_payable": 4143.11,
           "order_date": "2026-08-02"
-        },
-        {
-          "order_id": "ORD-00140",
-          "order_amount": 3653.43,
-          "commission_amount": 730.69,
-          "refund_amount": 0.0,
-          "net_payable": 2922.74,
-          "order_date": "2026-08-09"
-        },
-        {
-          "order_id": "ORD-00141",
-          "order_amount": 3393.82,
-          "commission_amount": 169.69,
-          "refund_amount": 0.0,
-          "net_payable": 3224.13,
-          "order_date": "2026-08-05"
         },
         {
           "order_id": "ORD-00142",
@@ -2349,12 +2325,36 @@
           "order_date": "2026-08-02"
         },
         {
+          "order_id": "ORD-00141",
+          "order_amount": 3393.82,
+          "commission_amount": 169.69,
+          "refund_amount": 0.0,
+          "net_payable": 3224.13,
+          "order_date": "2026-08-05"
+        },
+        {
           "order_id": "ORD-00145",
           "order_amount": 4223.59,
           "commission_amount": 633.54,
           "refund_amount": 0.0,
           "net_payable": 3590.05,
           "order_date": "2026-08-05"
+        },
+        {
+          "order_id": "ORD-00134",
+          "order_amount": 2099.44,
+          "commission_amount": 314.92,
+          "refund_amount": 0.0,
+          "net_payable": 1784.52,
+          "order_date": "2026-08-08"
+        },
+        {
+          "order_id": "ORD-00140",
+          "order_amount": 3653.43,
+          "commission_amount": 730.69,
+          "refund_amount": 0.0,
+          "net_payable": 2922.74,
+          "order_date": "2026-08-09"
         }
       ]
     },
@@ -2368,8 +2368,8 @@
       "status": "MATCHED",
       "matched_order_ids": [
         "ORD-00135",
-        "ORD-00139",
-        "ORD-00144"
+        "ORD-00144",
+        "ORD-00139"
       ],
       "matched_total_paise": 685188,
       "matched_total": 6851.88,
@@ -2379,12 +2379,12 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00135",
-        "ORD-00136",
         "ORD-00138",
+        "ORD-00144",
         "ORD-00139",
         "ORD-00143",
-        "ORD-00144",
-        "ORD-00146"
+        "ORD-00146",
+        "ORD-00136"
       ],
       "matched_orders": [
         {
@@ -2396,20 +2396,20 @@
           "order_date": "2026-08-10"
         },
         {
-          "order_id": "ORD-00139",
-          "order_amount": 1248.21,
-          "commission_amount": 224.68,
-          "refund_amount": 0.0,
-          "net_payable": 1023.53,
-          "order_date": "2026-08-12"
-        },
-        {
           "order_id": "ORD-00144",
           "order_amount": 4018.95,
           "commission_amount": 482.27,
           "refund_amount": 0.0,
           "net_payable": 3536.68,
           "order_date": "2026-08-11"
+        },
+        {
+          "order_id": "ORD-00139",
+          "order_amount": 1248.21,
+          "commission_amount": 224.68,
+          "refund_amount": 0.0,
+          "net_payable": 1023.53,
+          "order_date": "2026-08-12"
         }
       ]
     },
@@ -2422,9 +2422,9 @@
       "utr": "UTR923228529421",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00136",
         "ORD-00143",
-        "ORD-00146"
+        "ORD-00146",
+        "ORD-00136"
       ],
       "matched_total_paise": 714052,
       "matched_total": 7140.52,
@@ -2433,20 +2433,12 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00136",
         "ORD-00138",
         "ORD-00143",
-        "ORD-00146"
+        "ORD-00146",
+        "ORD-00136"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00136",
-          "order_amount": 1539.06,
-          "commission_amount": 76.95,
-          "refund_amount": 0.0,
-          "net_payable": 1462.11,
-          "order_date": "2026-08-13"
-        },
         {
           "order_id": "ORD-00143",
           "order_amount": 3939.67,
@@ -2462,6 +2454,14 @@
           "refund_amount": 0.0,
           "net_payable": 2450.71,
           "order_date": "2026-08-12"
+        },
+        {
+          "order_id": "ORD-00136",
+          "order_amount": 1539.06,
+          "commission_amount": 76.95,
+          "refund_amount": 0.0,
+          "net_payable": 1462.11,
+          "order_date": "2026-08-13"
         }
       ]
     },
@@ -2474,11 +2474,11 @@
       "utr": "UTR245975318262",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00148",
-        "ORD-00150",
+        "ORD-00162",
         "ORD-00152",
-        "ORD-00160",
-        "ORD-00162"
+        "ORD-00150",
+        "ORD-00148",
+        "ORD-00160"
       ],
       "matched_total_paise": 1134952,
       "matched_total": 11349.52,
@@ -2487,28 +2487,20 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00148",
-        "ORD-00150",
+        "ORD-00162",
         "ORD-00152",
-        "ORD-00160",
-        "ORD-00162"
+        "ORD-00150",
+        "ORD-00148",
+        "ORD-00160"
       ],
       "matched_orders": [
         {
-          "order_id": "ORD-00148",
-          "order_amount": 3638.08,
-          "commission_amount": 291.05,
+          "order_id": "ORD-00162",
+          "order_amount": 365.17,
+          "commission_amount": 73.03,
           "refund_amount": 0.0,
-          "net_payable": 3347.03,
-          "order_date": "2026-08-04"
-        },
-        {
-          "order_id": "ORD-00150",
-          "order_amount": 3431.34,
-          "commission_amount": 686.27,
-          "refund_amount": 0.0,
-          "net_payable": 2745.07,
-          "order_date": "2026-08-03"
+          "net_payable": 292.14,
+          "order_date": "2026-08-01"
         },
         {
           "order_id": "ORD-00152",
@@ -2519,20 +2511,28 @@
           "order_date": "2026-08-02"
         },
         {
+          "order_id": "ORD-00150",
+          "order_amount": 3431.34,
+          "commission_amount": 686.27,
+          "refund_amount": 0.0,
+          "net_payable": 2745.07,
+          "order_date": "2026-08-03"
+        },
+        {
+          "order_id": "ORD-00148",
+          "order_amount": 3638.08,
+          "commission_amount": 291.05,
+          "refund_amount": 0.0,
+          "net_payable": 3347.03,
+          "order_date": "2026-08-04"
+        },
+        {
           "order_id": "ORD-00160",
           "order_amount": 4546.13,
           "commission_amount": 909.23,
           "refund_amount": 0.0,
           "net_payable": 3636.9,
           "order_date": "2026-08-04"
-        },
-        {
-          "order_id": "ORD-00162",
-          "order_amount": 365.17,
-          "commission_amount": 73.03,
-          "refund_amount": 0.0,
-          "net_payable": 292.14,
-          "order_date": "2026-08-01"
         }
       ]
     },
@@ -2546,9 +2546,9 @@
       "status": "MATCHED",
       "matched_order_ids": [
         "ORD-00153",
+        "ORD-00163",
         "ORD-00157",
         "ORD-00161",
-        "ORD-00163",
         "ORD-00164"
       ],
       "matched_total_paise": 1336805,
@@ -2559,9 +2559,9 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00153",
+        "ORD-00163",
         "ORD-00157",
         "ORD-00161",
-        "ORD-00163",
         "ORD-00164"
       ],
       "matched_orders": [
@@ -2571,6 +2571,14 @@
           "commission_amount": 256.51,
           "refund_amount": 0.0,
           "net_payable": 1881.11,
+          "order_date": "2026-08-05"
+        },
+        {
+          "order_id": "ORD-00163",
+          "order_amount": 4226.03,
+          "commission_amount": 633.9,
+          "refund_amount": 0.0,
+          "net_payable": 3592.13,
           "order_date": "2026-08-05"
         },
         {
@@ -2588,14 +2596,6 @@
           "refund_amount": 0.0,
           "net_payable": 2840.78,
           "order_date": "2026-08-07"
-        },
-        {
-          "order_id": "ORD-00163",
-          "order_amount": 4226.03,
-          "commission_amount": 633.9,
-          "refund_amount": 0.0,
-          "net_payable": 3592.13,
-          "order_date": "2026-08-05"
         },
         {
           "order_id": "ORD-00164",
@@ -2625,8 +2625,8 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00149",
         "ORD-00151",
+        "ORD-00149",
         "ORD-00158",
         "ORD-00159"
       ],
@@ -2701,8 +2701,8 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00147",
         "ORD-00151",
+        "ORD-00147",
         "ORD-00154",
         "ORD-00155",
         "ORD-00156"
@@ -2886,11 +2886,11 @@
       "eligible_order_ids": [
         "ORD-00165",
         "ORD-00169",
-        "ORD-00171",
         "ORD-00174",
-        "ORD-00179",
         "ORD-00186",
-        "ORD-00187"
+        "ORD-00187",
+        "ORD-00171",
+        "ORD-00179"
       ],
       "matched_orders": [
         {
@@ -3004,9 +3004,9 @@
       "utr": "UTR767805832031",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00167",
         "ORD-00185",
-        "ORD-00190"
+        "ORD-00190",
+        "ORD-00167"
       ],
       "matched_total_paise": 303006,
       "matched_total": 3030.06,
@@ -3015,25 +3015,17 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00167",
-        "ORD-00172",
-        "ORD-00175",
-        "ORD-00178",
         "ORD-00181",
-        "ORD-00182",
-        "ORD-00184",
+        "ORD-00175",
         "ORD-00185",
-        "ORD-00190"
+        "ORD-00190",
+        "ORD-00167",
+        "ORD-00184",
+        "ORD-00172",
+        "ORD-00178",
+        "ORD-00182"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00167",
-          "order_amount": 2501.46,
-          "commission_amount": 450.26,
-          "refund_amount": 0.0,
-          "net_payable": 2051.2,
-          "order_date": "2026-08-10"
-        },
         {
           "order_id": "ORD-00185",
           "order_amount": 911.23,
@@ -3049,6 +3041,14 @@
           "refund_amount": 0.0,
           "net_payable": 231.65,
           "order_date": "2026-08-09"
+        },
+        {
+          "order_id": "ORD-00167",
+          "order_amount": 2501.46,
+          "commission_amount": 450.26,
+          "refund_amount": 0.0,
+          "net_payable": 2051.2,
+          "order_date": "2026-08-10"
         }
       ]
     },
@@ -3061,10 +3061,10 @@
       "utr": "UTR665883171878",
       "status": "MATCHED",
       "matched_order_ids": [
+        "ORD-00184",
         "ORD-00172",
         "ORD-00178",
-        "ORD-00182",
-        "ORD-00184"
+        "ORD-00182"
       ],
       "matched_total_paise": 1028945,
       "matched_total": 10289.45,
@@ -3073,14 +3073,22 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00172",
-        "ORD-00175",
-        "ORD-00178",
         "ORD-00181",
-        "ORD-00182",
-        "ORD-00184"
+        "ORD-00175",
+        "ORD-00184",
+        "ORD-00172",
+        "ORD-00178",
+        "ORD-00182"
       ],
       "matched_orders": [
+        {
+          "order_id": "ORD-00184",
+          "order_amount": 1943.63,
+          "commission_amount": 97.18,
+          "refund_amount": 0.0,
+          "net_payable": 1846.45,
+          "order_date": "2026-08-10"
+        },
         {
           "order_id": "ORD-00172",
           "order_amount": 2097.03,
@@ -3104,14 +3112,6 @@
           "refund_amount": 0.0,
           "net_payable": 3432.15,
           "order_date": "2026-08-11"
-        },
-        {
-          "order_id": "ORD-00184",
-          "order_amount": 1943.63,
-          "commission_amount": 97.18,
-          "refund_amount": 0.0,
-          "net_payable": 1846.45,
-          "order_date": "2026-08-10"
         }
       ]
     },
@@ -3133,10 +3133,10 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00181",
         "ORD-00175",
         "ORD-00176",
         "ORD-00177",
-        "ORD-00181",
         "ORD-00183",
         "ORD-00188"
       ],
@@ -3160,9 +3160,9 @@
       "utr": "UTR340713234664",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00173",
         "ORD-00183",
-        "ORD-00188"
+        "ORD-00188",
+        "ORD-00173"
       ],
       "matched_total_paise": 923941,
       "matched_total": 9239.41,
@@ -3171,22 +3171,14 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00173",
+        "ORD-00181",
         "ORD-00175",
         "ORD-00176",
-        "ORD-00181",
         "ORD-00183",
-        "ORD-00188"
+        "ORD-00188",
+        "ORD-00173"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00173",
-          "order_amount": 2750.54,
-          "commission_amount": 412.58,
-          "refund_amount": 0.0,
-          "net_payable": 2337.96,
-          "order_date": "2026-08-15"
-        },
         {
           "order_id": "ORD-00183",
           "order_amount": 4651.3,
@@ -3202,6 +3194,14 @@
           "refund_amount": 0.0,
           "net_payable": 3851.38,
           "order_date": "2026-08-14"
+        },
+        {
+          "order_id": "ORD-00173",
+          "order_amount": 2750.54,
+          "commission_amount": 412.58,
+          "refund_amount": 0.0,
+          "net_payable": 2337.96,
+          "order_date": "2026-08-15"
         }
       ]
     },
@@ -3268,12 +3268,12 @@
       "utr": "UTR162669670656",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00192",
-        "ORD-00200",
         "ORD-00204",
         "ORD-00206",
+        "ORD-00210",
+        "ORD-00200",
         "ORD-00208",
-        "ORD-00210"
+        "ORD-00192"
       ],
       "matched_total_paise": 1133861,
       "matched_total": 11338.61,
@@ -3282,35 +3282,19 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00192",
-        "ORD-00195",
-        "ORD-00200",
-        "ORD-00201",
-        "ORD-00203",
         "ORD-00204",
         "ORD-00206",
-        "ORD-00207",
+        "ORD-00210",
+        "ORD-00200",
         "ORD-00208",
+        "ORD-00201",
+        "ORD-00192",
+        "ORD-00207",
         "ORD-00209",
-        "ORD-00210"
+        "ORD-00195",
+        "ORD-00203"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00192",
-          "order_amount": 4123.12,
-          "commission_amount": 329.85,
-          "refund_amount": 0.0,
-          "net_payable": 3793.27,
-          "order_date": "2026-08-07"
-        },
-        {
-          "order_id": "ORD-00200",
-          "order_amount": 2223.53,
-          "commission_amount": 111.18,
-          "refund_amount": 0.0,
-          "net_payable": 2112.35,
-          "order_date": "2026-08-04"
-        },
         {
           "order_id": "ORD-00204",
           "order_amount": 2174.95,
@@ -3328,6 +3312,22 @@
           "order_date": "2026-08-03"
         },
         {
+          "order_id": "ORD-00210",
+          "order_amount": 1028.75,
+          "commission_amount": 205.75,
+          "refund_amount": 0.0,
+          "net_payable": 823.0,
+          "order_date": "2026-08-03"
+        },
+        {
+          "order_id": "ORD-00200",
+          "order_amount": 2223.53,
+          "commission_amount": 111.18,
+          "refund_amount": 0.0,
+          "net_payable": 2112.35,
+          "order_date": "2026-08-04"
+        },
+        {
           "order_id": "ORD-00208",
           "order_amount": 1338.72,
           "commission_amount": 66.94,
@@ -3336,12 +3336,12 @@
           "order_date": "2026-08-05"
         },
         {
-          "order_id": "ORD-00210",
-          "order_amount": 1028.75,
-          "commission_amount": 205.75,
+          "order_id": "ORD-00192",
+          "order_amount": 4123.12,
+          "commission_amount": 329.85,
           "refund_amount": 0.0,
-          "net_payable": 823.0,
-          "order_date": "2026-08-03"
+          "net_payable": 3793.27,
+          "order_date": "2026-08-07"
         }
       ]
     },
@@ -3354,9 +3354,9 @@
       "utr": "UTR595904407913",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00195",
         "ORD-00207",
-        "ORD-00209"
+        "ORD-00209",
+        "ORD-00195"
       ],
       "matched_total_paise": 705229,
       "matched_total": 7052.29,
@@ -3365,21 +3365,13 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00195",
         "ORD-00201",
-        "ORD-00203",
         "ORD-00207",
-        "ORD-00209"
+        "ORD-00209",
+        "ORD-00195",
+        "ORD-00203"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00195",
-          "order_amount": 2722.81,
-          "commission_amount": 408.42,
-          "refund_amount": 0.0,
-          "net_payable": 2314.39,
-          "order_date": "2026-08-08"
-        },
         {
           "order_id": "ORD-00207",
           "order_amount": 4849.64,
@@ -3395,6 +3387,14 @@
           "refund_amount": 0.0,
           "net_payable": 858.19,
           "order_date": "2026-08-07"
+        },
+        {
+          "order_id": "ORD-00195",
+          "order_amount": 2722.81,
+          "commission_amount": 408.42,
+          "refund_amount": 0.0,
+          "net_payable": 2314.39,
+          "order_date": "2026-08-08"
         }
       ]
     },
@@ -3448,8 +3448,8 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00193",
         "ORD-00201",
+        "ORD-00193",
         "ORD-00205"
       ],
       "matched_orders": [
@@ -3503,11 +3503,11 @@
       "utr": "UTR622289523089",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00194",
+        "ORD-00205",
         "ORD-00196",
-        "ORD-00199",
         "ORD-00202",
-        "ORD-00205"
+        "ORD-00199",
+        "ORD-00194"
       ],
       "matched_total_paise": 612232,
       "matched_total": 6122.32,
@@ -3516,23 +3516,23 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00194",
-        "ORD-00196",
-        "ORD-00199",
         "ORD-00201",
-        "ORD-00202",
         "ORD-00205",
+        "ORD-00196",
+        "ORD-00202",
+        "ORD-00199",
+        "ORD-00194",
         "ORD-00211",
         "ORD-00212"
       ],
       "matched_orders": [
         {
-          "order_id": "ORD-00194",
-          "order_amount": 1021.14,
-          "commission_amount": 81.69,
+          "order_id": "ORD-00205",
+          "order_amount": 1261.67,
+          "commission_amount": 126.17,
           "refund_amount": 0.0,
-          "net_payable": 939.45,
-          "order_date": "2026-08-14"
+          "net_payable": 1135.5,
+          "order_date": "2026-08-11"
         },
         {
           "order_id": "ORD-00196",
@@ -3540,6 +3540,14 @@
           "commission_amount": 57.35,
           "refund_amount": 0.0,
           "net_payable": 420.53,
+          "order_date": "2026-08-12"
+        },
+        {
+          "order_id": "ORD-00202",
+          "order_amount": 562.05,
+          "commission_amount": 67.45,
+          "refund_amount": 0.0,
+          "net_payable": 494.6,
           "order_date": "2026-08-12"
         },
         {
@@ -3551,20 +3559,12 @@
           "order_date": "2026-08-13"
         },
         {
-          "order_id": "ORD-00202",
-          "order_amount": 562.05,
-          "commission_amount": 67.45,
+          "order_id": "ORD-00194",
+          "order_amount": 1021.14,
+          "commission_amount": 81.69,
           "refund_amount": 0.0,
-          "net_payable": 494.6,
-          "order_date": "2026-08-12"
-        },
-        {
-          "order_id": "ORD-00205",
-          "order_amount": 1261.67,
-          "commission_amount": 126.17,
-          "refund_amount": 0.0,
-          "net_payable": 1135.5,
-          "order_date": "2026-08-11"
+          "net_payable": 939.45,
+          "order_date": "2026-08-14"
         }
       ]
     },
@@ -3631,11 +3631,11 @@
       "utr": "UTR804598747085",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00218",
+        "ORD-00228",
         "ORD-00221",
         "ORD-00223",
         "ORD-00227",
-        "ORD-00228"
+        "ORD-00218"
       ],
       "matched_total_paise": 1150215,
       "matched_total": 11502.15,
@@ -3644,23 +3644,23 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00218",
-        "ORD-00219",
+        "ORD-00228",
         "ORD-00221",
         "ORD-00223",
         "ORD-00227",
-        "ORD-00228",
+        "ORD-00218",
+        "ORD-00219",
         "ORD-00230",
         "ORD-00231"
       ],
       "matched_orders": [
         {
-          "order_id": "ORD-00218",
-          "order_amount": 1847.77,
-          "commission_amount": 92.39,
+          "order_id": "ORD-00228",
+          "order_amount": 3570.41,
+          "commission_amount": 357.04,
           "refund_amount": 0.0,
-          "net_payable": 1755.38,
-          "order_date": "2026-08-05"
+          "net_payable": 3213.37,
+          "order_date": "2026-08-02"
         },
         {
           "order_id": "ORD-00221",
@@ -3687,12 +3687,12 @@
           "order_date": "2026-08-04"
         },
         {
-          "order_id": "ORD-00228",
-          "order_amount": 3570.41,
-          "commission_amount": 357.04,
+          "order_id": "ORD-00218",
+          "order_amount": 1847.77,
+          "commission_amount": 92.39,
           "refund_amount": 0.0,
-          "net_payable": 3213.37,
-          "order_date": "2026-08-02"
+          "net_payable": 1755.38,
+          "order_date": "2026-08-05"
         }
       ]
     },
@@ -3717,9 +3717,9 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00219",
-        "ORD-00225",
         "ORD-00230",
-        "ORD-00231"
+        "ORD-00231",
+        "ORD-00225"
       ],
       "matched_orders": [
         {
@@ -3768,10 +3768,10 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00219",
-        "ORD-00225",
-        "ORD-00226",
         "ORD-00230",
         "ORD-00231",
+        "ORD-00225",
+        "ORD-00226",
         "ORD-00232"
       ],
       "matched_orders": [
@@ -3812,10 +3812,10 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00219",
-        "ORD-00225",
-        "ORD-00229",
         "ORD-00230",
-        "ORD-00231"
+        "ORD-00231",
+        "ORD-00225",
+        "ORD-00229"
       ],
       "matched_orders": [
         {
@@ -3837,9 +3837,9 @@
       "utr": "UTR521919454119",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00214",
         "ORD-00216",
         "ORD-00222",
+        "ORD-00214",
         "ORD-00224"
       ],
       "matched_total_paise": 631957,
@@ -3849,29 +3849,21 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00214",
-        "ORD-00215",
-        "ORD-00216",
-        "ORD-00217",
         "ORD-00219",
-        "ORD-00220",
-        "ORD-00222",
-        "ORD-00224",
-        "ORD-00225",
-        "ORD-00229",
         "ORD-00230",
         "ORD-00231",
+        "ORD-00225",
+        "ORD-00229",
+        "ORD-00216",
+        "ORD-00222",
+        "ORD-00214",
+        "ORD-00224",
+        "ORD-00215",
+        "ORD-00217",
+        "ORD-00220",
         "ORD-00236"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00214",
-          "order_amount": 2054.81,
-          "commission_amount": 205.48,
-          "refund_amount": 0.0,
-          "net_payable": 1849.33,
-          "order_date": "2026-08-12"
-        },
         {
           "order_id": "ORD-00216",
           "order_amount": 445.56,
@@ -3887,6 +3879,14 @@
           "refund_amount": 0.0,
           "net_payable": 4014.36,
           "order_date": "2026-08-11"
+        },
+        {
+          "order_id": "ORD-00214",
+          "order_amount": 2054.81,
+          "commission_amount": 205.48,
+          "refund_amount": 0.0,
+          "net_payable": 1849.33,
+          "order_date": "2026-08-12"
         },
         {
           "order_id": "ORD-00224",
@@ -3916,14 +3916,14 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00215",
-        "ORD-00217",
         "ORD-00219",
-        "ORD-00220",
-        "ORD-00225",
-        "ORD-00229",
         "ORD-00230",
         "ORD-00231",
+        "ORD-00225",
+        "ORD-00229",
+        "ORD-00215",
+        "ORD-00217",
+        "ORD-00220",
         "ORD-00236"
       ],
       "matched_orders": [
@@ -3946,9 +3946,9 @@
       "utr": "UTR618959874397",
       "status": "CLOSE_MATCH",
       "matched_order_ids": [
-        "ORD-00213",
         "ORD-00220",
-        "ORD-00236"
+        "ORD-00236",
+        "ORD-00213"
       ],
       "matched_total_paise": 540631,
       "matched_total": 5406.31,
@@ -3957,27 +3957,19 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00213",
-        "ORD-00215",
         "ORD-00219",
-        "ORD-00220",
-        "ORD-00225",
-        "ORD-00229",
         "ORD-00230",
         "ORD-00231",
+        "ORD-00225",
+        "ORD-00229",
+        "ORD-00215",
+        "ORD-00220",
+        "ORD-00236",
+        "ORD-00213",
         "ORD-00233",
-        "ORD-00235",
-        "ORD-00236"
+        "ORD-00235"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00213",
-          "order_amount": 2847.62,
-          "commission_amount": 427.14,
-          "refund_amount": 0.0,
-          "net_payable": 2420.48,
-          "order_date": "2026-08-15"
-        },
         {
           "order_id": "ORD-00220",
           "order_amount": 776.07,
@@ -3993,6 +3985,14 @@
           "refund_amount": 0.0,
           "net_payable": 2326.17,
           "order_date": "2026-08-13"
+        },
+        {
+          "order_id": "ORD-00213",
+          "order_amount": 2847.62,
+          "commission_amount": 427.14,
+          "refund_amount": 0.0,
+          "net_payable": 2420.48,
+          "order_date": "2026-08-15"
         }
       ]
     },
@@ -4006,8 +4006,8 @@
       "status": "CLOSE_MATCH",
       "matched_order_ids": [
         "ORD-00233",
-        "ORD-00234",
-        "ORD-00235"
+        "ORD-00235",
+        "ORD-00234"
       ],
       "matched_total_paise": 701577,
       "matched_total": 7015.77,
@@ -4016,15 +4016,15 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00215",
         "ORD-00219",
-        "ORD-00225",
-        "ORD-00229",
         "ORD-00230",
         "ORD-00231",
+        "ORD-00225",
+        "ORD-00229",
+        "ORD-00215",
         "ORD-00233",
-        "ORD-00234",
-        "ORD-00235"
+        "ORD-00235",
+        "ORD-00234"
       ],
       "matched_orders": [
         {
@@ -4036,20 +4036,20 @@
           "order_date": "2026-08-15"
         },
         {
-          "order_id": "ORD-00234",
-          "order_amount": 4839.42,
-          "commission_amount": 967.88,
-          "refund_amount": 0.0,
-          "net_payable": 3871.54,
-          "order_date": "2026-08-16"
-        },
-        {
           "order_id": "ORD-00235",
           "order_amount": 2520.53,
           "commission_amount": 504.11,
           "refund_amount": 0.0,
           "net_payable": 2016.42,
           "order_date": "2026-08-15"
+        },
+        {
+          "order_id": "ORD-00234",
+          "order_amount": 4839.42,
+          "commission_amount": 967.88,
+          "refund_amount": 0.0,
+          "net_payable": 3871.54,
+          "order_date": "2026-08-16"
         }
       ]
     },
@@ -4093,11 +4093,11 @@
       "utr": "UTR958264962544",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00239",
-        "ORD-00242",
         "ORD-00243",
-        "ORD-00245",
-        "ORD-00246"
+        "ORD-00246",
+        "ORD-00242",
+        "ORD-00239",
+        "ORD-00245"
       ],
       "matched_total_paise": 935507,
       "matched_total": 9355.07,
@@ -4107,21 +4107,29 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00237",
-        "ORD-00239",
-        "ORD-00242",
         "ORD-00243",
-        "ORD-00245",
         "ORD-00246",
+        "ORD-00242",
+        "ORD-00239",
+        "ORD-00245",
         "ORD-00248"
       ],
       "matched_orders": [
         {
-          "order_id": "ORD-00239",
-          "order_amount": 738.83,
-          "commission_amount": 36.94,
+          "order_id": "ORD-00243",
+          "order_amount": 3323.37,
+          "commission_amount": 332.34,
           "refund_amount": 0.0,
-          "net_payable": 701.89,
-          "order_date": "2026-08-10"
+          "net_payable": 2991.03,
+          "order_date": "2026-08-01"
+        },
+        {
+          "order_id": "ORD-00246",
+          "order_amount": 2147.1,
+          "commission_amount": 429.42,
+          "refund_amount": 0.0,
+          "net_payable": 1717.68,
+          "order_date": "2026-08-01"
         },
         {
           "order_id": "ORD-00242",
@@ -4132,12 +4140,12 @@
           "order_date": "2026-08-08"
         },
         {
-          "order_id": "ORD-00243",
-          "order_amount": 3323.37,
-          "commission_amount": 332.34,
+          "order_id": "ORD-00239",
+          "order_amount": 738.83,
+          "commission_amount": 36.94,
           "refund_amount": 0.0,
-          "net_payable": 2991.03,
-          "order_date": "2026-08-01"
+          "net_payable": 701.89,
+          "order_date": "2026-08-10"
         },
         {
           "order_id": "ORD-00245",
@@ -4146,14 +4154,6 @@
           "refund_amount": 0.0,
           "net_payable": 386.61,
           "order_date": "2026-08-12"
-        },
-        {
-          "order_id": "ORD-00246",
-          "order_amount": 2147.1,
-          "commission_amount": 429.42,
-          "refund_amount": 0.0,
-          "net_payable": 1717.68,
-          "order_date": "2026-08-01"
         }
       ]
     },
@@ -4206,8 +4206,8 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00247",
-        "ORD-00248"
+        "ORD-00248",
+        "ORD-00247"
       ],
       "matched_orders": [
         {
@@ -4238,8 +4238,8 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00238",
-        "ORD-00247"
+        "ORD-00247",
+        "ORD-00238"
       ],
       "matched_orders": [
         {
@@ -4261,9 +4261,9 @@
       "utr": "UTR139742680014",
       "status": "MATCHED",
       "matched_order_ids": [
+        "ORD-00244",
         "ORD-00240",
-        "ORD-00241",
-        "ORD-00244"
+        "ORD-00241"
       ],
       "matched_total_paise": 335395,
       "matched_total": 3353.95,
@@ -4273,14 +4273,22 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00237",
-        "ORD-00238",
-        "ORD-00240",
-        "ORD-00241",
-        "ORD-00244",
+        "ORD-00248",
         "ORD-00247",
-        "ORD-00248"
+        "ORD-00238",
+        "ORD-00244",
+        "ORD-00240",
+        "ORD-00241"
       ],
       "matched_orders": [
+        {
+          "order_id": "ORD-00244",
+          "order_amount": 1082.06,
+          "commission_amount": 194.77,
+          "refund_amount": 0.0,
+          "net_payable": 887.29,
+          "order_date": "2026-08-14"
+        },
         {
           "order_id": "ORD-00240",
           "order_amount": 429.29,
@@ -4296,14 +4304,6 @@
           "refund_amount": 685.51,
           "net_payable": 2058.83,
           "order_date": "2026-08-16"
-        },
-        {
-          "order_id": "ORD-00244",
-          "order_amount": 1082.06,
-          "commission_amount": 194.77,
-          "refund_amount": 0.0,
-          "net_payable": 887.29,
-          "order_date": "2026-08-14"
         }
       ]
     },
@@ -4317,9 +4317,9 @@
       "status": "MATCHED",
       "matched_order_ids": [
         "ORD-00250",
+        "ORD-00261",
         "ORD-00255",
         "ORD-00257",
-        "ORD-00261",
         "ORD-00267"
       ],
       "matched_total_paise": 1120379,
@@ -4330,9 +4330,9 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00250",
+        "ORD-00261",
         "ORD-00255",
         "ORD-00257",
-        "ORD-00261",
         "ORD-00267",
         "ORD-00273"
       ],
@@ -4343,6 +4343,14 @@
           "commission_amount": 835.07,
           "refund_amount": 0.0,
           "net_payable": 3804.2,
+          "order_date": "2026-08-02"
+        },
+        {
+          "order_id": "ORD-00261",
+          "order_amount": 493.43,
+          "commission_amount": 88.82,
+          "refund_amount": 0.0,
+          "net_payable": 404.61,
           "order_date": "2026-08-02"
         },
         {
@@ -4360,14 +4368,6 @@
           "refund_amount": 0.0,
           "net_payable": 1491.78,
           "order_date": "2026-08-03"
-        },
-        {
-          "order_id": "ORD-00261",
-          "order_amount": 493.43,
-          "commission_amount": 88.82,
-          "refund_amount": 0.0,
-          "net_payable": 404.61,
-          "order_date": "2026-08-02"
         },
         {
           "order_id": "ORD-00267",
@@ -4388,9 +4388,9 @@
       "utr": "UTR553229411741",
       "status": "MATCHED",
       "matched_order_ids": [
+        "ORD-00273",
         "ORD-00251",
-        "ORD-00269",
-        "ORD-00273"
+        "ORD-00269"
       ],
       "matched_total_paise": 632758,
       "matched_total": 6327.58,
@@ -4399,12 +4399,20 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00273",
         "ORD-00251",
         "ORD-00269",
-        "ORD-00273",
         "ORD-00278"
       ],
       "matched_orders": [
+        {
+          "order_id": "ORD-00273",
+          "order_amount": 2470.0,
+          "commission_amount": 197.6,
+          "refund_amount": 0.0,
+          "net_payable": 2272.4,
+          "order_date": "2026-08-03"
+        },
         {
           "order_id": "ORD-00251",
           "order_amount": 4290.85,
@@ -4420,14 +4428,6 @@
           "refund_amount": 0.0,
           "net_payable": 193.41,
           "order_date": "2026-08-04"
-        },
-        {
-          "order_id": "ORD-00273",
-          "order_amount": 2470.0,
-          "commission_amount": 197.6,
-          "refund_amount": 0.0,
-          "net_payable": 2272.4,
-          "order_date": "2026-08-03"
         }
       ]
     },
@@ -4440,10 +4440,10 @@
       "utr": "UTR452068690122",
       "status": "CLOSE_MATCH",
       "matched_order_ids": [
+        "ORD-00278",
         "ORD-00256",
         "ORD-00263",
-        "ORD-00277",
-        "ORD-00278"
+        "ORD-00277"
       ],
       "matched_total_paise": 766417,
       "matched_total": 7664.17,
@@ -4452,12 +4452,20 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00278",
         "ORD-00256",
         "ORD-00263",
-        "ORD-00277",
-        "ORD-00278"
+        "ORD-00277"
       ],
       "matched_orders": [
+        {
+          "order_id": "ORD-00278",
+          "order_amount": 1153.71,
+          "commission_amount": 230.74,
+          "refund_amount": 0.0,
+          "net_payable": 922.97,
+          "order_date": "2026-08-04"
+        },
         {
           "order_id": "ORD-00256",
           "order_amount": 2959.85,
@@ -4481,14 +4489,6 @@
           "refund_amount": 0.0,
           "net_payable": 3835.13,
           "order_date": "2026-08-06"
-        },
-        {
-          "order_id": "ORD-00278",
-          "order_amount": 1153.71,
-          "commission_amount": 230.74,
-          "refund_amount": 0.0,
-          "net_payable": 922.97,
-          "order_date": "2026-08-04"
         }
       ]
     },
@@ -4501,12 +4501,12 @@
       "utr": "UTR669856728937",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00252",
-        "ORD-00253",
+        "ORD-00276",
+        "ORD-00275",
         "ORD-00262",
         "ORD-00265",
-        "ORD-00275",
-        "ORD-00276"
+        "ORD-00252",
+        "ORD-00253"
       ],
       "matched_total_paise": 1659391,
       "matched_total": 16593.91,
@@ -4515,37 +4515,37 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00249",
-        "ORD-00252",
-        "ORD-00253",
+        "ORD-00278",
         "ORD-00256",
+        "ORD-00263",
+        "ORD-00277",
+        "ORD-00249",
+        "ORD-00276",
+        "ORD-00275",
         "ORD-00260",
         "ORD-00262",
-        "ORD-00263",
         "ORD-00265",
+        "ORD-00252",
+        "ORD-00253",
         "ORD-00268",
-        "ORD-00270",
-        "ORD-00275",
-        "ORD-00276",
-        "ORD-00277",
-        "ORD-00278"
+        "ORD-00270"
       ],
       "matched_orders": [
         {
-          "order_id": "ORD-00252",
-          "order_amount": 3997.07,
-          "commission_amount": 479.65,
+          "order_id": "ORD-00276",
+          "order_amount": 4773.14,
+          "commission_amount": 477.31,
           "refund_amount": 0.0,
-          "net_payable": 3517.42,
-          "order_date": "2026-08-13"
+          "net_payable": 4295.83,
+          "order_date": "2026-08-10"
         },
         {
-          "order_id": "ORD-00253",
-          "order_amount": 1877.52,
-          "commission_amount": 150.2,
+          "order_id": "ORD-00275",
+          "order_amount": 3601.4,
+          "commission_amount": 360.14,
           "refund_amount": 0.0,
-          "net_payable": 1727.32,
-          "order_date": "2026-08-13"
+          "net_payable": 3241.26,
+          "order_date": "2026-08-11"
         },
         {
           "order_id": "ORD-00262",
@@ -4564,20 +4564,20 @@
           "order_date": "2026-08-12"
         },
         {
-          "order_id": "ORD-00275",
-          "order_amount": 3601.4,
-          "commission_amount": 360.14,
+          "order_id": "ORD-00252",
+          "order_amount": 3997.07,
+          "commission_amount": 479.65,
           "refund_amount": 0.0,
-          "net_payable": 3241.26,
-          "order_date": "2026-08-11"
+          "net_payable": 3517.42,
+          "order_date": "2026-08-13"
         },
         {
-          "order_id": "ORD-00276",
-          "order_amount": 4773.14,
-          "commission_amount": 477.31,
+          "order_id": "ORD-00253",
+          "order_amount": 1877.52,
+          "commission_amount": 150.2,
           "refund_amount": 0.0,
-          "net_payable": 4295.83,
-          "order_date": "2026-08-10"
+          "net_payable": 1727.32,
+          "order_date": "2026-08-13"
         }
       ]
     },
@@ -4590,9 +4590,9 @@
       "utr": "UTR573000594905",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00258",
         "ORD-00268",
-        "ORD-00270"
+        "ORD-00270",
+        "ORD-00258"
       ],
       "matched_total_paise": 757018,
       "matched_total": 7570.18,
@@ -4601,29 +4601,21 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00249",
+        "ORD-00278",
         "ORD-00256",
-        "ORD-00258",
-        "ORD-00260",
         "ORD-00263",
-        "ORD-00264",
-        "ORD-00266",
+        "ORD-00277",
+        "ORD-00249",
+        "ORD-00260",
         "ORD-00268",
         "ORD-00270",
+        "ORD-00258",
+        "ORD-00264",
+        "ORD-00266",
         "ORD-00271",
-        "ORD-00274",
-        "ORD-00277",
-        "ORD-00278"
+        "ORD-00274"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00258",
-          "order_amount": 3259.47,
-          "commission_amount": 586.7,
-          "refund_amount": 0.0,
-          "net_payable": 2672.77,
-          "order_date": "2026-08-15"
-        },
         {
           "order_id": "ORD-00268",
           "order_amount": 1748.28,
@@ -4639,6 +4631,14 @@
           "refund_amount": 692.33,
           "net_payable": 3463.82,
           "order_date": "2026-08-13"
+        },
+        {
+          "order_id": "ORD-00258",
+          "order_amount": 3259.47,
+          "commission_amount": 586.7,
+          "refund_amount": 0.0,
+          "net_payable": 2672.77,
+          "order_date": "2026-08-15"
         }
       ]
     },
@@ -4663,12 +4663,12 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00249",
-        "ORD-00254",
         "ORD-00260",
         "ORD-00264",
         "ORD-00266",
         "ORD-00271",
-        "ORD-00274"
+        "ORD-00274",
+        "ORD-00254"
       ],
       "matched_orders": [
         {
@@ -4715,18 +4715,18 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00249",
-        "ORD-00254",
+        "ORD-00278",
         "ORD-00256",
-        "ORD-00260",
         "ORD-00263",
+        "ORD-00277",
+        "ORD-00249",
+        "ORD-00260",
         "ORD-00264",
         "ORD-00266",
         "ORD-00271",
-        "ORD-00272",
         "ORD-00274",
-        "ORD-00277",
-        "ORD-00278"
+        "ORD-00254",
+        "ORD-00272"
       ],
       "matched_orders": [
         {
@@ -4779,10 +4779,10 @@
       "utr": "UTR604682041068",
       "status": "MATCHED",
       "matched_order_ids": [
+        "ORD-00295",
         "ORD-00279",
         "ORD-00281",
-        "ORD-00293",
-        "ORD-00295"
+        "ORD-00293"
       ],
       "matched_total_paise": 660161,
       "matched_total": 6601.61,
@@ -4791,14 +4791,22 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00295",
         "ORD-00279",
         "ORD-00281",
-        "ORD-00282",
         "ORD-00284",
         "ORD-00293",
-        "ORD-00295"
+        "ORD-00282"
       ],
       "matched_orders": [
+        {
+          "order_id": "ORD-00295",
+          "order_amount": 1621.54,
+          "commission_amount": 194.58,
+          "refund_amount": 0.0,
+          "net_payable": 1426.96,
+          "order_date": "2026-08-02"
+        },
         {
           "order_id": "ORD-00279",
           "order_amount": 1413.89,
@@ -4822,14 +4830,6 @@
           "refund_amount": 0.0,
           "net_payable": 1631.23,
           "order_date": "2026-08-04"
-        },
-        {
-          "order_id": "ORD-00295",
-          "order_amount": 1621.54,
-          "commission_amount": 194.58,
-          "refund_amount": 0.0,
-          "net_payable": 1426.96,
-          "order_date": "2026-08-02"
         }
       ]
     },
@@ -4852,8 +4852,8 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00282",
         "ORD-00284",
+        "ORD-00282",
         "ORD-00289",
         "ORD-00290"
       ],
@@ -4885,9 +4885,9 @@
       "utr": "UTR689637799519",
       "status": "MATCHED",
       "matched_order_ids": [
+        "ORD-00290",
         "ORD-00280",
-        "ORD-00285",
-        "ORD-00290"
+        "ORD-00285"
       ],
       "matched_total_paise": 545386,
       "matched_total": 5453.86,
@@ -4896,14 +4896,22 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00280",
         "ORD-00284",
-        "ORD-00285",
-        "ORD-00287",
         "ORD-00290",
-        "ORD-00294"
+        "ORD-00280",
+        "ORD-00285",
+        "ORD-00294",
+        "ORD-00287"
       ],
       "matched_orders": [
+        {
+          "order_id": "ORD-00290",
+          "order_amount": 1883.58,
+          "commission_amount": 282.54,
+          "refund_amount": 0.0,
+          "net_payable": 1601.04,
+          "order_date": "2026-08-07"
+        },
         {
           "order_id": "ORD-00280",
           "order_amount": 756.25,
@@ -4919,14 +4927,6 @@
           "refund_amount": 0.0,
           "net_payable": 3232.69,
           "order_date": "2026-08-09"
-        },
-        {
-          "order_id": "ORD-00290",
-          "order_amount": 1883.58,
-          "commission_amount": 282.54,
-          "refund_amount": 0.0,
-          "net_payable": 1601.04,
-          "order_date": "2026-08-07"
         }
       ]
     },
@@ -4971,12 +4971,12 @@
       "utr": "UTR148816329217",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00283",
         "ORD-00287",
-        "ORD-00288",
+        "ORD-00283",
         "ORD-00291",
-        "ORD-00292",
-        "ORD-00297"
+        "ORD-00297",
+        "ORD-00288",
+        "ORD-00292"
       ],
       "matched_total_paise": 1631938,
       "matched_total": 16319.38,
@@ -4985,26 +4985,18 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00283",
         "ORD-00284",
-        "ORD-00286",
-        "ORD-00287",
-        "ORD-00288",
-        "ORD-00291",
-        "ORD-00292",
         "ORD-00294",
-        "ORD-00296",
-        "ORD-00297"
+        "ORD-00287",
+        "ORD-00283",
+        "ORD-00291",
+        "ORD-00297",
+        "ORD-00288",
+        "ORD-00292",
+        "ORD-00286",
+        "ORD-00296"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00283",
-          "order_amount": 4517.28,
-          "commission_amount": 677.59,
-          "refund_amount": 84.37,
-          "net_payable": 3755.32,
-          "order_date": "2026-08-11"
-        },
         {
           "order_id": "ORD-00287",
           "order_amount": 3465.44,
@@ -5014,12 +5006,12 @@
           "order_date": "2026-08-10"
         },
         {
-          "order_id": "ORD-00288",
-          "order_amount": 1659.41,
-          "commission_amount": 199.13,
-          "refund_amount": 49.26,
-          "net_payable": 1411.02,
-          "order_date": "2026-08-13"
+          "order_id": "ORD-00283",
+          "order_amount": 4517.28,
+          "commission_amount": 677.59,
+          "refund_amount": 84.37,
+          "net_payable": 3755.32,
+          "order_date": "2026-08-11"
         },
         {
           "order_id": "ORD-00291",
@@ -5030,20 +5022,28 @@
           "order_date": "2026-08-11"
         },
         {
-          "order_id": "ORD-00292",
-          "order_amount": 785.59,
-          "commission_amount": 157.12,
-          "refund_amount": 0.0,
-          "net_payable": 628.47,
-          "order_date": "2026-08-13"
-        },
-        {
           "order_id": "ORD-00297",
           "order_amount": 4995.54,
           "commission_amount": 749.33,
           "refund_amount": 0.0,
           "net_payable": 4246.21,
           "order_date": "2026-08-11"
+        },
+        {
+          "order_id": "ORD-00288",
+          "order_amount": 1659.41,
+          "commission_amount": 199.13,
+          "refund_amount": 49.26,
+          "net_payable": 1411.02,
+          "order_date": "2026-08-13"
+        },
+        {
+          "order_id": "ORD-00292",
+          "order_amount": 785.59,
+          "commission_amount": 157.12,
+          "refund_amount": 0.0,
+          "net_payable": 628.47,
+          "order_date": "2026-08-13"
         }
       ]
     },
@@ -5067,8 +5067,8 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00284",
-        "ORD-00286",
         "ORD-00294",
+        "ORD-00286",
         "ORD-00296"
       ],
       "matched_orders": [
@@ -5099,10 +5099,10 @@
       "utr": "UTR458891275909",
       "status": "CLOSE_MATCH",
       "matched_order_ids": [
-        "ORD-00298",
-        "ORD-00300",
         "ORD-00309",
-        "ORD-00311"
+        "ORD-00311",
+        "ORD-00298",
+        "ORD-00300"
       ],
       "matched_total_paise": 721268,
       "matched_total": 7212.68,
@@ -5111,29 +5111,13 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00298",
-        "ORD-00300",
         "ORD-00309",
         "ORD-00311",
-        "ORD-00315"
+        "ORD-00315",
+        "ORD-00298",
+        "ORD-00300"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00298",
-          "order_amount": 2125.58,
-          "commission_amount": 318.84,
-          "refund_amount": 0.0,
-          "net_payable": 1806.74,
-          "order_date": "2026-08-03"
-        },
-        {
-          "order_id": "ORD-00300",
-          "order_amount": 774.56,
-          "commission_amount": 38.73,
-          "refund_amount": 0.0,
-          "net_payable": 735.83,
-          "order_date": "2026-08-04"
-        },
         {
           "order_id": "ORD-00309",
           "order_amount": 2031.25,
@@ -5149,6 +5133,22 @@
           "refund_amount": 0.0,
           "net_payable": 2841.98,
           "order_date": "2026-08-01"
+        },
+        {
+          "order_id": "ORD-00298",
+          "order_amount": 2125.58,
+          "commission_amount": 318.84,
+          "refund_amount": 0.0,
+          "net_payable": 1806.74,
+          "order_date": "2026-08-03"
+        },
+        {
+          "order_id": "ORD-00300",
+          "order_amount": 774.56,
+          "commission_amount": 38.73,
+          "refund_amount": 0.0,
+          "net_payable": 735.83,
+          "order_date": "2026-08-04"
         }
       ]
     },
@@ -5161,12 +5161,12 @@
       "utr": "UTR603254986487",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00299",
-        "ORD-00302",
         "ORD-00305",
-        "ORD-00307",
+        "ORD-00313",
+        "ORD-00302",
         "ORD-00312",
-        "ORD-00313"
+        "ORD-00299",
+        "ORD-00307"
       ],
       "matched_total_paise": 1823495,
       "matched_total": 18234.95,
@@ -5175,30 +5175,38 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00298",
-        "ORD-00299",
-        "ORD-00300",
-        "ORD-00301",
-        "ORD-00302",
-        "ORD-00303",
-        "ORD-00304",
-        "ORD-00305",
-        "ORD-00306",
-        "ORD-00307",
         "ORD-00309",
         "ORD-00311",
-        "ORD-00312",
+        "ORD-00315",
+        "ORD-00298",
+        "ORD-00300",
+        "ORD-00303",
+        "ORD-00305",
         "ORD-00313",
-        "ORD-00315"
+        "ORD-00302",
+        "ORD-00312",
+        "ORD-00299",
+        "ORD-00307",
+        "ORD-00301",
+        "ORD-00304",
+        "ORD-00306"
       ],
       "matched_orders": [
         {
-          "order_id": "ORD-00299",
-          "order_amount": 4427.0,
-          "commission_amount": 664.05,
+          "order_id": "ORD-00305",
+          "order_amount": 3278.55,
+          "commission_amount": 491.78,
           "refund_amount": 0.0,
-          "net_payable": 3762.95,
-          "order_date": "2026-08-09"
+          "net_payable": 2786.77,
+          "order_date": "2026-08-05"
+        },
+        {
+          "order_id": "ORD-00313",
+          "order_amount": 2848.48,
+          "commission_amount": 512.73,
+          "refund_amount": 0.0,
+          "net_payable": 2335.75,
+          "order_date": "2026-08-06"
         },
         {
           "order_id": "ORD-00302",
@@ -5209,22 +5217,6 @@
           "order_date": "2026-08-07"
         },
         {
-          "order_id": "ORD-00305",
-          "order_amount": 3278.55,
-          "commission_amount": 491.78,
-          "refund_amount": 0.0,
-          "net_payable": 2786.77,
-          "order_date": "2026-08-05"
-        },
-        {
-          "order_id": "ORD-00307",
-          "order_amount": 3212.82,
-          "commission_amount": 321.28,
-          "refund_amount": 0.0,
-          "net_payable": 2891.54,
-          "order_date": "2026-08-10"
-        },
-        {
           "order_id": "ORD-00312",
           "order_amount": 3882.21,
           "commission_amount": 194.11,
@@ -5233,12 +5225,20 @@
           "order_date": "2026-08-08"
         },
         {
-          "order_id": "ORD-00313",
-          "order_amount": 2848.48,
-          "commission_amount": 512.73,
+          "order_id": "ORD-00299",
+          "order_amount": 4427.0,
+          "commission_amount": 664.05,
           "refund_amount": 0.0,
-          "net_payable": 2335.75,
-          "order_date": "2026-08-06"
+          "net_payable": 3762.95,
+          "order_date": "2026-08-09"
+        },
+        {
+          "order_id": "ORD-00307",
+          "order_amount": 3212.82,
+          "commission_amount": 321.28,
+          "refund_amount": 0.0,
+          "net_payable": 2891.54,
+          "order_date": "2026-08-10"
         }
       ]
     },
@@ -5264,19 +5264,19 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00309",
+        "ORD-00311",
+        "ORD-00315",
         "ORD-00298",
         "ORD-00300",
-        "ORD-00301",
         "ORD-00303",
+        "ORD-00301",
         "ORD-00304",
         "ORD-00306",
-        "ORD-00308",
-        "ORD-00309",
-        "ORD-00310",
-        "ORD-00311",
         "ORD-00314",
-        "ORD-00315",
-        "ORD-00316"
+        "ORD-00310",
+        "ORD-00316",
+        "ORD-00308"
       ],
       "matched_orders": [
         {
@@ -5339,14 +5339,14 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00309",
+        "ORD-00311",
+        "ORD-00315",
         "ORD-00298",
         "ORD-00300",
         "ORD-00303",
-        "ORD-00308",
-        "ORD-00309",
-        "ORD-00311",
         "ORD-00314",
-        "ORD-00315"
+        "ORD-00308"
       ],
       "matched_orders": [
         {
@@ -5368,10 +5368,10 @@
       "utr": "UTR644550144444",
       "status": "UNRESOLVED",
       "matched_order_ids": [
+        "ORD-00334",
         "ORD-00322",
         "ORD-00326",
-        "ORD-00330",
-        "ORD-00334"
+        "ORD-00330"
       ],
       "matched_total_paise": 521344,
       "matched_total": 5213.44,
@@ -5380,12 +5380,20 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00334",
         "ORD-00322",
         "ORD-00326",
-        "ORD-00330",
-        "ORD-00334"
+        "ORD-00330"
       ],
       "matched_orders": [
+        {
+          "order_id": "ORD-00334",
+          "order_amount": 3519.92,
+          "commission_amount": 527.99,
+          "refund_amount": 0.0,
+          "net_payable": 2991.93,
+          "order_date": "2026-08-03"
+        },
         {
           "order_id": "ORD-00322",
           "order_amount": 1622.8,
@@ -5409,14 +5417,6 @@
           "refund_amount": 0.0,
           "net_payable": 108.09,
           "order_date": "2026-08-05"
-        },
-        {
-          "order_id": "ORD-00334",
-          "order_amount": 3519.92,
-          "commission_amount": 527.99,
-          "refund_amount": 0.0,
-          "net_payable": 2991.93,
-          "order_date": "2026-08-03"
         }
       ]
     },
@@ -5429,8 +5429,8 @@
       "utr": "UTR724051842709",
       "status": "CLOSE_MATCH",
       "matched_order_ids": [
-        "ORD-00318",
-        "ORD-00330"
+        "ORD-00330",
+        "ORD-00318"
       ],
       "matched_total_paise": 315754,
       "matched_total": 3157.54,
@@ -5439,23 +5439,15 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00318",
+        "ORD-00334",
         "ORD-00322",
-        "ORD-00323",
         "ORD-00326",
-        "ORD-00327",
         "ORD-00330",
-        "ORD-00334"
+        "ORD-00318",
+        "ORD-00323",
+        "ORD-00327"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00318",
-          "order_amount": 3718.84,
-          "commission_amount": 669.39,
-          "refund_amount": 0.0,
-          "net_payable": 3049.45,
-          "order_date": "2026-08-07"
-        },
         {
           "order_id": "ORD-00330",
           "order_amount": 127.16,
@@ -5463,6 +5455,14 @@
           "refund_amount": 0.0,
           "net_payable": 108.09,
           "order_date": "2026-08-05"
+        },
+        {
+          "order_id": "ORD-00318",
+          "order_amount": 3718.84,
+          "commission_amount": 669.39,
+          "refund_amount": 0.0,
+          "net_payable": 3049.45,
+          "order_date": "2026-08-07"
         }
       ]
     },
@@ -5475,10 +5475,10 @@
       "utr": "UTR599438389318",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00317",
+        "ORD-00328",
         "ORD-00320",
         "ORD-00325",
-        "ORD-00328",
+        "ORD-00317",
         "ORD-00333"
       ],
       "matched_total_paise": 1114525,
@@ -5488,29 +5488,29 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00317",
-        "ORD-00318",
-        "ORD-00320",
+        "ORD-00334",
         "ORD-00322",
-        "ORD-00323",
-        "ORD-00325",
         "ORD-00326",
+        "ORD-00330",
+        "ORD-00318",
+        "ORD-00323",
         "ORD-00327",
         "ORD-00328",
-        "ORD-00329",
-        "ORD-00330",
+        "ORD-00320",
+        "ORD-00325",
+        "ORD-00317",
         "ORD-00331",
         "ORD-00333",
-        "ORD-00334"
+        "ORD-00329"
       ],
       "matched_orders": [
         {
-          "order_id": "ORD-00317",
-          "order_amount": 1278.95,
-          "commission_amount": 127.9,
-          "refund_amount": 0.0,
-          "net_payable": 1151.05,
-          "order_date": "2026-08-10"
+          "order_id": "ORD-00328",
+          "order_amount": 3444.66,
+          "commission_amount": 275.57,
+          "refund_amount": 551.72,
+          "net_payable": 2617.37,
+          "order_date": "2026-08-08"
         },
         {
           "order_id": "ORD-00320",
@@ -5529,12 +5529,12 @@
           "order_date": "2026-08-09"
         },
         {
-          "order_id": "ORD-00328",
-          "order_amount": 3444.66,
-          "commission_amount": 275.57,
-          "refund_amount": 551.72,
-          "net_payable": 2617.37,
-          "order_date": "2026-08-08"
+          "order_id": "ORD-00317",
+          "order_amount": 1278.95,
+          "commission_amount": 127.9,
+          "refund_amount": 0.0,
+          "net_payable": 1151.05,
+          "order_date": "2026-08-10"
         },
         {
           "order_id": "ORD-00333",
@@ -5555,10 +5555,10 @@
       "utr": "UTR657706054926",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00319",
-        "ORD-00321",
-        "ORD-00324",
         "ORD-00329",
+        "ORD-00321",
+        "ORD-00319",
+        "ORD-00324",
         "ORD-00332"
       ],
       "matched_total_paise": 1149644,
@@ -5568,28 +5568,28 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00318",
-        "ORD-00319",
-        "ORD-00321",
+        "ORD-00334",
         "ORD-00322",
-        "ORD-00323",
-        "ORD-00324",
         "ORD-00326",
-        "ORD-00327",
-        "ORD-00329",
         "ORD-00330",
+        "ORD-00318",
+        "ORD-00323",
+        "ORD-00327",
         "ORD-00331",
-        "ORD-00332",
-        "ORD-00334"
+        "ORD-00329",
+        "ORD-00321",
+        "ORD-00319",
+        "ORD-00324",
+        "ORD-00332"
       ],
       "matched_orders": [
         {
-          "order_id": "ORD-00319",
-          "order_amount": 1928.73,
-          "commission_amount": 289.31,
-          "refund_amount": 0.0,
-          "net_payable": 1639.42,
-          "order_date": "2026-08-16"
+          "order_id": "ORD-00329",
+          "order_amount": 3861.02,
+          "commission_amount": 463.32,
+          "refund_amount": 1020.25,
+          "net_payable": 2377.45,
+          "order_date": "2026-08-11"
         },
         {
           "order_id": "ORD-00321",
@@ -5600,20 +5600,20 @@
           "order_date": "2026-08-13"
         },
         {
+          "order_id": "ORD-00319",
+          "order_amount": 1928.73,
+          "commission_amount": 289.31,
+          "refund_amount": 0.0,
+          "net_payable": 1639.42,
+          "order_date": "2026-08-16"
+        },
+        {
           "order_id": "ORD-00324",
           "order_amount": 1221.9,
           "commission_amount": 97.75,
           "refund_amount": 0.0,
           "net_payable": 1124.15,
           "order_date": "2026-08-16"
-        },
-        {
-          "order_id": "ORD-00329",
-          "order_amount": 3861.02,
-          "commission_amount": 463.32,
-          "refund_amount": 1020.25,
-          "net_payable": 2377.45,
-          "order_date": "2026-08-11"
         },
         {
           "order_id": "ORD-00332",
@@ -5666,10 +5666,10 @@
       "utr": "UTR339426407161",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00338",
-        "ORD-00340",
         "ORD-00344",
-        "ORD-00346"
+        "ORD-00340",
+        "ORD-00346",
+        "ORD-00338"
       ],
       "matched_total_paise": 550944,
       "matched_total": 5509.44,
@@ -5678,24 +5678,24 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00338",
-        "ORD-00340",
         "ORD-00344",
-        "ORD-00346",
-        "ORD-00349",
-        "ORD-00352",
+        "ORD-00340",
         "ORD-00353",
+        "ORD-00349",
+        "ORD-00346",
+        "ORD-00338",
+        "ORD-00352",
         "ORD-00355",
         "ORD-00357"
       ],
       "matched_orders": [
         {
-          "order_id": "ORD-00338",
-          "order_amount": 1020.09,
-          "commission_amount": 153.01,
+          "order_id": "ORD-00344",
+          "order_amount": 1471.29,
+          "commission_amount": 264.83,
           "refund_amount": 0.0,
-          "net_payable": 867.08,
-          "order_date": "2026-08-07"
+          "net_payable": 1206.46,
+          "order_date": "2026-08-01"
         },
         {
           "order_id": "ORD-00340",
@@ -5706,20 +5706,20 @@
           "order_date": "2026-08-03"
         },
         {
-          "order_id": "ORD-00344",
-          "order_amount": 1471.29,
-          "commission_amount": 264.83,
-          "refund_amount": 0.0,
-          "net_payable": 1206.46,
-          "order_date": "2026-08-01"
-        },
-        {
           "order_id": "ORD-00346",
           "order_amount": 2225.55,
           "commission_amount": 400.6,
           "refund_amount": 0.0,
           "net_payable": 1824.95,
           "order_date": "2026-08-06"
+        },
+        {
+          "order_id": "ORD-00338",
+          "order_amount": 1020.09,
+          "commission_amount": 153.01,
+          "refund_amount": 0.0,
+          "net_payable": 867.08,
+          "order_date": "2026-08-07"
         }
       ]
     },
@@ -5732,11 +5732,11 @@
       "utr": "UTR870278886192",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00342",
-        "ORD-00345",
         "ORD-00352",
         "ORD-00355",
-        "ORD-00357"
+        "ORD-00357",
+        "ORD-00342",
+        "ORD-00345"
       ],
       "matched_total_paise": 1192645,
       "matched_total": 11926.45,
@@ -5745,32 +5745,16 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00335",
-        "ORD-00342",
-        "ORD-00345",
+        "ORD-00353",
         "ORD-00349",
         "ORD-00352",
-        "ORD-00353",
         "ORD-00355",
-        "ORD-00357"
+        "ORD-00357",
+        "ORD-00342",
+        "ORD-00345",
+        "ORD-00335"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00342",
-          "order_amount": 2442.18,
-          "commission_amount": 488.44,
-          "refund_amount": 0.0,
-          "net_payable": 1953.74,
-          "order_date": "2026-08-08"
-        },
-        {
-          "order_id": "ORD-00345",
-          "order_amount": 425.71,
-          "commission_amount": 76.63,
-          "refund_amount": 60.26,
-          "net_payable": 288.82,
-          "order_date": "2026-08-08"
-        },
         {
           "order_id": "ORD-00352",
           "order_amount": 4094.33,
@@ -5794,6 +5778,22 @@
           "refund_amount": 0.0,
           "net_payable": 3279.9,
           "order_date": "2026-08-07"
+        },
+        {
+          "order_id": "ORD-00342",
+          "order_amount": 2442.18,
+          "commission_amount": 488.44,
+          "refund_amount": 0.0,
+          "net_payable": 1953.74,
+          "order_date": "2026-08-08"
+        },
+        {
+          "order_id": "ORD-00345",
+          "order_amount": 425.71,
+          "commission_amount": 76.63,
+          "refund_amount": 60.26,
+          "net_payable": 288.82,
+          "order_date": "2026-08-08"
         }
       ]
     },
@@ -5815,9 +5815,9 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00335",
+        "ORD-00353",
         "ORD-00349",
-        "ORD-00353"
+        "ORD-00335"
       ],
       "matched_orders": [
         {
@@ -5848,10 +5848,10 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00347",
-        "ORD-00348",
+        "ORD-00353",
         "ORD-00349",
-        "ORD-00353"
+        "ORD-00347",
+        "ORD-00348"
       ],
       "matched_orders": [
         {
@@ -5882,8 +5882,8 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00349",
-        "ORD-00353"
+        "ORD-00353",
+        "ORD-00349"
       ],
       "matched_orders": [
         {
@@ -5905,10 +5905,10 @@
       "utr": "UTR230342679193",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00343",
         "ORD-00348",
-        "ORD-00350",
-        "ORD-00356"
+        "ORD-00343",
+        "ORD-00356",
+        "ORD-00350"
       ],
       "matched_total_paise": 891628,
       "matched_total": 8916.28,
@@ -5917,23 +5917,15 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00343",
-        "ORD-00348",
-        "ORD-00349",
-        "ORD-00350",
         "ORD-00353",
-        "ORD-00354",
-        "ORD-00356"
+        "ORD-00349",
+        "ORD-00348",
+        "ORD-00343",
+        "ORD-00356",
+        "ORD-00350",
+        "ORD-00354"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00343",
-          "order_amount": 1683.06,
-          "commission_amount": 252.46,
-          "refund_amount": 0.0,
-          "net_payable": 1430.6,
-          "order_date": "2026-08-11"
-        },
         {
           "order_id": "ORD-00348",
           "order_amount": 2026.98,
@@ -5943,12 +5935,12 @@
           "order_date": "2026-08-10"
         },
         {
-          "order_id": "ORD-00350",
-          "order_amount": 2280.22,
-          "commission_amount": 410.44,
+          "order_id": "ORD-00343",
+          "order_amount": 1683.06,
+          "commission_amount": 252.46,
           "refund_amount": 0.0,
-          "net_payable": 1869.78,
-          "order_date": "2026-08-12"
+          "net_payable": 1430.6,
+          "order_date": "2026-08-11"
         },
         {
           "order_id": "ORD-00356",
@@ -5957,6 +5949,14 @@
           "refund_amount": 0.0,
           "net_payable": 3892.97,
           "order_date": "2026-08-11"
+        },
+        {
+          "order_id": "ORD-00350",
+          "order_amount": 2280.22,
+          "commission_amount": 410.44,
+          "refund_amount": 0.0,
+          "net_payable": 1869.78,
+          "order_date": "2026-08-12"
         }
       ]
     },
@@ -5978,8 +5978,8 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00349",
-        "ORD-00353"
+        "ORD-00353",
+        "ORD-00349"
       ],
       "matched_orders": [
         {
@@ -6001,8 +6001,8 @@
       "utr": "UTR840722961506",
       "status": "CLOSE_MATCH",
       "matched_order_ids": [
-        "ORD-00339",
-        "ORD-00354"
+        "ORD-00354",
+        "ORD-00339"
       ],
       "matched_total_paise": 419078,
       "matched_total": 4190.78,
@@ -6011,20 +6011,12 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00339",
-        "ORD-00349",
         "ORD-00353",
-        "ORD-00354"
+        "ORD-00349",
+        "ORD-00354",
+        "ORD-00339"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00339",
-          "order_amount": 4435.8,
-          "commission_amount": 532.3,
-          "refund_amount": 0.0,
-          "net_payable": 3903.5,
-          "order_date": "2026-08-13"
-        },
         {
           "order_id": "ORD-00354",
           "order_amount": 509.48,
@@ -6032,6 +6024,14 @@
           "refund_amount": 145.78,
           "net_payable": 287.28,
           "order_date": "2026-08-12"
+        },
+        {
+          "order_id": "ORD-00339",
+          "order_amount": 4435.8,
+          "commission_amount": 532.3,
+          "refund_amount": 0.0,
+          "net_payable": 3903.5,
+          "order_date": "2026-08-13"
         }
       ]
     },
@@ -6045,9 +6045,9 @@
       "status": "MATCHED",
       "matched_order_ids": [
         "ORD-00336",
+        "ORD-00358",
         "ORD-00341",
-        "ORD-00351",
-        "ORD-00358"
+        "ORD-00351"
       ],
       "matched_total_paise": 1212346,
       "matched_total": 12123.46,
@@ -6056,14 +6056,14 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00336",
-        "ORD-00339",
-        "ORD-00341",
-        "ORD-00349",
-        "ORD-00351",
         "ORD-00353",
+        "ORD-00349",
         "ORD-00354",
-        "ORD-00358"
+        "ORD-00339",
+        "ORD-00336",
+        "ORD-00358",
+        "ORD-00341",
+        "ORD-00351"
       ],
       "matched_orders": [
         {
@@ -6072,6 +6072,14 @@
           "commission_amount": 349.89,
           "refund_amount": 0.0,
           "net_payable": 3148.99,
+          "order_date": "2026-08-15"
+        },
+        {
+          "order_id": "ORD-00358",
+          "order_amount": 4339.87,
+          "commission_amount": 216.99,
+          "refund_amount": 0.0,
+          "net_payable": 4122.88,
           "order_date": "2026-08-15"
         },
         {
@@ -6089,14 +6097,6 @@
           "refund_amount": 0.0,
           "net_payable": 3460.09,
           "order_date": "2026-08-16"
-        },
-        {
-          "order_id": "ORD-00358",
-          "order_amount": 4339.87,
-          "commission_amount": 216.99,
-          "refund_amount": 0.0,
-          "net_payable": 4122.88,
-          "order_date": "2026-08-15"
         }
       ]
     },
@@ -6190,8 +6190,8 @@
       "utr": "UTR468967896485",
       "status": "CLOSE_MATCH",
       "matched_order_ids": [
-        "ORD-00359",
-        "ORD-00360"
+        "ORD-00360",
+        "ORD-00359"
       ],
       "matched_total_paise": 163670,
       "matched_total": 1636.7,
@@ -6200,18 +6200,10 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00359",
-        "ORD-00360"
+        "ORD-00360",
+        "ORD-00359"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00359",
-          "order_amount": 1545.19,
-          "commission_amount": 123.62,
-          "refund_amount": 0.0,
-          "net_payable": 1421.57,
-          "order_date": "2026-08-05"
-        },
         {
           "order_id": "ORD-00360",
           "order_amount": 268.91,
@@ -6219,6 +6211,14 @@
           "refund_amount": 0.0,
           "net_payable": 215.13,
           "order_date": "2026-08-04"
+        },
+        {
+          "order_id": "ORD-00359",
+          "order_amount": 1545.19,
+          "commission_amount": 123.62,
+          "refund_amount": 0.0,
+          "net_payable": 1421.57,
+          "order_date": "2026-08-05"
         }
       ]
     },
@@ -6249,11 +6249,11 @@
       "utr": "UTR370215467820",
       "status": "MATCHED",
       "matched_order_ids": [
+        "ORD-00369",
+        "ORD-00373",
         "ORD-00364",
         "ORD-00366",
         "ORD-00368",
-        "ORD-00369",
-        "ORD-00373",
         "ORD-00374"
       ],
       "matched_total_paise": 1588774,
@@ -6263,17 +6263,33 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00359",
         "ORD-00360",
+        "ORD-00359",
+        "ORD-00369",
+        "ORD-00373",
         "ORD-00364",
         "ORD-00366",
         "ORD-00368",
-        "ORD-00369",
-        "ORD-00373",
         "ORD-00374",
         "ORD-00377"
       ],
       "matched_orders": [
+        {
+          "order_id": "ORD-00369",
+          "order_amount": 3382.0,
+          "commission_amount": 608.76,
+          "refund_amount": 0.0,
+          "net_payable": 2773.24,
+          "order_date": "2026-08-06"
+        },
+        {
+          "order_id": "ORD-00373",
+          "order_amount": 4055.31,
+          "commission_amount": 608.3,
+          "refund_amount": 0.0,
+          "net_payable": 3447.01,
+          "order_date": "2026-08-06"
+        },
         {
           "order_id": "ORD-00364",
           "order_amount": 2929.89,
@@ -6299,22 +6315,6 @@
           "order_date": "2026-08-08"
         },
         {
-          "order_id": "ORD-00369",
-          "order_amount": 3382.0,
-          "commission_amount": 608.76,
-          "refund_amount": 0.0,
-          "net_payable": 2773.24,
-          "order_date": "2026-08-06"
-        },
-        {
-          "order_id": "ORD-00373",
-          "order_amount": 4055.31,
-          "commission_amount": 608.3,
-          "refund_amount": 0.0,
-          "net_payable": 3447.01,
-          "order_date": "2026-08-06"
-        },
-        {
           "order_id": "ORD-00374",
           "order_amount": 1676.72,
           "commission_amount": 335.34,
@@ -6333,12 +6333,12 @@
       "utr": "UTR706618307372",
       "status": "MATCHED",
       "matched_order_ids": [
+        "ORD-00377",
         "ORD-00367",
-        "ORD-00370",
         "ORD-00372",
-        "ORD-00375",
         "ORD-00376",
-        "ORD-00377"
+        "ORD-00375",
+        "ORD-00370"
       ],
       "matched_total_paise": 1212183,
       "matched_total": 12121.83,
@@ -6347,17 +6347,25 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00359",
         "ORD-00360",
+        "ORD-00359",
+        "ORD-00377",
         "ORD-00367",
-        "ORD-00370",
         "ORD-00371",
         "ORD-00372",
-        "ORD-00375",
         "ORD-00376",
-        "ORD-00377"
+        "ORD-00375",
+        "ORD-00370"
       ],
       "matched_orders": [
+        {
+          "order_id": "ORD-00377",
+          "order_amount": 1436.91,
+          "commission_amount": 114.95,
+          "refund_amount": 0.0,
+          "net_payable": 1321.96,
+          "order_date": "2026-08-08"
+        },
         {
           "order_id": "ORD-00367",
           "order_amount": 1342.05,
@@ -6367,19 +6375,19 @@
           "order_date": "2026-08-11"
         },
         {
-          "order_id": "ORD-00370",
-          "order_amount": 345.8,
-          "commission_amount": 34.58,
-          "refund_amount": 0.0,
-          "net_payable": 311.22,
-          "order_date": "2026-08-16"
-        },
-        {
           "order_id": "ORD-00372",
           "order_amount": 2240.45,
           "commission_amount": 179.24,
           "refund_amount": 0.0,
           "net_payable": 2061.21,
+          "order_date": "2026-08-14"
+        },
+        {
+          "order_id": "ORD-00376",
+          "order_amount": 3021.78,
+          "commission_amount": 453.27,
+          "refund_amount": 0.0,
+          "net_payable": 2568.51,
           "order_date": "2026-08-14"
         },
         {
@@ -6391,20 +6399,12 @@
           "order_date": "2026-08-15"
         },
         {
-          "order_id": "ORD-00376",
-          "order_amount": 3021.78,
-          "commission_amount": 453.27,
+          "order_id": "ORD-00370",
+          "order_amount": 345.8,
+          "commission_amount": 34.58,
           "refund_amount": 0.0,
-          "net_payable": 2568.51,
-          "order_date": "2026-08-14"
-        },
-        {
-          "order_id": "ORD-00377",
-          "order_amount": 1436.91,
-          "commission_amount": 114.95,
-          "refund_amount": 0.0,
-          "net_payable": 1321.96,
-          "order_date": "2026-08-08"
+          "net_payable": 311.22,
+          "order_date": "2026-08-16"
         }
       ]
     },
@@ -6448,11 +6448,11 @@
       "utr": "UTR973026512093",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00380",
-        "ORD-00384",
         "ORD-00393",
         "ORD-00395",
-        "ORD-00399"
+        "ORD-00384",
+        "ORD-00399",
+        "ORD-00380"
       ],
       "matched_total_paise": 1177879,
       "matched_total": 11778.79,
@@ -6461,32 +6461,16 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00380",
-        "ORD-00384",
-        "ORD-00385",
-        "ORD-00386",
-        "ORD-00388",
         "ORD-00393",
         "ORD-00395",
-        "ORD-00399"
+        "ORD-00384",
+        "ORD-00385",
+        "ORD-00399",
+        "ORD-00380",
+        "ORD-00386",
+        "ORD-00388"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00380",
-          "order_amount": 2095.76,
-          "commission_amount": 251.49,
-          "refund_amount": 0.0,
-          "net_payable": 1844.27,
-          "order_date": "2026-08-10"
-        },
-        {
-          "order_id": "ORD-00384",
-          "order_amount": 2043.56,
-          "commission_amount": 204.36,
-          "refund_amount": 0.0,
-          "net_payable": 1839.2,
-          "order_date": "2026-08-07"
-        },
         {
           "order_id": "ORD-00393",
           "order_amount": 4388.65,
@@ -6504,12 +6488,28 @@
           "order_date": "2026-08-03"
         },
         {
+          "order_id": "ORD-00384",
+          "order_amount": 2043.56,
+          "commission_amount": 204.36,
+          "refund_amount": 0.0,
+          "net_payable": 1839.2,
+          "order_date": "2026-08-07"
+        },
+        {
           "order_id": "ORD-00399",
           "order_amount": 2908.81,
           "commission_amount": 290.88,
           "refund_amount": 924.69,
           "net_payable": 1693.24,
           "order_date": "2026-08-09"
+        },
+        {
+          "order_id": "ORD-00380",
+          "order_amount": 2095.76,
+          "commission_amount": 251.49,
+          "refund_amount": 0.0,
+          "net_payable": 1844.27,
+          "order_date": "2026-08-10"
         }
       ]
     },
@@ -6522,9 +6522,9 @@
       "utr": "UTR720446670928",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00381",
         "ORD-00386",
         "ORD-00388",
+        "ORD-00381",
         "ORD-00390"
       ],
       "matched_total_paise": 444020,
@@ -6534,22 +6534,14 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00381",
         "ORD-00385",
         "ORD-00386",
-        "ORD-00387",
         "ORD-00388",
-        "ORD-00390"
+        "ORD-00381",
+        "ORD-00390",
+        "ORD-00387"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00381",
-          "order_amount": 1717.02,
-          "commission_amount": 171.7,
-          "refund_amount": 0.0,
-          "net_payable": 1545.32,
-          "order_date": "2026-08-12"
-        },
         {
           "order_id": "ORD-00386",
           "order_amount": 899.07,
@@ -6565,6 +6557,14 @@
           "refund_amount": 0.0,
           "net_payable": 1159.3,
           "order_date": "2026-08-11"
+        },
+        {
+          "order_id": "ORD-00381",
+          "order_amount": 1717.02,
+          "commission_amount": 171.7,
+          "refund_amount": 0.0,
+          "net_payable": 1545.32,
+          "order_date": "2026-08-12"
         },
         {
           "order_id": "ORD-00390",
@@ -6623,8 +6623,8 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00383",
-        "ORD-00385"
+        "ORD-00385",
+        "ORD-00383"
       ],
       "matched_orders": []
     },
@@ -6639,8 +6639,8 @@
       "matched_order_ids": [
         "ORD-00387",
         "ORD-00394",
-        "ORD-00396",
-        "ORD-00398"
+        "ORD-00398",
+        "ORD-00396"
       ],
       "matched_total_paise": 523437,
       "matched_total": 5234.37,
@@ -6652,8 +6652,8 @@
         "ORD-00385",
         "ORD-00387",
         "ORD-00394",
-        "ORD-00396",
-        "ORD-00398"
+        "ORD-00398",
+        "ORD-00396"
       ],
       "matched_orders": [
         {
@@ -6673,20 +6673,20 @@
           "order_date": "2026-08-14"
         },
         {
-          "order_id": "ORD-00396",
-          "order_amount": 2056.64,
-          "commission_amount": 102.83,
-          "refund_amount": 0.0,
-          "net_payable": 1953.81,
-          "order_date": "2026-08-15"
-        },
-        {
           "order_id": "ORD-00398",
           "order_amount": 162.13,
           "commission_amount": 8.11,
           "refund_amount": 0.0,
           "net_payable": 154.02,
           "order_date": "2026-08-14"
+        },
+        {
+          "order_id": "ORD-00396",
+          "order_amount": 2056.64,
+          "commission_amount": 102.83,
+          "refund_amount": 0.0,
+          "net_payable": 1953.81,
+          "order_date": "2026-08-15"
         }
       ]
     },
@@ -6709,9 +6709,9 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00385",
         "ORD-00382",
         "ORD-00383",
-        "ORD-00385",
         "ORD-00389"
       ],
       "matched_orders": [
@@ -6752,9 +6752,9 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
+        "ORD-00385",
         "ORD-00382",
         "ORD-00383",
-        "ORD-00385",
         "ORD-00389",
         "ORD-00391",
         "ORD-00397"
@@ -6788,8 +6788,8 @@
       "status": "MATCHED",
       "matched_order_ids": [
         "ORD-00403",
-        "ORD-00408",
-        "ORD-00409"
+        "ORD-00409",
+        "ORD-00408"
       ],
       "matched_total_paise": 360593,
       "matched_total": 3605.93,
@@ -6799,8 +6799,8 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00403",
-        "ORD-00408",
         "ORD-00409",
+        "ORD-00408",
         "ORD-00410"
       ],
       "matched_orders": [
@@ -6813,20 +6813,20 @@
           "order_date": "2026-08-02"
         },
         {
-          "order_id": "ORD-00408",
-          "order_amount": 2725.59,
-          "commission_amount": 490.61,
-          "refund_amount": 0.0,
-          "net_payable": 2234.98,
-          "order_date": "2026-08-03"
-        },
-        {
           "order_id": "ORD-00409",
           "order_amount": 612.15,
           "commission_amount": 73.46,
           "refund_amount": 0.0,
           "net_payable": 538.69,
           "order_date": "2026-08-02"
+        },
+        {
+          "order_id": "ORD-00408",
+          "order_amount": 2725.59,
+          "commission_amount": 490.61,
+          "refund_amount": 0.0,
+          "net_payable": 2234.98,
+          "order_date": "2026-08-03"
         }
       ]
     },
@@ -6839,8 +6839,8 @@
       "utr": "UTR303718235716",
       "status": "MATCHED",
       "matched_order_ids": [
-        "ORD-00404",
-        "ORD-00410"
+        "ORD-00410",
+        "ORD-00404"
       ],
       "matched_total_paise": 452636,
       "matched_total": 4526.36,
@@ -6849,20 +6849,12 @@
       "tolerance_paise": 3000,
       "search_capped": false,
       "eligible_order_ids": [
-        "ORD-00400",
+        "ORD-00410",
         "ORD-00404",
-        "ORD-00406",
-        "ORD-00410"
+        "ORD-00400",
+        "ORD-00406"
       ],
       "matched_orders": [
-        {
-          "order_id": "ORD-00404",
-          "order_amount": 3177.75,
-          "commission_amount": 254.22,
-          "refund_amount": 0.0,
-          "net_payable": 2923.53,
-          "order_date": "2026-08-07"
-        },
         {
           "order_id": "ORD-00410",
           "order_amount": 1885.68,
@@ -6870,6 +6862,14 @@
           "refund_amount": 0.0,
           "net_payable": 1602.83,
           "order_date": "2026-08-03"
+        },
+        {
+          "order_id": "ORD-00404",
+          "order_amount": 3177.75,
+          "commission_amount": 254.22,
+          "refund_amount": 0.0,
+          "net_payable": 2923.53,
+          "order_date": "2026-08-07"
         }
       ]
     },
@@ -6883,10 +6883,10 @@
       "status": "MATCHED",
       "matched_order_ids": [
         "ORD-00400",
-        "ORD-00401",
         "ORD-00402",
+        "ORD-00407",
         "ORD-00405",
-        "ORD-00407"
+        "ORD-00401"
       ],
       "matched_total_paise": 1291614,
       "matched_total": 12916.14,
@@ -6896,11 +6896,11 @@
       "search_capped": false,
       "eligible_order_ids": [
         "ORD-00400",
-        "ORD-00401",
-        "ORD-00402",
-        "ORD-00405",
         "ORD-00406",
-        "ORD-00407"
+        "ORD-00402",
+        "ORD-00407",
+        "ORD-00405",
+        "ORD-00401"
       ],
       "matched_orders": [
         {
@@ -6912,20 +6912,20 @@
           "order_date": "2026-08-08"
         },
         {
-          "order_id": "ORD-00401",
-          "order_amount": 1521.31,
-          "commission_amount": 76.07,
-          "refund_amount": 0.0,
-          "net_payable": 1445.24,
-          "order_date": "2026-08-16"
-        },
-        {
           "order_id": "ORD-00402",
           "order_amount": 4814.98,
           "commission_amount": 722.25,
           "refund_amount": 0.0,
           "net_payable": 4092.73,
           "order_date": "2026-08-09"
+        },
+        {
+          "order_id": "ORD-00407",
+          "order_amount": 2112.45,
+          "commission_amount": 422.49,
+          "refund_amount": 0.0,
+          "net_payable": 1689.96,
+          "order_date": "2026-08-11"
         },
         {
           "order_id": "ORD-00405",
@@ -6936,12 +6936,12 @@
           "order_date": "2026-08-13"
         },
         {
-          "order_id": "ORD-00407",
-          "order_amount": 2112.45,
-          "commission_amount": 422.49,
+          "order_id": "ORD-00401",
+          "order_amount": 1521.31,
+          "commission_amount": 76.07,
           "refund_amount": 0.0,
-          "net_payable": 1689.96,
-          "order_date": "2026-08-11"
+          "net_payable": 1445.24,
+          "order_date": "2026-08-16"
         }
       ]
     }

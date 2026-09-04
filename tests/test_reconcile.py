@@ -71,6 +71,62 @@ def test_multi_order_requires_combination():
     assert result["matched_total"] == 250
 
 
+def test_exact_match_tie_break_prefers_contiguous_batch():
+    """Regression test for a real bug found by stress-testing ground-truth
+    accuracy across 100 random seeds (see README section 8, "Exact-match
+    tie-breaking"). A payout's target can occasionally be reached by more
+    than one distinct exact subset. Here, an old unrelated leftover order
+    (250) plus one order from a true 3-order batch (90) coincidentally sums
+    to the same target as the true, contiguous, more-recent 3-order batch
+    (100 + 150 + 90 = 340). The engine must prefer the contiguous batch --
+    picking the smaller/older coincidence is still financially "correct"
+    (delta 0 either way) but attributes the payout to the wrong orders.
+    """
+    old_leftover = make_order("OLD", "S1", 250, D0)
+    t1 = make_order("T1", "S1", 100, D0 + timedelta(days=9))
+    t2 = make_order("T2", "S1", 150, D0 + timedelta(days=10))
+    t3 = make_order("T3", "S1", 90, D0 + timedelta(days=11))
+    orders = [old_leftover, t1, t2, t3]
+    payouts = [make_payout("P1", "S1", 340, D0 + timedelta(days=12))]
+
+    outcome = reconcile(orders, payouts)
+    result = outcome["results"][0]
+
+    assert result["status"] == "MATCHED"
+    assert set(result["matched_order_ids"]) == {"T1", "T2", "T3"}
+    assert "OLD" not in result["matched_order_ids"]
+
+
+def test_exact_match_tie_break_prevents_cascade_failure():
+    """Full cascade regression: if the tie-break above picked the wrong,
+    non-contiguous combination (OLD + T3), it would steal OLD from a
+    separate, unrelated, earlier payout that genuinely needs it -- turning
+    a clean CLOSE_MATCH into a false UNRESOLVED (OLD's real payout has no
+    other eligible orders once its actual order is stolen). Both payouts
+    must resolve correctly.
+    """
+    old_leftover = make_order("OLD", "S1", 250, D0)
+    t1 = make_order("T1", "S1", 100, D0 + timedelta(days=9))
+    t2 = make_order("T2", "S1", 150, D0 + timedelta(days=10))
+    t3 = make_order("T3", "S1", 90, D0 + timedelta(days=11))
+    orders = [old_leftover, t1, t2, t3]
+    payouts = [
+        # OLD is genuinely this payout's order, short by a small fee -- a
+        # real CLOSE_MATCH, processed (chronologically) before P_BATCH.
+        make_payout("P_OLD", "S1", 245, D0 + timedelta(days=1)),
+        make_payout("P_BATCH", "S1", 340, D0 + timedelta(days=12)),
+    ]
+
+    outcome = reconcile(orders, payouts)
+    results = {r["payout_id"]: r for r in outcome["results"]}
+
+    assert results["P_BATCH"]["status"] == "MATCHED"
+    assert set(results["P_BATCH"]["matched_order_ids"]) == {"T1", "T2", "T3"}
+    assert results["P_OLD"]["status"] == "CLOSE_MATCH"
+    assert results["P_OLD"]["matched_order_ids"] == ["OLD"]
+    assert round(results["P_OLD"]["delta"], 2) == 5.00
+
+
 # --------------------------------------------------------------------------
 # TEST 3 -- CLOSE
 # --------------------------------------------------------------------------
@@ -225,3 +281,67 @@ def test_find_best_subset_uses_integer_paise_internally():
     outcome = find_best_subset(eligible, target_paise=2000, tolerance_paise=0)
     assert outcome["match_kind"] == "exact"
     assert outcome["delta_paise"] == 0
+
+
+# --------------------------------------------------------------------------
+# Search-size cap (FULL_SEARCH_MAX_ELIGIBLE / CAPPED_SUBSET_SIZE)
+# --------------------------------------------------------------------------
+def test_search_capped_flag_is_false_within_full_search_limit():
+    eligible = [("A", 100), ("B", 200), ("C", 300)]
+    outcome = find_best_subset(eligible, target_paise=300, tolerance_paise=0)
+    assert outcome["search_capped"] is False
+    assert outcome["match_kind"] == "exact"
+
+
+def test_search_capped_flag_true_and_misses_exact_match_beyond_the_cap(monkeypatch):
+    """When the eligible set exceeds FULL_SEARCH_MAX_ELIGIBLE, the search is
+    bounded to combinations up to CAPPED_SUBSET_SIZE. This test forces that
+    cap with a tiny configuration and proves two things: (1) search_capped
+    is reported True so the trade-off is never silent, and (2) a genuine
+    exact match that requires more orders than the cap allows is correctly
+    NOT found (it falls back to the best candidate within the capped size),
+    exactly as documented in reconcile.py.
+    """
+    monkeypatch.setattr(config, "FULL_SEARCH_MAX_ELIGIBLE", 3)
+    monkeypatch.setattr(config, "CAPPED_SUBSET_SIZE", 2)
+
+    # 4 eligible orders (> FULL_SEARCH_MAX_ELIGIBLE=3) whose exact-sum target
+    # requires all 4 -- no subset of size <= CAPPED_SUBSET_SIZE=2 can reach it.
+    eligible = [("A", 100), ("B", 100), ("C", 100), ("D", 100)]
+    outcome = find_best_subset(eligible, target_paise=400, tolerance_paise=0)
+
+    assert outcome["search_capped"] is True
+    assert outcome["match_kind"] != "exact"  # the true 4-order exact match is out of reach
+    assert outcome["total_paise"] <= 200  # best it can do is a 2-order subset
+
+
+def test_search_capped_flag_true_but_still_finds_exact_match_within_cap(monkeypatch):
+    """A capped search still finds an exact match that DOES fit within
+    CAPPED_SUBSET_SIZE, even though the eligible set as a whole is capped."""
+    monkeypatch.setattr(config, "FULL_SEARCH_MAX_ELIGIBLE", 3)
+    monkeypatch.setattr(config, "CAPPED_SUBSET_SIZE", 2)
+
+    eligible = [("A", 100), ("B", 100), ("C", 100), ("D", 150)]
+    outcome = find_best_subset(eligible, target_paise=250, tolerance_paise=0)  # any-100 + D, size 2
+
+    assert outcome["search_capped"] is True
+    assert outcome["match_kind"] == "exact"
+    assert outcome["total_paise"] == 250
+    assert len(outcome["order_ids"]) == 2
+    assert "D" in outcome["order_ids"]  # only D=150 can pair with a 100 to reach 250
+
+
+def test_search_capped_propagates_through_reconcile(monkeypatch):
+    """The cap and its flag apply end-to-end through reconcile(), not just
+    the raw find_best_subset() search."""
+    monkeypatch.setattr(config, "FULL_SEARCH_MAX_ELIGIBLE", 3)
+    monkeypatch.setattr(config, "CAPPED_SUBSET_SIZE", 2)
+
+    orders = [make_order(oid, "S1", 100, D0) for oid in ("O1", "O2", "O3", "O4")]
+    payouts = [make_payout("P1", "S1", 400, D0)]
+
+    outcome = reconcile(orders, payouts)
+    result = outcome["results"][0]
+
+    assert result["search_capped"] is True
+    assert result["status"] != "MATCHED"

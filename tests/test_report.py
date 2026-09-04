@@ -3,6 +3,7 @@ Tests for report.py's metrics math and ground-truth scoring. Uses hand-built
 reconciliation outcomes so the expected numbers can be checked by hand.
 """
 
+import pytest
 from helpers import D0, make_order
 
 from report import compute_ground_truth_validation, compute_metrics
@@ -53,6 +54,49 @@ def test_compute_metrics_basic_math():
     # match_rate_by_value = matched (100) / total (150)
     assert metrics["kpis"]["match_rate_by_value"] == round(100 / 150, 4)
     assert metrics["kpis"]["match_rate_by_count"] == 0.5
+
+
+def test_compute_metrics_exposes_exact_paise_alongside_float_display_values():
+    """metrics.json carries integer-paise fields too, not just floats -- so
+    a downstream consumer (the dashboard) never has to reverse a float back
+    into paise via round(x * 100) to format an exact amount."""
+    orders = [
+        make_order("O1", "S1", 100, D0),
+        make_order("O2", "S1", 900, D0),  # orphaned
+    ]
+    payouts = [{"payout_id": "P1"}, {"payout_id": "P2"}]
+    outcome = {
+        "results": [
+            _result("P1", "S1", "MATCHED", 100, 100, 0, ["O1"]),
+            _result("P2", "S1", "UNRESOLVED", 50, 0, None),
+        ],
+        "orphaned_order_ids": ["O2"],
+    }
+
+    metrics = compute_metrics(orders, payouts, outcome)
+
+    assert metrics["totals"]["total_payout_value_paise"] == 15000  # 150.00
+    assert metrics["totals"]["orphaned_order_value_paise"] == 90000  # 900.00
+    assert metrics["by_status"]["MATCHED"]["value_paise"] == 10000
+    assert metrics["by_status"]["UNRESOLVED"]["value_paise"] == 5000
+    # Paise fields must always agree exactly with their float siblings.
+    from money import paise_to_float
+    assert paise_to_float(metrics["totals"]["total_payout_value_paise"]) == metrics["totals"]["total_payout_value"]
+
+
+def test_compute_metrics_raises_on_orphaned_order_not_in_orders():
+    """compute_metrics must fail loudly, not silently under-count, if given
+    an `outcome` whose orphaned_order_ids don't match the `orders` passed in
+    -- e.g. a caller accidentally mixing data from two different runs."""
+    orders = [make_order("O1", "S1", 100, D0)]
+    payouts = [{"payout_id": "P1"}]
+    outcome = {
+        "results": [_result("P1", "S1", "MATCHED", 100, 100, 0, ["O1"])],
+        "orphaned_order_ids": ["O_DOES_NOT_EXIST"],
+    }
+
+    with pytest.raises(ValueError, match="O_DOES_NOT_EXIST"):
+        compute_metrics(orders, payouts, outcome)
 
 
 def test_ground_truth_validation_scores_each_scenario_type():

@@ -174,7 +174,12 @@ All money math runs in **integer paise** (`money.py`), never floats — `0.1 + 0
 deciding whether numbers sum *exactly* to another number cannot tolerate that
 kind of rounding noise. Rupee amounts only exist at the CSV/report boundary,
 converted with `Decimal` (never `float`) so the text `"19.99"` becomes exactly
-`1999` paise, no binary drift.
+`1999` paise, no binary drift. This carries through to `output/metrics.json`
+too: every rupee figure (`total_payout_value`, per-status `value`, etc.) has an
+exact `_paise` integer sibling (`total_payout_value_paise`, `value_paise`, ...),
+so a downstream consumer like the dashboard never has to reverse a float back
+into paise (`round(x * 100)`) to format an exact amount — it reads the paise
+field directly.
 
 Per payout, the engine enforces:
 - **Seller isolation** — only that payout's own seller's orders are ever considered.
@@ -192,6 +197,23 @@ resolved in two passes: **Pass A** locks in every unambiguous exact match first
 as `CLOSE_MATCH` or `UNRESOLVED` against the smaller remaining pool. This is
 still fully deterministic (there's no ordering ambiguity in either pass) and
 measurably more correct — see §11 for what this actually changes.
+
+**Exact-match tie-breaking.** Two-pass allocation fixes fuzzy matches stealing
+from exact ones, but it doesn't address a different, rarer coincidence: a
+payout's target amount can occasionally be reached by *more than one* distinct
+subset of eligible orders — not because the business situation is ambiguous,
+but by sheer arithmetic coincidence (e.g. two small orders happen to sum to
+exactly one other order's value). Picking whichever one the search happens to
+try first can still be financially correct (delta is 0 either way) but
+*attribute* the payout to the wrong orders — and since a wrong attribution
+frees up (or holds back) the wrong orders, it can cascade into breaking a
+completely different, genuinely ambiguous payout. `find_best_subset()` handles
+this by scanning every exact match in the bounded search space and preferring
+the one that is most *contiguous* in the seller's date-sorted order list (fewest
+"gaps" between its earliest and latest order), tie-broken by fewest orders —
+because a real payout batch is, by construction, a run of consecutive unpaid
+orders, not some skipped and others picked up. This is a heuristic, not a proof
+of uniqueness; see §11/§12 for the measured, residual failure rate.
 
 ## 9. AI explanation layer
 
@@ -218,7 +240,22 @@ The Q&A entry point (`agent.answer_question`) extracts a payout ID from a free-t
 question ("Why doesn't payout PYT-00042 fully match?"), looks up that payout's
 *actual* reconciliation result, and explains only that — it cannot invent a payout,
 order, or number that isn't already in the evidence. Unknown or missing payout IDs
-get a graceful message, not a crash or a hallucinated answer.
+get a graceful message, not a crash or a hallucinated answer. ID matching is
+lenient about how it's typed — "PYT-00042", "PYT-42", "PYT42", and "pyt 42" all
+resolve the same way: `extract_payout_id()` checks candidates against the
+dataset's actual payout IDs first, falling back to the dataset's zero-padded
+format only when nothing in the dataset matches, so it never guesses wrong for
+a payout that genuinely exists.
+
+**Dashboard explanations are cached, not re-requested on every render.**
+Streamlit reruns the whole script on *any* widget interaction, not just when a
+new payout is selected — so `app.py` wraps the per-payout explanation call in
+`st.cache_data`, keyed by the payout's result. Without this, changing an
+unrelated filter while an exception payout is selected would silently re-log a
+duplicate audit entry every time, and in `LLM_MODE=live` would fire a real,
+billable duplicate API call for an explanation already generated this session.
+The cache is cleared by the sidebar's "Regenerate data & re-run pipeline"
+button alongside the rest of the pipeline output.
 
 ## 10. Auditability
 
@@ -259,11 +296,35 @@ finance controller than a long tail of small ones.
 run's actual reconciliation output against what `generate_data.py` intentionally
 built (§6) — never the reverse. On the seed-42 dataset the engine currently
 classifies all 134 payouts correctly against their intended scenario. That
-number is a genuine consequence of the two-pass allocation design (§8): a single
-left-to-right pass on this same dataset scores only ~92.5%, because a handful of
-`CLOSE_MATCH` searches would grab orders that a later `exact_match` payout
-actually needed. Locking in unambiguous exact matches first, across the whole
-seller, before any fuzzy match is allowed to allocate anything, closes that gap.
+number is a genuine consequence of the two-pass allocation design and
+exact-match tie-breaking (§8): a single left-to-right pass with no tie-breaking
+on this same dataset scores only ~92.5%, because a handful of `CLOSE_MATCH`
+searches would grab orders that a later `exact_match` payout actually needed.
+
+**Seed 42 is not cherry-picked, but it also isn't fully representative — here's
+the honest, wider picture.** A single seed is a single sample; presenting only
+its (excellent) number without more context would overstate how clean this
+problem is. Running the full pipeline across 100 different random seeds
+(12,639 payouts total) instead of just one:
+
+```
+Overall payout misclassification rate : 0.673%  (85 / 12,639)
+  by scenario:
+    exact_match      0 / 8,849   (100.000% correct)
+    timing_mismatch  1 / 1,273   ( 99.921% correct)
+    close_match     45 / 1,901   ( 97.633% correct)
+    unresolved      39 /   616   ( 93.669% correct)
+```
+
+In other words: across 100 seeds, the deterministic engine gets `exact_match`
+exactly right on every single payout — both the status *and* the specific
+orders attributed to it. That's the direct effect of the exact-match
+tie-breaking heuristic in §8: before it, this same sweep produced 6 payouts
+that were financially correct (delta 0) but credited to the wrong orders, plus
+knock-on damage to whichever other payout those orders actually belonged to.
+The remaining ~0.67% is concentrated in `close_match` and `unresolved` — the
+two categories §12 explains are governed by tolerance-band coincidence, not
+attribution ambiguity, and aren't fixable by a tie-break rule.
 
 **Orphan detection is deliberately reported honestly, not flattered.** Recall
 (83.3%) is solid — most orders the generator intentionally left unpaid are
@@ -278,13 +339,31 @@ proofs.
 
 ## 12. Limitations
 
+- **Exact-match tie-breaking is a heuristic, not a uniqueness proof, and a small
+  residual failure mode remains in the tolerance-band scenarios.** When a
+  `CLOSE_MATCH` payout's true orders get drawn into an *unrelated* exact match
+  elsewhere, or a `timing_mismatch` payout's remaining orders coincidentally
+  form a different close/no match than intended, it can surface as the wrong
+  status. Measured directly: 45 of 1,901 `close_match` payouts (2.4%) and 1 of
+  1,273 `timing_mismatch` payouts (0.08%) across a 100-seed sweep — down from
+  50 and 1 respectively before the tie-break fix. `exact_match` itself is now
+  100.000% correct (status and order attribution both) across the same sweep,
+  versus 99.93% before — the 6 payouts per 100 seeds that used to be financially
+  correct but attributed to the wrong orders (with knock-on damage to whatever
+  payout those orders actually belonged to) are gone. The residual is not
+  proven to be zero in general — contiguity is a strong proxy for "how this
+  generator builds a real batch," not a guarantee against every possible
+  numeric coincidence.
 - **Tolerance-based closest-subset search can occasionally produce a coincidental
   near match.** An `UNRESOLVED` scenario's payout amount is generated
   independently of any real order combination, but with enough eligible orders in
-  play, a combination can coincidentally land within tolerance by chance. This is
-  a genuine property of tolerance-based reconciliation on real data, not
-  something this system hides — it's exactly why every `CLOSE_MATCH` gets an AI
-  explanation flagged for human review rather than being silently accepted.
+  play, a combination can coincidentally land within tolerance by chance. Measured:
+  39 of 616 `unresolved` payouts (6.3%) across the same sweep. This is a genuine
+  property of tolerance-based reconciliation on real data — no tie-break rule
+  fixes it, since there's no "true" alternative being displaced, just one random
+  amount landing close to one real combination — and it's exactly why every `CLOSE_MATCH`
+  gets an AI explanation flagged for human review rather than being silently
+  accepted.
 - **Orphan-detection precision is inherently coupled to exception handling.**
   Orders left over from a `timing_mismatch` or `unresolved` payout are correctly
   *not* allocated (the engine shouldn't guess), but that means they show up as
@@ -296,7 +375,18 @@ proofs.
   `config.py`. Fine for this dataset's scale (per-payout eligible sets stay in
   the single digits to low teens); a production system with far larger
   per-seller batches would need a smarter bound (e.g. meet-in-the-middle) or a
-  hard cap with monitoring on `search_capped`.
+  hard cap with monitoring on `search_capped` (covered by
+  `tests/test_reconcile.py`'s `test_search_capped_*` tests, which force the cap
+  with a tiny configuration to prove it degrades to a reported, non-silent
+  trade-off rather than a wrong answer).
+- **The live-LLM request/response code path (`agent._call_live_llm`) is unit
+  tested against a mocked Anthropic client** (`tests/test_agent.py`'s
+  `test_call_live_llm_*` / `test_explain_payout_live_mode_*` tests cover
+  request construction, response parsing, and the malformed-response fallback)
+  **but has not been exercised against the real Anthropic API** in this
+  environment. A mock can't catch a real SDK version mismatch or an actual API
+  behavior change, so spot-check `LLM_MODE=live` with a real key before a demo
+  that depends on it.
 - **Mock AI explanations are template-based**, not generative — they're
   deterministic by design (see §9) so demos and tests are reproducible, but they
   won't produce genuinely novel phrasing the way `LLM_MODE=live` can.
@@ -380,13 +470,18 @@ button in the sidebar — it never crashes on missing output.
 pytest tests/ -v
 ```
 
-45 tests covering the ten required scenarios (exact match, multi-order match,
+70 tests covering the ten required scenarios (exact match, multi-order match,
 close match, unresolved, order-reuse prevention, seller isolation, orphaned
 orders, date-window filtering, integer-paise accuracy, and full-pipeline
 ground-truth scoring — `tests/test_reconcile.py`, `tests/test_ground_truth.py`),
 plus generator integrity (`tests/test_data.py`), input validation
-(`tests/test_validation.py`), metrics math (`tests/test_report.py`), and the AI
-layer's mock-mode contract and audit logging (`tests/test_agent.py`).
+(`tests/test_validation.py`), metrics math (`tests/test_report.py`), the AI
+layer's mock-mode contract, audit logging, and mocked live-LLM request/response
+handling (`tests/test_agent.py`), the subset-sum search-size cap
+(`test_search_capped_*` in `tests/test_reconcile.py`), and the file I/O glue
+code that `run.py` and the dashboard actually depend on -- `generate_report()`,
+`write_exceptions_csv()`, `run_reconciliation()`, and `run.py`'s `main()` itself,
+run end-to-end against real temp files (`tests/test_integration.py`).
 
 ## Example output
 
@@ -451,7 +546,8 @@ finance-controller/
 │   ├── test_report.py
 │   ├── test_ground_truth.py
 │   ├── test_validation.py
-│   └── test_agent.py
+│   ├── test_agent.py
+│   └── test_integration.py
 ├── .env.example
 ├── .gitignore
 ├── requirements.txt

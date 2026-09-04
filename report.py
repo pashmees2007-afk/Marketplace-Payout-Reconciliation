@@ -94,6 +94,18 @@ def compute_metrics(orders: list, payouts: list, outcome: dict, ground_truth: di
         by_status_value_paise[r["status"]] += r["payout_amount_paise"]
 
     matched_payout_value_paise = by_status_value_paise["MATCHED"] + by_status_value_paise["CLOSE_MATCH"]
+
+    missing_orphans = [oid for oid in orphaned_order_ids if oid not in orders_by_id]
+    if missing_orphans:
+        # `orders` and `outcome` must come from the same reconciliation run --
+        # this can only happen if a caller mixes mismatched data. Fail loudly
+        # (per validation.py's own principle) rather than silently under-
+        # counting orphaned value.
+        preview = ", ".join(missing_orphans[:5]) + ("..." if len(missing_orphans) > 5 else "")
+        raise ValueError(
+            f"compute_metrics: outcome references orphaned order_id(s) not present in "
+            f"`orders`: {preview}. `orders` and `outcome` must come from the same run."
+        )
     orphaned_order_value_paise = sum(orders_by_id[oid]["net_payable_paise"] for oid in orphaned_order_ids)
 
     metrics = {
@@ -101,13 +113,16 @@ def compute_metrics(orders: list, payouts: list, outcome: dict, ground_truth: di
             "total_orders": len(orders),
             "total_payouts": len(payouts),
             "total_payout_value": paise_to_float(total_payout_value_paise),
+            "total_payout_value_paise": total_payout_value_paise,
             "orphaned_order_count": len(orphaned_order_ids),
             "orphaned_order_value": paise_to_float(orphaned_order_value_paise),
+            "orphaned_order_value_paise": orphaned_order_value_paise,
         },
         "by_status": {
             status: {
                 "count": by_status_count[status],
                 "value": paise_to_float(by_status_value_paise[status]),
+                "value_paise": by_status_value_paise[status],
             }
             for status in ("MATCHED", "CLOSE_MATCH", "UNRESOLVED")
         },
@@ -194,14 +209,24 @@ def write_exceptions_csv(outcome: dict, orders_by_id: dict, explanations: dict, 
             })
 
 
-def generate_report(orders_path=None, payouts_path=None, ground_truth_path=None):
+def generate_report(orders_path=None, payouts_path=None, ground_truth_path=None,
+                     orders: list = None, payouts: list = None):
+    """Run reconciliation, AI explanations, and write metrics.json + exceptions.csv.
+
+    Pass pre-loaded `orders`/`payouts` (e.g. from a caller that already
+    validated them, such as run.py) to avoid re-reading the CSVs a second
+    time -- omit them to have this function load from `orders_path`/
+    `payouts_path` (defaulting to config.ORDERS_CSV/PAYOUTS_CSV) itself.
+    """
     orders_path = orders_path or config.ORDERS_CSV
     payouts_path = payouts_path or config.PAYOUTS_CSV
     ground_truth_path = ground_truth_path or config.GROUND_TRUTH_JSON
 
-    orders = load_orders(orders_path)
-    payouts = load_payouts(payouts_path)
-    outcome = run_reconciliation(orders_path, payouts_path)
+    if orders is None:
+        orders = load_orders(orders_path)
+    if payouts is None:
+        payouts = load_payouts(payouts_path)
+    outcome = run_reconciliation(orders_path, payouts_path, orders=orders, payouts=payouts)
 
     ground_truth = None
     if ground_truth_path and ground_truth_path.exists():
