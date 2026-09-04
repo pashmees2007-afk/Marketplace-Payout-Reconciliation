@@ -230,10 +230,21 @@ Works with zero configuration:
 - `LLM_MODE=mock` (default) — deterministic, rule-based explanations, no network
   call, no API key. Phrasing varies by payout (via a stable hash of the payout ID)
   but is 100% reproducible run to run.
-- `LLM_MODE=live` — calls the real Anthropic API (model set via `LLM_MODEL`). If
-  the call fails for *any* reason — missing key, network error, timeout,
+- `LLM_MODE=live` — calls a real hosted LLM, chosen via `LLM_PROVIDER`:
+  `"anthropic"` (default, `agent._call_anthropic`) or `"groq"`
+  (`agent._call_groq` — free tier, no card required, serves open models like
+  Llama; useful if you want live mode without an Anthropic key). Both go
+  through the same `_call_live_llm()` entry point and the same fallback
+  contract below, despite very different SDKs and response shapes (Anthropic's
+  content-block list vs. Groq's OpenAI-style `choices[0].message.content`) —
+  see `tests/test_agent.py`'s `test_call_groq_*` tests, which exist precisely
+  because that shape difference is exactly the kind of thing a provider swap
+  can get wrong silently. `LLM_MODEL` defaults to a sensible model for
+  whichever provider is selected, or set it explicitly to override. If the
+  call fails for *any* reason — missing key, network error, timeout,
   malformed response — the system automatically falls back to the mock
-  explanation, tagged `mode: mock_fallback`, and keeps going. The pipeline and
+  explanation, tagged `mode: mock_fallback` (with `provider` recorded too, so
+  the audit log shows which one failed), and keeps going. The pipeline and
   dashboard never crash because of the AI layer.
 
 The Q&A entry point (`agent.answer_question`) extracts a payout ID from a free-text
@@ -431,8 +442,10 @@ Key variables (see `.env.example` for the full list with explanations):
 
 | variable | default | purpose |
 |---|---|---|
-| `LLM_MODE` | `mock` | `mock` (no API key needed) or `live` (calls Anthropic) |
-| `ANTHROPIC_API_KEY` | *(empty)* | only used when `LLM_MODE=live` |
+| `LLM_MODE` | `mock` | `mock` (no API key needed) or `live` (calls a real LLM) |
+| `LLM_PROVIDER` | `anthropic` | which hosted API `LLM_MODE=live` calls: `anthropic` or `groq` |
+| `ANTHROPIC_API_KEY` | *(empty)* | only used when `LLM_MODE=live` and `LLM_PROVIDER=anthropic` |
+| `GROQ_API_KEY` | *(empty)* | only used when `LLM_MODE=live` and `LLM_PROVIDER=groq` |
 | `TOLERANCE_PAISE` | `3000` (₹30) | max delta still considered `CLOSE_MATCH` |
 | `ELIGIBILITY_WINDOW_DAYS` | `30` | how far back an order can be dated and still be eligible |
 | `RANDOM_SEED` | `42` | synthetic data generation seed |
@@ -470,14 +483,15 @@ button in the sidebar — it never crashes on missing output.
 pytest tests/ -v
 ```
 
-70 tests covering the ten required scenarios (exact match, multi-order match,
+75 tests covering the ten required scenarios (exact match, multi-order match,
 close match, unresolved, order-reuse prevention, seller isolation, orphaned
 orders, date-window filtering, integer-paise accuracy, and full-pipeline
 ground-truth scoring — `tests/test_reconcile.py`, `tests/test_ground_truth.py`),
 plus generator integrity (`tests/test_data.py`), input validation
 (`tests/test_validation.py`), metrics math (`tests/test_report.py`), the AI
 layer's mock-mode contract, audit logging, and mocked live-LLM request/response
-handling (`tests/test_agent.py`), the subset-sum search-size cap
+handling for both providers (`tests/test_agent.py`'s `test_call_live_llm_*` for
+Anthropic and `test_call_groq_*` for Groq), the subset-sum search-size cap
 (`test_search_capped_*` in `tests/test_reconcile.py`), and the file I/O glue
 code that `run.py` and the dashboard actually depend on -- `generate_report()`,
 `write_exceptions_csv()`, `run_reconciliation()`, and `run.py`'s `main()` itself,

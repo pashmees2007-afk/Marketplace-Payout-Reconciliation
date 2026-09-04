@@ -291,3 +291,132 @@ def test_explain_payout_falls_back_when_live_response_malformed(monkeypatch, tmp
 
     assert result["mode"] == "mock_fallback"
     assert result["explanation"].startswith("POSSIBLE EXPLANATION:")
+
+
+# ---------------------------------------------------------------------------
+# Groq provider (mocked -- no real network/API calls). Groq's SDK is
+# OpenAI-style (chat.completions.create -> response.choices[0].message.content),
+# a different shape than Anthropic's, so this exercises agent._call_groq's own
+# request construction and response parsing, not just a re-run of the
+# Anthropic tests above.
+# ---------------------------------------------------------------------------
+
+class _FakeGroqMessage:
+    def __init__(self, content):
+        self.content = content
+
+
+class _FakeGroqChoice:
+    def __init__(self, content):
+        self.message = _FakeGroqMessage(content)
+
+
+class _FakeGroqCompletionsEndpoint:
+    def __init__(self, response_content):
+        self.response_content = response_content
+        self.last_call = None
+
+    def create(self, model, max_tokens, messages):
+        self.last_call = {"model": model, "max_tokens": max_tokens, "messages": messages}
+        choices = [] if self.response_content is None else [_FakeGroqChoice(self.response_content)]
+        return type("Resp", (), {"choices": choices})()
+
+
+class _FakeGroqChatNamespace:
+    def __init__(self, response_content):
+        self.completions = _FakeGroqCompletionsEndpoint(response_content)
+
+
+class _FakeGroqClient:
+    """Stands in for groq.Groq(...) -- captures constructor args and hands
+    back a scriptable fake .chat.completions.create(...)."""
+    instances = []
+
+    def __init__(self, api_key, timeout=None):
+        self.api_key = api_key
+        self.timeout = timeout
+        self.chat = _FakeGroqChatNamespace(_FakeGroqClient.next_response_content)
+        _FakeGroqClient.instances.append(self)
+
+
+def _install_fake_groq(monkeypatch, response_content):
+    import groq
+
+    _FakeGroqClient.instances = []
+    _FakeGroqClient.next_response_content = response_content
+    monkeypatch.setattr(groq, "Groq", _FakeGroqClient)
+
+
+def _use_groq_provider(monkeypatch, api_key="gsk-test-fake-key", model="llama-3.3-70b-versatile"):
+    monkeypatch.setattr(config, "LLM_PROVIDER", "groq")
+    monkeypatch.setattr(config, "GROQ_API_KEY", api_key)
+    monkeypatch.setattr(config, "LLM_MODEL", model)
+
+
+def test_call_groq_builds_request_and_parses_response(monkeypatch, tmp_path):
+    _redirect_output(monkeypatch, tmp_path)
+    _use_groq_provider(monkeypatch)
+    _install_fake_groq(monkeypatch, "POSSIBLE EXPLANATION: mocked groq response.")
+
+    text = agent._call_live_llm("FACTS: payout is short by five rupees.", question="why?")
+
+    assert text == "POSSIBLE EXPLANATION: mocked groq response."
+    client = _FakeGroqClient.instances[0]
+    assert client.api_key == "gsk-test-fake-key"
+    call = client.chat.completions.last_call
+    assert call["model"] == "llama-3.3-70b-versatile"
+    system_msg, user_msg = call["messages"]
+    assert system_msg["role"] == "system"
+    assert "POSSIBLE EXPLANATION" in system_msg["content"]
+    assert user_msg["role"] == "user"
+    assert "FACTS: payout is short by five rupees." in user_msg["content"]
+    assert "why?" in user_msg["content"]
+
+
+def test_call_groq_raises_on_empty_response(monkeypatch, tmp_path):
+    _redirect_output(monkeypatch, tmp_path)
+    _use_groq_provider(monkeypatch)
+    _install_fake_groq(monkeypatch, None)
+
+    import pytest
+    with pytest.raises(RuntimeError, match="empty or malformed"):
+        agent._call_live_llm("FACTS: test.")
+
+
+def test_call_groq_raises_without_api_key(monkeypatch, tmp_path):
+    _redirect_output(monkeypatch, tmp_path)
+    _use_groq_provider(monkeypatch, api_key="")
+
+    import pytest
+    with pytest.raises(RuntimeError, match="GROQ_API_KEY"):
+        agent._call_live_llm("FACTS: test.")
+
+
+def test_explain_payout_groq_success_end_to_end(monkeypatch, tmp_path):
+    _redirect_output(monkeypatch, tmp_path)
+    monkeypatch.setattr(config, "LLM_MODE", "live")
+    _use_groq_provider(monkeypatch)
+    _install_fake_groq(monkeypatch, "POSSIBLE EXPLANATION: groq call worked.")
+
+    result = agent.explain_payout(_close_match_result())
+
+    assert result["mode"] == "live"
+    assert result["provider"] == "groq"
+    assert result["model"] == "llama-3.3-70b-versatile"
+    assert result["explanation"] == "POSSIBLE EXPLANATION: groq call worked."
+
+    log_text = (tmp_path / "audit_log.jsonl").read_text()
+    assert '"provider": "groq"' in log_text
+    assert "gsk-test-fake-key" not in log_text
+
+
+def test_explain_payout_falls_back_when_groq_key_missing(monkeypatch, tmp_path):
+    _redirect_output(monkeypatch, tmp_path)
+    monkeypatch.setattr(config, "LLM_MODE", "live")
+    _use_groq_provider(monkeypatch, api_key="")
+
+    result = agent.explain_payout(_close_match_result())
+
+    assert result["mode"] == "mock_fallback"
+    assert result["provider"] == "groq"
+    assert result["explanation"].startswith("POSSIBLE EXPLANATION:")
