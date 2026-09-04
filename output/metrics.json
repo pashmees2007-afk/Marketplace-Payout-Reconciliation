@@ -3,21 +3,26 @@
     "total_orders": 410,
     "total_payouts": 134,
     "total_payout_value": 831741.72,
+    "total_payout_value_paise": 83174172,
     "orphaned_order_count": 54,
-    "orphaned_order_value": 104608.46
+    "orphaned_order_value": 104608.46,
+    "orphaned_order_value_paise": 10460846
   },
   "by_status": {
     "MATCHED": {
       "count": 96,
-      "value": 675263.77
+      "value": 675263.77,
+      "value_paise": 67526377
     },
     "CLOSE_MATCH": {
       "count": 19,
-      "value": 100428.24
+      "value": 100428.24,
+      "value_paise": 10042824
     },
     "UNRESOLVED": {
       "count": 19,
-      "value": 56049.71
+      "value": 56049.71,
+      "value_paise": 5604971
     }
   },
   "kpis": {

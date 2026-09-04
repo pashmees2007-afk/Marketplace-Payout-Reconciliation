@@ -145,6 +145,34 @@ def test_answer_question_known_payout(monkeypatch, tmp_path):
     assert answer["explanation"].startswith("POSSIBLE EXPLANATION:")
 
 
+def test_answer_question_recognizes_unpadded_and_dashless_ids(monkeypatch, tmp_path):
+    """A user typing 'PYT-99' or 'PYT99' from memory, instead of copying the
+    dashboard's zero-padded 'PYT-00099', should still resolve to the real
+    payout -- not get a false 'no such payout' message."""
+    _redirect_output(monkeypatch, tmp_path)
+    r = _close_match_result()  # payout_id "PYT-00099"
+    results_by_id = {r["payout_id"]: r}
+
+    for phrasing in (
+        "Why doesn't payout PYT-99 fully match?",
+        "why doesn't PYT99 match",
+        "explain pyt 99 please",
+    ):
+        answer = agent.answer_question(phrasing, results_by_id)
+        assert answer["ok"] is True, f"failed for phrasing: {phrasing!r}"
+        assert answer["payout_id"] == "PYT-00099"
+
+
+def test_extract_payout_id_prefers_known_id_match():
+    # Without known_ids, an unpadded digit string is normalized to 5 digits.
+    assert agent.extract_payout_id("PYT-7") == "PYT-00007"
+    # With known_ids, an exact (even non-zero-padded) match wins over the guess.
+    assert agent.extract_payout_id("PYT-7", known_ids={"PYT-7"}) == "PYT-7"
+    assert agent.extract_payout_id("PYT-7", known_ids={"PYT-00007"}) == "PYT-00007"
+    # Neither candidate known -> falls back to the zero-padded guess.
+    assert agent.extract_payout_id("PYT-7", known_ids={"PYT-99999"}) == "PYT-00007"
+
+
 def test_live_mode_falls_back_to_mock_without_api_key(monkeypatch, tmp_path):
     _redirect_output(monkeypatch, tmp_path)
     monkeypatch.setattr(config, "LLM_MODE", "live")

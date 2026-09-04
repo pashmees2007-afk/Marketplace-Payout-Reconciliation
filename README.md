@@ -174,7 +174,12 @@ All money math runs in **integer paise** (`money.py`), never floats — `0.1 + 0
 deciding whether numbers sum *exactly* to another number cannot tolerate that
 kind of rounding noise. Rupee amounts only exist at the CSV/report boundary,
 converted with `Decimal` (never `float`) so the text `"19.99"` becomes exactly
-`1999` paise, no binary drift.
+`1999` paise, no binary drift. This carries through to `output/metrics.json`
+too: every rupee figure (`total_payout_value`, per-status `value`, etc.) has an
+exact `_paise` integer sibling (`total_payout_value_paise`, `value_paise`, ...),
+so a downstream consumer like the dashboard never has to reverse a float back
+into paise (`round(x * 100)`) to format an exact amount — it reads the paise
+field directly.
 
 Per payout, the engine enforces:
 - **Seller isolation** — only that payout's own seller's orders are ever considered.
@@ -235,7 +240,12 @@ The Q&A entry point (`agent.answer_question`) extracts a payout ID from a free-t
 question ("Why doesn't payout PYT-00042 fully match?"), looks up that payout's
 *actual* reconciliation result, and explains only that — it cannot invent a payout,
 order, or number that isn't already in the evidence. Unknown or missing payout IDs
-get a graceful message, not a crash or a hallucinated answer.
+get a graceful message, not a crash or a hallucinated answer. ID matching is
+lenient about how it's typed — "PYT-00042", "PYT-42", "PYT42", and "pyt 42" all
+resolve the same way: `extract_payout_id()` checks candidates against the
+dataset's actual payout IDs first, falling back to the dataset's zero-padded
+format only when nothing in the dataset matches, so it never guesses wrong for
+a payout that genuinely exists.
 
 **Dashboard explanations are cached, not re-requested on every render.**
 Streamlit reruns the whole script on *any* widget interaction, not just when a
@@ -460,7 +470,7 @@ button in the sidebar — it never crashes on missing output.
 pytest tests/ -v
 ```
 
-66 tests covering the ten required scenarios (exact match, multi-order match,
+70 tests covering the ten required scenarios (exact match, multi-order match,
 close match, unresolved, order-reuse prevention, seller isolation, orphaned
 orders, date-window filtering, integer-paise accuracy, and full-pipeline
 ground-truth scoring — `tests/test_reconcile.py`, `tests/test_ground_truth.py`),

@@ -141,7 +141,7 @@ totals = metrics["totals"]
 by_status = metrics["by_status"]
 
 c1, c2, c3, c4, c5, c6 = st.columns(6)
-c1.metric("Total payout volume", format_inr(int(round(totals["total_payout_value"] * 100))))
+c1.metric("Total payout volume", format_inr(totals["total_payout_value_paise"]))
 c2.metric("Match rate by value", f"{kpis['match_rate_by_value']:.1%}" if kpis["match_rate_by_value"] is not None else "n/a")
 c3.metric("Exact matches", by_status["MATCHED"]["count"])
 c4.metric("Close matches", by_status["CLOSE_MATCH"]["count"])

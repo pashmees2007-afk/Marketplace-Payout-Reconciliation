@@ -58,7 +58,7 @@ UNRESOLVED_CAUSES_NO_CANDIDATE = [
     "the orders that fund this payout not having arrived in the ledger yet",
 ]
 
-PAYOUT_ID_PATTERN = re.compile(r"PYT-\d{4,6}", re.IGNORECASE)
+PAYOUT_ID_PATTERN = re.compile(r"PYT[\s-]*(\d{1,6})", re.IGNORECASE)
 
 
 def _stable_index(key: str, n: int) -> int:
@@ -254,9 +254,30 @@ def explain_payout(result: dict, question: str = None) -> dict:
     }
 
 
-def extract_payout_id(question: str) -> str:
+def extract_payout_id(question: str, known_ids=None) -> str:
+    """Find a payout ID in free text.
+
+    Recognizes the dataset's canonical zero-padded form ("PYT-00042") as
+    well as looser variants a user might type from memory or on mobile --
+    "PYT-42", "PYT42", "pyt 42" -- by matching just the digits after "PYT"
+    and then resolving the most plausible real ID:
+      1. the digits exactly as typed (in case IDs aren't always 5 digits),
+      2. the digits zero-padded to 5 (this project's actual format).
+    When `known_ids` (e.g. `results_by_id.keys()`) is given, whichever
+    candidate is an actual ID in it wins -- so this never guesses wrong for
+    a payout that genuinely exists. Without `known_ids`, or if neither
+    candidate matches, falls back to the zero-padded guess.
+    """
     match = PAYOUT_ID_PATTERN.search(question or "")
-    return match.group(0).upper() if match else None
+    if not match:
+        return None
+    digits = match.group(1)
+    candidates = [f"PYT-{digits}", f"PYT-{int(digits):05d}"]
+    if known_ids is not None:
+        for candidate in candidates:
+            if candidate in known_ids:
+                return candidate
+    return candidates[-1]
 
 
 def answer_question(question: str, results_by_id: dict) -> dict:
@@ -270,7 +291,7 @@ def answer_question(question: str, results_by_id: dict) -> dict:
     if not question:
         return {"ok": False, "message": "Please type a question, e.g. \"Why doesn't payout PYT-00042 fully match?\""}
 
-    payout_id = extract_payout_id(question)
+    payout_id = extract_payout_id(question, known_ids=results_by_id.keys())
     if not payout_id:
         return {
             "ok": False,
