@@ -71,6 +71,62 @@ def test_multi_order_requires_combination():
     assert result["matched_total"] == 250
 
 
+def test_exact_match_tie_break_prefers_contiguous_batch():
+    """Regression test for a real bug found by stress-testing ground-truth
+    accuracy across 100 random seeds (see README section 8, "Exact-match
+    tie-breaking"). A payout's target can occasionally be reached by more
+    than one distinct exact subset. Here, an old unrelated leftover order
+    (250) plus one order from a true 3-order batch (90) coincidentally sums
+    to the same target as the true, contiguous, more-recent 3-order batch
+    (100 + 150 + 90 = 340). The engine must prefer the contiguous batch --
+    picking the smaller/older coincidence is still financially "correct"
+    (delta 0 either way) but attributes the payout to the wrong orders.
+    """
+    old_leftover = make_order("OLD", "S1", 250, D0)
+    t1 = make_order("T1", "S1", 100, D0 + timedelta(days=9))
+    t2 = make_order("T2", "S1", 150, D0 + timedelta(days=10))
+    t3 = make_order("T3", "S1", 90, D0 + timedelta(days=11))
+    orders = [old_leftover, t1, t2, t3]
+    payouts = [make_payout("P1", "S1", 340, D0 + timedelta(days=12))]
+
+    outcome = reconcile(orders, payouts)
+    result = outcome["results"][0]
+
+    assert result["status"] == "MATCHED"
+    assert set(result["matched_order_ids"]) == {"T1", "T2", "T3"}
+    assert "OLD" not in result["matched_order_ids"]
+
+
+def test_exact_match_tie_break_prevents_cascade_failure():
+    """Full cascade regression: if the tie-break above picked the wrong,
+    non-contiguous combination (OLD + T3), it would steal OLD from a
+    separate, unrelated, earlier payout that genuinely needs it -- turning
+    a clean CLOSE_MATCH into a false UNRESOLVED (OLD's real payout has no
+    other eligible orders once its actual order is stolen). Both payouts
+    must resolve correctly.
+    """
+    old_leftover = make_order("OLD", "S1", 250, D0)
+    t1 = make_order("T1", "S1", 100, D0 + timedelta(days=9))
+    t2 = make_order("T2", "S1", 150, D0 + timedelta(days=10))
+    t3 = make_order("T3", "S1", 90, D0 + timedelta(days=11))
+    orders = [old_leftover, t1, t2, t3]
+    payouts = [
+        # OLD is genuinely this payout's order, short by a small fee -- a
+        # real CLOSE_MATCH, processed (chronologically) before P_BATCH.
+        make_payout("P_OLD", "S1", 245, D0 + timedelta(days=1)),
+        make_payout("P_BATCH", "S1", 340, D0 + timedelta(days=12)),
+    ]
+
+    outcome = reconcile(orders, payouts)
+    results = {r["payout_id"]: r for r in outcome["results"]}
+
+    assert results["P_BATCH"]["status"] == "MATCHED"
+    assert set(results["P_BATCH"]["matched_order_ids"]) == {"T1", "T2", "T3"}
+    assert results["P_OLD"]["status"] == "CLOSE_MATCH"
+    assert results["P_OLD"]["matched_order_ids"] == ["OLD"]
+    assert round(results["P_OLD"]["delta"], 2) == 5.00
+
+
 # --------------------------------------------------------------------------
 # TEST 3 -- CLOSE
 # --------------------------------------------------------------------------

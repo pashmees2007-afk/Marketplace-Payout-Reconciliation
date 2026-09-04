@@ -52,6 +52,18 @@ def _load_pipeline_output(_cache_key: float):
     return outcome, metrics, orders, payouts
 
 
+@st.cache_data(show_spinner=False)
+def _cached_explain_payout(result: dict):
+    """Cache AI explanations by payout result so re-rendering the dashboard
+    (which Streamlit does on *every* widget interaction, not just picking a
+    new payout) never re-issues a duplicate audit-log entry or -- worse, in
+    LLM_MODE=live -- a duplicate paid API call for a payout already
+    explained this session. Cleared by the sidebar's "Regenerate data &
+    re-run pipeline" button alongside the rest of the data cache.
+    """
+    return agent.explain_payout(result)
+
+
 def pipeline_outputs_exist() -> bool:
     return (
         config.RECONCILIATION_RESULTS_JSON.exists()
@@ -263,7 +275,7 @@ if selected_id:
         st.caption("Labeled explicitly: this is a hypothesis from the AI layer, not financial "
                    "truth. The match/no-match decision above was made entirely by the "
                    "deterministic reconciliation engine, before the AI ever saw this payout.")
-        explanation = agent.explain_payout(r)
+        explanation = _cached_explain_payout(r)
         st.markdown(f"**FACT:** {explanation['fact']}")
         st.info(f"**{explanation['explanation']}**\n\n_(mode: {explanation['mode']}"
                 f"{', model: ' + explanation['model'] if explanation['model'] else ''})_")
