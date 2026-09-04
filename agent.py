@@ -129,30 +129,39 @@ def _mock_explain_unresolved(result: dict) -> str:
     )
 
 
+_SYSTEM_PROMPT = (
+    "You are a financial exception-explanation assistant for a marketplace payout "
+    "reconciliation system. A deterministic reconciliation engine has ALREADY decided "
+    "whether a payout matches its orders -- you are not deciding that and must not "
+    "contradict it. You will be given FACTS (verbatim reconciliation evidence). "
+    "Respond with a single short paragraph, prefixed exactly with "
+    "'POSSIBLE EXPLANATION:', suggesting a plausible, clearly-hedged hypothesis for "
+    "the discrepancy (e.g. 'could indicate', 'may reflect'). Never state a cause as "
+    "certain. Never invent order IDs, amounts, or transactions that are not present "
+    "in the FACTS given to you. Keep it under 80 words."
+)
+
+
 def _call_live_llm(fact_text: str, question: str = None) -> str:
-    """Call the Anthropic API. Raises on any failure -- caller handles fallback."""
+    """Call the configured LLM provider (config.LLM_PROVIDER: "anthropic" or
+    "groq"). Raises on any failure -- caller handles fallback.
+    """
+    user_content = f"FACTS:\n{fact_text}"
+    if question:
+        user_content += f"\n\nUser question: {question}"
+
+    if config.LLM_PROVIDER == "groq":
+        return _call_groq(_SYSTEM_PROMPT, user_content)
+    return _call_anthropic(_SYSTEM_PROMPT, user_content)
+
+
+def _call_anthropic(system_prompt: str, user_content: str) -> str:
     import anthropic  # imported lazily so mock mode never requires the package
 
     if not config.ANTHROPIC_API_KEY:
         raise RuntimeError("ANTHROPIC_API_KEY is not set")
 
     client = anthropic.Anthropic(api_key=config.ANTHROPIC_API_KEY, timeout=config.LLM_TIMEOUT_SECONDS)
-
-    system_prompt = (
-        "You are a financial exception-explanation assistant for a marketplace payout "
-        "reconciliation system. A deterministic reconciliation engine has ALREADY decided "
-        "whether a payout matches its orders -- you are not deciding that and must not "
-        "contradict it. You will be given FACTS (verbatim reconciliation evidence). "
-        "Respond with a single short paragraph, prefixed exactly with "
-        "'POSSIBLE EXPLANATION:', suggesting a plausible, clearly-hedged hypothesis for "
-        "the discrepancy (e.g. 'could indicate', 'may reflect'). Never state a cause as "
-        "certain. Never invent order IDs, amounts, or transactions that are not present "
-        "in the FACTS given to you. Keep it under 80 words."
-    )
-
-    user_content = f"FACTS:\n{fact_text}"
-    if question:
-        user_content += f"\n\nUser question: {question}"
 
     response = client.messages.create(
         model=config.LLM_MODEL,
@@ -163,6 +172,30 @@ def _call_live_llm(fact_text: str, question: str = None) -> str:
 
     text_parts = [block.text for block in response.content if getattr(block, "type", None) == "text"]
     text = "\n".join(text_parts).strip()
+    if not text:
+        raise RuntimeError("LLM returned an empty or malformed response")
+    return text
+
+
+def _call_groq(system_prompt: str, user_content: str) -> str:
+    import groq  # imported lazily so mock mode (and Anthropic-only setups) never require the package
+
+    if not config.GROQ_API_KEY:
+        raise RuntimeError("GROQ_API_KEY is not set")
+
+    client = groq.Groq(api_key=config.GROQ_API_KEY, timeout=config.LLM_TIMEOUT_SECONDS)
+
+    response = client.chat.completions.create(
+        model=config.LLM_MODEL,
+        max_tokens=config.LLM_MAX_TOKENS,
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_content},
+        ],
+    )
+
+    choices = getattr(response, "choices", None) or []
+    text = (choices[0].message.content or "").strip() if choices else ""
     if not text:
         raise RuntimeError("LLM returned an empty or malformed response")
     return text
@@ -182,10 +215,12 @@ def explain_payout(result: dict, question: str = None) -> dict:
 
     Returns:
       {
-        "payout_id", "status", "fact", "explanation", "mode", "model"
+        "payout_id", "status", "fact", "explanation", "mode", "model", "provider"
       }
     `mode` is one of "mock", "live", or "mock_fallback" (live was
-    requested but failed, so mock was used instead).
+    requested but failed, so mock was used instead). `provider` is
+    config.LLM_PROVIDER ("anthropic" or "groq") when `mode` is "live" or
+    "mock_fallback", else None.
 
     Calling this on a MATCHED payout is a no-op that returns a fact-only
     response with no AI call -- the AI layer is intentionally never
@@ -206,12 +241,14 @@ def explain_payout(result: dict, question: str = None) -> dict:
             "explanation": None,
             "mode": "n/a",
             "model": None,
+            "provider": None,
         }
 
     fact = _build_fact_close_match(result) if status == "CLOSE_MATCH" else _build_fact_unresolved(result)
 
     mode = "mock"
     model = None
+    provider = None
     explanation = None
     error = None
 
@@ -220,9 +257,11 @@ def explain_payout(result: dict, question: str = None) -> dict:
             explanation = _call_live_llm(fact, question=question)
             mode = "live"
             model = config.LLM_MODEL
+            provider = config.LLM_PROVIDER
         except Exception as exc:  # noqa: BLE001 -- must degrade gracefully, not crash the pipeline
             error = str(exc)
             mode = "mock_fallback"
+            provider = config.LLM_PROVIDER
 
     if explanation is None:
         explanation = (
@@ -237,6 +276,7 @@ def explain_payout(result: dict, question: str = None) -> dict:
         "question": question,
         "fact": fact,
         "model": model,
+        "provider": provider,
         "mode": mode,
         "output": explanation,
     }
@@ -251,6 +291,7 @@ def explain_payout(result: dict, question: str = None) -> dict:
         "explanation": explanation,
         "mode": mode,
         "model": model,
+        "provider": provider,
     }
 
 

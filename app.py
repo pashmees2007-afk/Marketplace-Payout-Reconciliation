@@ -278,6 +278,7 @@ if selected_id:
         explanation = _cached_explain_payout(r)
         st.markdown(f"**FACT:** {explanation['fact']}")
         st.info(f"**{explanation['explanation']}**\n\n_(mode: {explanation['mode']}"
+                f"{', provider: ' + explanation['provider'] if explanation.get('provider') else ''}"
                 f"{', model: ' + explanation['model'] if explanation['model'] else ''})_")
     else:
         st.success("Exact match -- fully explained by the deterministic engine. No AI call was made.")

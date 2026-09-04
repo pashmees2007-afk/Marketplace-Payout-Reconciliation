@@ -93,7 +93,21 @@ CAPPED_SUBSET_SIZE = _env_int("CAPPED_SUBSET_SIZE", 8)
 # AI explanation layer
 # --------------------------------------------------------------------------
 LLM_MODE = os.getenv("LLM_MODE", "mock").strip().lower()  # "mock" or "live"
-LLM_MODEL = os.getenv("LLM_MODEL", "claude-haiku-4-5-20251001")
+
+# Which hosted API to call when LLM_MODE=live. "anthropic" (default) or
+# "groq" -- both are optional free-tier-friendly choices; see agent.py.
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "anthropic").strip().lower()
+
+# A sensible default model per provider, used only if LLM_MODEL isn't set
+# explicitly -- an Anthropic model id would be invalid for Groq and vice
+# versa, so the default has to follow whichever provider is selected.
+_DEFAULT_LLM_MODEL = {
+    "anthropic": "claude-haiku-4-5-20251001",
+    "groq": "llama-3.3-70b-versatile",
+}.get(LLM_PROVIDER, "claude-haiku-4-5-20251001")
+LLM_MODEL = os.getenv("LLM_MODEL", _DEFAULT_LLM_MODEL)
+
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 LLM_MAX_TOKENS = _env_int("LLM_MAX_TOKENS", 400)
 LLM_TIMEOUT_SECONDS = _env_float("LLM_TIMEOUT_SECONDS", 20.0)
