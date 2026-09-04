@@ -82,7 +82,7 @@ def main():
 
     _step("STEP 3/4 -- Running deterministic reconciliation + AI exception explanations")
     try:
-        metrics, outcome, explanations = report.generate_report()
+        metrics, outcome, explanations = report.generate_report(orders=orders, payouts=payouts)
     except DataValidationError as exc:
         print(f"RECONCILIATION FAILED: {exc}", file=sys.stderr)
         sys.exit(1)

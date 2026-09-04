@@ -342,13 +342,24 @@ def reconcile(orders: list, payouts: list, tolerance_paise: int = None):
     return {"results": results, "orphaned_order_ids": orphaned_order_ids}
 
 
-def run_reconciliation(orders_path=None, payouts_path=None, tolerance_paise: int = None):
-    """Load, validate, and reconcile. Raises DataValidationError on bad input."""
+def run_reconciliation(orders_path=None, payouts_path=None, tolerance_paise: int = None,
+                        orders: list = None, payouts: list = None):
+    """Load (unless already loaded), validate, and reconcile.
+
+    Pass pre-loaded `orders`/`payouts` (e.g. from a caller that already
+    validated them) to skip re-reading the CSVs -- callers that don't have
+    them yet can omit these and they'll be loaded from `orders_path`/
+    `payouts_path` (defaulting to config.ORDERS_CSV/PAYOUTS_CSV) as before.
+
+    Raises DataValidationError on bad or empty input.
+    """
     orders_path = orders_path or config.ORDERS_CSV
     payouts_path = payouts_path or config.PAYOUTS_CSV
 
-    orders = load_orders(orders_path)
-    payouts = load_payouts(payouts_path)
+    if orders is None:
+        orders = load_orders(orders_path)
+    if payouts is None:
+        payouts = load_payouts(payouts_path)
 
     if not orders:
         raise DataValidationError(f"No orders found in {orders_path}; cannot reconcile.")

@@ -365,17 +365,18 @@ proofs.
   `config.py`. Fine for this dataset's scale (per-payout eligible sets stay in
   the single digits to low teens); a production system with far larger
   per-seller batches would need a smarter bound (e.g. meet-in-the-middle) or a
-  hard cap with monitoring on `search_capped`. This code path (`search_capped=True`)
-  is not currently exercised by any test.
-- **The live-LLM request/response code path (`agent._call_live_llm`) has not
-  been exercised against the real Anthropic API**, and no test mocks the
-  `anthropic` client to verify its request/response handling either — only the
-  "no API key → fallback to mock" path is covered. If you plan to demo
-  `LLM_MODE=live`, spot-check it with a real key first.
-- **`report.generate_report()`, `reconcile.run_reconciliation()`, and `run.py`
-  itself have no automated test coverage** — the test suite covers the pure
-  computational functions thoroughly (see §16) but not the file I/O glue that
-  wires them together, which is verified only by manually running the pipeline.
+  hard cap with monitoring on `search_capped` (covered by
+  `tests/test_reconcile.py`'s `test_search_capped_*` tests, which force the cap
+  with a tiny configuration to prove it degrades to a reported, non-silent
+  trade-off rather than a wrong answer).
+- **The live-LLM request/response code path (`agent._call_live_llm`) is unit
+  tested against a mocked Anthropic client** (`tests/test_agent.py`'s
+  `test_call_live_llm_*` / `test_explain_payout_live_mode_*` tests cover
+  request construction, response parsing, and the malformed-response fallback)
+  **but has not been exercised against the real Anthropic API** in this
+  environment. A mock can't catch a real SDK version mismatch or an actual API
+  behavior change, so spot-check `LLM_MODE=live` with a real key before a demo
+  that depends on it.
 - **Mock AI explanations are template-based**, not generative — they're
   deterministic by design (see §9) so demos and tests are reproducible, but they
   won't produce genuinely novel phrasing the way `LLM_MODE=live` can.
@@ -459,13 +460,18 @@ button in the sidebar — it never crashes on missing output.
 pytest tests/ -v
 ```
 
-45 tests covering the ten required scenarios (exact match, multi-order match,
+66 tests covering the ten required scenarios (exact match, multi-order match,
 close match, unresolved, order-reuse prevention, seller isolation, orphaned
 orders, date-window filtering, integer-paise accuracy, and full-pipeline
 ground-truth scoring — `tests/test_reconcile.py`, `tests/test_ground_truth.py`),
 plus generator integrity (`tests/test_data.py`), input validation
-(`tests/test_validation.py`), metrics math (`tests/test_report.py`), and the AI
-layer's mock-mode contract and audit logging (`tests/test_agent.py`).
+(`tests/test_validation.py`), metrics math (`tests/test_report.py`), the AI
+layer's mock-mode contract, audit logging, and mocked live-LLM request/response
+handling (`tests/test_agent.py`), the subset-sum search-size cap
+(`test_search_capped_*` in `tests/test_reconcile.py`), and the file I/O glue
+code that `run.py` and the dashboard actually depend on -- `generate_report()`,
+`write_exceptions_csv()`, `run_reconciliation()`, and `run.py`'s `main()` itself,
+run end-to-end against real temp files (`tests/test_integration.py`).
 
 ## Example output
 
@@ -530,7 +536,8 @@ finance-controller/
 │   ├── test_report.py
 │   ├── test_ground_truth.py
 │   ├── test_validation.py
-│   └── test_agent.py
+│   ├── test_agent.py
+│   └── test_integration.py
 ├── .env.example
 ├── .gitignore
 ├── requirements.txt

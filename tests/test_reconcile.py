@@ -281,3 +281,67 @@ def test_find_best_subset_uses_integer_paise_internally():
     outcome = find_best_subset(eligible, target_paise=2000, tolerance_paise=0)
     assert outcome["match_kind"] == "exact"
     assert outcome["delta_paise"] == 0
+
+
+# --------------------------------------------------------------------------
+# Search-size cap (FULL_SEARCH_MAX_ELIGIBLE / CAPPED_SUBSET_SIZE)
+# --------------------------------------------------------------------------
+def test_search_capped_flag_is_false_within_full_search_limit():
+    eligible = [("A", 100), ("B", 200), ("C", 300)]
+    outcome = find_best_subset(eligible, target_paise=300, tolerance_paise=0)
+    assert outcome["search_capped"] is False
+    assert outcome["match_kind"] == "exact"
+
+
+def test_search_capped_flag_true_and_misses_exact_match_beyond_the_cap(monkeypatch):
+    """When the eligible set exceeds FULL_SEARCH_MAX_ELIGIBLE, the search is
+    bounded to combinations up to CAPPED_SUBSET_SIZE. This test forces that
+    cap with a tiny configuration and proves two things: (1) search_capped
+    is reported True so the trade-off is never silent, and (2) a genuine
+    exact match that requires more orders than the cap allows is correctly
+    NOT found (it falls back to the best candidate within the capped size),
+    exactly as documented in reconcile.py.
+    """
+    monkeypatch.setattr(config, "FULL_SEARCH_MAX_ELIGIBLE", 3)
+    monkeypatch.setattr(config, "CAPPED_SUBSET_SIZE", 2)
+
+    # 4 eligible orders (> FULL_SEARCH_MAX_ELIGIBLE=3) whose exact-sum target
+    # requires all 4 -- no subset of size <= CAPPED_SUBSET_SIZE=2 can reach it.
+    eligible = [("A", 100), ("B", 100), ("C", 100), ("D", 100)]
+    outcome = find_best_subset(eligible, target_paise=400, tolerance_paise=0)
+
+    assert outcome["search_capped"] is True
+    assert outcome["match_kind"] != "exact"  # the true 4-order exact match is out of reach
+    assert outcome["total_paise"] <= 200  # best it can do is a 2-order subset
+
+
+def test_search_capped_flag_true_but_still_finds_exact_match_within_cap(monkeypatch):
+    """A capped search still finds an exact match that DOES fit within
+    CAPPED_SUBSET_SIZE, even though the eligible set as a whole is capped."""
+    monkeypatch.setattr(config, "FULL_SEARCH_MAX_ELIGIBLE", 3)
+    monkeypatch.setattr(config, "CAPPED_SUBSET_SIZE", 2)
+
+    eligible = [("A", 100), ("B", 100), ("C", 100), ("D", 150)]
+    outcome = find_best_subset(eligible, target_paise=250, tolerance_paise=0)  # any-100 + D, size 2
+
+    assert outcome["search_capped"] is True
+    assert outcome["match_kind"] == "exact"
+    assert outcome["total_paise"] == 250
+    assert len(outcome["order_ids"]) == 2
+    assert "D" in outcome["order_ids"]  # only D=150 can pair with a 100 to reach 250
+
+
+def test_search_capped_propagates_through_reconcile(monkeypatch):
+    """The cap and its flag apply end-to-end through reconcile(), not just
+    the raw find_best_subset() search."""
+    monkeypatch.setattr(config, "FULL_SEARCH_MAX_ELIGIBLE", 3)
+    monkeypatch.setattr(config, "CAPPED_SUBSET_SIZE", 2)
+
+    orders = [make_order(oid, "S1", 100, D0) for oid in ("O1", "O2", "O3", "O4")]
+    payouts = [make_payout("P1", "S1", 400, D0)]
+
+    outcome = reconcile(orders, payouts)
+    result = outcome["results"][0]
+
+    assert result["search_capped"] is True
+    assert result["status"] != "MATCHED"

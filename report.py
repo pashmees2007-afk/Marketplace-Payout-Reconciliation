@@ -194,14 +194,24 @@ def write_exceptions_csv(outcome: dict, orders_by_id: dict, explanations: dict, 
             })
 
 
-def generate_report(orders_path=None, payouts_path=None, ground_truth_path=None):
+def generate_report(orders_path=None, payouts_path=None, ground_truth_path=None,
+                     orders: list = None, payouts: list = None):
+    """Run reconciliation, AI explanations, and write metrics.json + exceptions.csv.
+
+    Pass pre-loaded `orders`/`payouts` (e.g. from a caller that already
+    validated them, such as run.py) to avoid re-reading the CSVs a second
+    time -- omit them to have this function load from `orders_path`/
+    `payouts_path` (defaulting to config.ORDERS_CSV/PAYOUTS_CSV) itself.
+    """
     orders_path = orders_path or config.ORDERS_CSV
     payouts_path = payouts_path or config.PAYOUTS_CSV
     ground_truth_path = ground_truth_path or config.GROUND_TRUTH_JSON
 
-    orders = load_orders(orders_path)
-    payouts = load_payouts(payouts_path)
-    outcome = run_reconciliation(orders_path, payouts_path)
+    if orders is None:
+        orders = load_orders(orders_path)
+    if payouts is None:
+        payouts = load_payouts(payouts_path)
+    outcome = run_reconciliation(orders_path, payouts_path, orders=orders, payouts=payouts)
 
     ground_truth = None
     if ground_truth_path and ground_truth_path.exists():

@@ -154,3 +154,112 @@ def test_live_mode_falls_back_to_mock_without_api_key(monkeypatch, tmp_path):
 
     assert result["mode"] == "mock_fallback"
     assert result["explanation"].startswith("POSSIBLE EXPLANATION:")
+
+
+# ---------------------------------------------------------------------------
+# Live-LLM request/response handling (mocked -- no real network/API calls).
+#
+# These tests exercise agent._call_live_llm's actual request construction
+# and response parsing, which nothing else in the suite touches: every other
+# LLM_MODE=live test only reaches the "no API key" fallback branch, so a bug
+# in how the Anthropic response is read (e.g. the response.content block
+# iteration) would otherwise go completely uncaught until a real demo.
+# ---------------------------------------------------------------------------
+
+class _FakeContentBlock:
+    def __init__(self, text, block_type="text"):
+        self.type = block_type
+        self.text = text
+
+
+class _FakeMessagesEndpoint:
+    def __init__(self, response_text, block_type="text"):
+        self.response_text = response_text
+        self.block_type = block_type
+        self.last_call = None
+
+    def create(self, model, max_tokens, system, messages):
+        self.last_call = {"model": model, "max_tokens": max_tokens, "system": system, "messages": messages}
+        if self.response_text is None:
+            return type("Resp", (), {"content": []})()
+        return type("Resp", (), {"content": [_FakeContentBlock(self.response_text, self.block_type)]})()
+
+
+class _FakeAnthropicClient:
+    """Stands in for anthropic.Anthropic(...) -- captures constructor args
+    and hands back a scriptable fake .messages.create(...)."""
+    instances = []
+
+    def __init__(self, api_key, timeout=None):
+        self.api_key = api_key
+        self.timeout = timeout
+        self.messages = _FakeMessagesEndpoint(_FakeAnthropicClient.next_response_text,
+                                               _FakeAnthropicClient.next_block_type)
+        _FakeAnthropicClient.instances.append(self)
+
+
+def _install_fake_anthropic(monkeypatch, response_text, block_type="text"):
+    import anthropic
+
+    _FakeAnthropicClient.instances = []
+    _FakeAnthropicClient.next_response_text = response_text
+    _FakeAnthropicClient.next_block_type = block_type
+    monkeypatch.setattr(anthropic, "Anthropic", _FakeAnthropicClient)
+
+
+def test_call_live_llm_builds_request_and_parses_response(monkeypatch, tmp_path):
+    _redirect_output(monkeypatch, tmp_path)
+    monkeypatch.setattr(config, "ANTHROPIC_API_KEY", "sk-test-fake-key")
+    monkeypatch.setattr(config, "LLM_MODEL", "claude-test-model")
+    _install_fake_anthropic(monkeypatch, "POSSIBLE EXPLANATION: mocked live response.")
+
+    text = agent._call_live_llm("FACTS: payout is short by five rupees.", question="why?")
+
+    assert text == "POSSIBLE EXPLANATION: mocked live response."
+    client = _FakeAnthropicClient.instances[0]
+    assert client.api_key == "sk-test-fake-key"
+    call = client.messages.last_call
+    assert call["model"] == "claude-test-model"
+    assert "FACTS: payout is short by five rupees." in call["messages"][0]["content"]
+    assert "why?" in call["messages"][0]["content"]
+    assert "POSSIBLE EXPLANATION" in call["system"]
+
+
+def test_call_live_llm_raises_on_empty_response(monkeypatch, tmp_path):
+    _redirect_output(monkeypatch, tmp_path)
+    monkeypatch.setattr(config, "ANTHROPIC_API_KEY", "sk-test-fake-key")
+    _install_fake_anthropic(monkeypatch, None)
+
+    import pytest
+    with pytest.raises(RuntimeError, match="empty or malformed"):
+        agent._call_live_llm("FACTS: test.")
+
+
+def test_explain_payout_live_mode_success_end_to_end(monkeypatch, tmp_path):
+    _redirect_output(monkeypatch, tmp_path)
+    monkeypatch.setattr(config, "LLM_MODE", "live")
+    monkeypatch.setattr(config, "ANTHROPIC_API_KEY", "sk-test-fake-key")
+    monkeypatch.setattr(config, "LLM_MODEL", "claude-test-model")
+    _install_fake_anthropic(monkeypatch, "POSSIBLE EXPLANATION: real API call worked.")
+
+    result = agent.explain_payout(_close_match_result())
+
+    assert result["mode"] == "live"
+    assert result["model"] == "claude-test-model"
+    assert result["explanation"] == "POSSIBLE EXPLANATION: real API call worked."
+
+    log_text = (tmp_path / "audit_log.jsonl").read_text()
+    assert '"mode": "live"' in log_text
+    assert "sk-test-fake-key" not in log_text
+
+
+def test_explain_payout_falls_back_when_live_response_malformed(monkeypatch, tmp_path):
+    _redirect_output(monkeypatch, tmp_path)
+    monkeypatch.setattr(config, "LLM_MODE", "live")
+    monkeypatch.setattr(config, "ANTHROPIC_API_KEY", "sk-test-fake-key")
+    _install_fake_anthropic(monkeypatch, "irrelevant text", block_type="tool_use")  # no "text" blocks
+
+    result = agent.explain_payout(_close_match_result())
+
+    assert result["mode"] == "mock_fallback"
+    assert result["explanation"].startswith("POSSIBLE EXPLANATION:")
